@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nested List</title>
+    <style>
+        body {
+            background-color: #eef7f3;
+        }
+        .box {
+            width: 600px;
+            margin: 60px auto;
+            background-color: #ffffff;
+            border: 2px solid #2f8f83;
+            border-radius: 12px;
+            padding: 25px 35px;
+        }
+        h1 {
+            text-align: center;
+            color: #2f8f83;
+            margin-bottom: 20px;
+        }
+        ol, ul {
+            margin-top: 10px;
+        }
+        li {
+            margin: 6px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Nested List Example</h1>
+        <ol type="I">
+            <li>
+                List item 1
+                <ol type="a">
+                    <li>Nested item 1.1</li>
+                    <li>Nested item 1.2</li>
+                </ol>
+            </li>
+            <li>
+                List item 2
+                <ol>
+                    <li>Nested item 2.1</li>
+                    <li>
+                        Nested item 2.2
+                        <ul style="list-style-type: circle;">
+                            <li>Nested item 2.2.1</li>
+                            <li>Nested item 2.2.2</li>
+                            <li>Nested item 2.2.3</li>
+                        </ul>
+                    </li>
+                    <li>Nested item 2.3</li>
+                </ol>
+            </li>
+            <li>
+                List item 3
+                <ul style="list-style-type: disc;">
+                    <li>Nested item 3.1</li>
+                    <li>Nested item 3.2</li>
+                    <li>Nested item 3.3</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+</body>
+</html>
