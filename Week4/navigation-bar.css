@@ -37,13 +37,3 @@ h2 {
     color: #555;
     font-style: italic;
 }
-footer {
-    background: #444;
-    color: #fff;
-    text-align: center;
-    padding: 6px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    font-size: 14px;
-}
