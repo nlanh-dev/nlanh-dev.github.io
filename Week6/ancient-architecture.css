@@ -113,7 +113,7 @@ footer{
     color:#555;
 }
 
-/* ===== AUTHOR LINK (nâng cấp) ===== */
+/*nâng cấp*/
 .author{
     color:#0a2d4a;
     font-weight:bold;
@@ -124,7 +124,7 @@ footer{
     text-decoration:underline;
 }
 
-/* ===== COMMENT BOX ===== */
+/*COMMENT BOX*/
 .comment-box{
     margin-top:10px;
 }
@@ -148,12 +148,12 @@ footer{
     opacity:0.85;
 }
 
-/* ===== COMMENT LIST ===== */
+/*COMMENT LIST*/
 .comment-list{
     margin-top:10px;
 }
 
-/* mỗi comment */
+/*mỗi comment*/
 .comment-item{
     background:#fff;
     padding:6px 8px;
@@ -162,7 +162,7 @@ footer{
     font-size:14px;
 }
 
-/* ===== ANIMATION NHẸ (xịn hơn bài bình thường 😏) ===== */
+/*ANIMATION*/
 article{
     transition:0.3s;
 }
@@ -171,7 +171,7 @@ article:hover{
     transform:translateY(-5px);
 }
 
-/* button hover */
+/*button hover*/
 .comments a:hover,
 .readmore a:hover{
     opacity:0.8;
