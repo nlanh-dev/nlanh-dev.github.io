@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body{
+    font-family: Roboto, sans-serif;
+    background:#e2d7aa;
+    width:1180px;
+    margin:0 auto;
+}
+
+/* NAV */
+nav{
+    text-align:center;
+    margin-top:20px;
+}
+
+nav ul li{
+    display:inline;
+    margin:0 10px;
+}
+
+nav a{
+    text-decoration:none;
+    font-size:20px;
+    color:#000;
+}
+
+nav ul li:first-child a,
+nav ul li:last-child a{
+    font-weight:bold;
+    color:#0a2d4a;
+}
+
+/* TITLE */
+h1{
+    font-family:'Indie Flower', cursive;
+    font-size:60px;
+    text-align:center;
+    margin:30px 0;
+}
+
+/* BANNER */
+.img-container{
+    text-align:center;
+}
+
+.img-container img{
+    width:1100px;
+    height:450px;
+}
+
+/* MAIN */
+main{
+    text-align:center;
+    margin-top:30px;
+}
+
+/* ARTICLE */
+article{
+    width:350px;
+    display:inline-block;
+    vertical-align:top;
+    margin:0 10px;
+    text-align:left;
+}
+
+article h3{
+    font-size:20px;
+}
+
+article small{
+    color:#777;
+    display:block;
+    margin-bottom:10px;
+}
+
+/* IMAGE */
+article img{
+    width:350px;
+    height:200px;
+    margin-bottom:15px;
+}
+
+/* TEXT */
+article p{
+    text-align:justify;
+    margin-bottom:15px;
+}
+
+/* DROP CAP */
+article img + p:first-letter{
+    font-size:40px;
+    float:left;
+    margin-right:6px;
+}
+
+/* BUTTON */
+.comments a,
+.readmore a{
+    background:#8b5a2b;
+    color:white;
+    padding:8px 12px;
+    font-size:12px;
+    text-decoration:none;
+    margin-right:5px;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    margin-top:30px;
+    font-size:12px;
+    color:#555;
+}
+
+/* ===== AUTHOR LINK (nâng cấp) ===== */
+.author{
+    color:#0a2d4a;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.author:hover{
+    text-decoration:underline;
+}
+
+/* ===== COMMENT BOX ===== */
+.comment-box{
+    margin-top:10px;
+}
+
+.comment-box input{
+    width:70%;
+    padding:6px;
+    border:1px solid #ccc;
+    border-radius:4px;
+}
+
+.comment-box button{
+    padding:6px 10px;
+    background:#8b5a2b;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+.comment-box button:hover{
+    opacity:0.85;
+}
+
+/* ===== COMMENT LIST ===== */
+.comment-list{
+    margin-top:10px;
+}
+
+/* mỗi comment */
+.comment-item{
+    background:#fff;
+    padding:6px 8px;
+    margin:5px 0;
+    border-left:3px solid #8b5a2b;
+    font-size:14px;
+}
+
+/* ===== ANIMATION NHẸ (xịn hơn bài bình thường 😏) ===== */
+article{
+    transition:0.3s;
+}
+
+article:hover{
+    transform:translateY(-5px);
+}
+
+/* button hover */
+.comments a:hover,
+.readmore a:hover{
+    opacity:0.8;
+}
