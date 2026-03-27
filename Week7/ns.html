@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced Nested Selector</title>
+    <link rel="stylesheet" href="ns.css">
+</head>
+<body>
+
+<h1>Nested Selector Advanced Demo</h1>
+
+<div class="container">
+<p> Trong container </p>
+    <div class="card">
+        <h2>Card 1</h2>
+        <p>Đoạn 1 trong card</p>
+        <p>Đoạn 2 trong card do p+p</p>
+
+        <div class="inner">
+            <p>Đoạn trong inner</p>
+        </div>
+    </div>
+
+    <div class="card special">
+        <h2>Card 2 (special)</h2>
+        <p>Đoạn 1 trong card special</p>
+        <p>Đoạn 2 trong card special</p>
+
+        <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#" title="menu">Link 2</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<p>Đoạn ngoài container</p>
+
+</body>
+</html>

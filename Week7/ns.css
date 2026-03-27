@@ -1,0 +1,62 @@
+/* 1. Descendant */
+.container p {
+    color: green;
+}
+
+/* tất cả p trong container */
+
+/* 2. Direct child */
+.card > p {
+    color: blue;
+}
+
+/* chỉ p trực tiếp trong card */
+
+/* 3. Adjacent sibling */
+.card p + p {
+    background-color: yellow;
+}
+
+/* p đứng ngay sau p */
+
+/* 4. Multiple class */
+.card.special {
+    border: 3px solid red;
+}
+
+/* card có thêm class special */
+
+/* 5. Descendant + class */
+.card.special p {
+    color: red;
+}
+
+/* override màu trong card special */
+
+/* 6. Attribute selector */
+a[title="menu"] {
+    background-color:aquamarine;
+    font-weight: bold;
+}
+
+/* link có title="menu" */
+
+/* 7. Deep selector (kết hợp nhiều cấp) */
+.container .card .inner p {
+    color: purple;
+}
+
+/* p nằm sâu trong inner */
+
+/* 8. General sibling (~) */
+h2 ~ p {
+    border-left: 4px solid orange;
+}
+
+/* mọi p đứng sau h2 trong cùng cha */
+
+/* 9. Kết hợp nâng cao */
+.card.special > ul li a {
+    text-decoration: none;
+    color: pink;
+}

@@ -1,0 +1,20 @@
+span {
+  background: DodgerBlue;
+  color: white;
+}
+/*TAG SELECTOR */
+p {
+    color: blue;
+}
+/* Tất cả <p> đều màu xanh */
+/* ID SELECTOR */
+#special {
+    color: red;
+    font-weight: bold;
+}
+/* Chỉ 1 phần tử có id="special" */
+/*CLASS SELECTOR */
+.highlight {
+    background-color: yellow;
+}
+/*Tất cả phần tử có class="highlight" */
