@@ -1,0 +1,167 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #CCCCCC;
+    font-family: Verdana;
+    font-size: 12px;
+}
+
+#wrap {
+    width: 900px;
+    margin: auto;
+    background: white;
+}
+
+/* HEADER */
+#header {
+    background: url(images/header.jpg);
+    height: 180px;
+}
+
+#logo {
+    padding: 20px 0 0 50px;
+}
+
+#menu_top {
+    margin-top: 55px;
+    margin-left: 30px;
+    background: white;
+    height: 40px;
+    opacity: 0.8;
+    border-radius: 10px;
+}
+
+/* MENU */
+.level1 {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.level1 li {
+    float: left;
+    padding: 10px 20px;
+    position: relative;
+}
+
+.level1 li a {
+    text-decoration: none;
+    color: red;
+    font-weight: bold;
+}
+
+.level1 li:hover a {
+    color: green;
+}
+
+.level2 {
+    display: none;
+    position: absolute;
+    background: #ccc;
+    padding: 10px;
+}
+
+.level1 li:hover .level2 {
+    display: block;
+}
+
+/* WELCOME */
+#welcome {
+    background: white;
+    padding: 8px;
+    border: 2px dotted #f90;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* CONTENT */
+#center_content {
+    background: url(images/center_bg.gif) repeat-y;
+}
+
+/* LEFT */
+#center_content_left {
+    width: 600px;
+    float: left;
+}
+
+.title {
+    color: #B81F22;
+    font-size: 16px;
+    margin: 10px;
+}
+
+.product {
+    border-bottom: dashed 1px #ccc;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.product_img {
+    float: left;
+    margin: 10px;
+}
+
+.product_description {
+    float: right;
+    width: 380px;
+    padding: 10px;
+    border: solid 1px #ddd;
+    border-radius: 5px;
+    background: #fafafa;
+}
+
+.product_name {
+    color: #B81F22;
+    font-weight: bold;
+}
+
+.product_about {
+    text-align: justify;
+}
+
+/* RIGHT */
+#center_content_right {
+    width: 280px;
+    float: right;
+}
+
+/* PROMOTION */
+.product_small {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.product_small img {
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+/* CATEGORIES */
+.menu_right {
+    list-style: none;
+    padding: 0;
+}
+
+.menu_right li {
+    padding: 5px;
+    border-bottom: 1px dotted #ccc;
+}
+
+/* FOOTER */
+#footer {
+    clear: both;
+    background: url(images/footer_bg.gif) no-repeat bottom;
+    height: 100px;
+    border-top: 1px dashed #ccc;
+}
+
+.footer_left {
+    float: left;
+    padding: 10px;
+}
+
+.footer_right {
+    float: right;
+    padding: 10px;
+}
