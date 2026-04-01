@@ -14,17 +14,21 @@ body {
 
 /* HEADER */
 #header {
-    background: url(images/header.jpg);
+    background: url("images/header.jpg") no-repeat center;
     height: 180px;
+    position: relative; /* QUAN TRỌNG */
 }
 
 #logo {
-    padding: 20px 0 0 50px;
+    position: absolute;
+    top: 20px;
+    left: 40px;
 }
 
 #menu_top {
-    margin-top: 55px;
+    position: absolute;
     margin-left: 30px;
+    bottom: 0px;
     background: white;
     height: 40px;
     opacity: 0.8;
@@ -69,14 +73,14 @@ body {
 #welcome {
     background: white;
     padding: 8px;
-    border: 2px dotted #f90;
+    border: 2px dotted orange;
     text-align: center;
     font-weight: bold;
 }
 
 /* CONTENT */
 #center_content {
-    background: url(images/center_bg.gif) repeat-y;
+    background: url("images/center_bg.gif") repeat-y;
 }
 
 /* LEFT */
@@ -100,6 +104,10 @@ body {
 .product_img {
     float: left;
     margin: 10px;
+}
+
+.product_img img {
+    width: 120px;
 }
 
 .product_description {
@@ -151,8 +159,8 @@ body {
 /* FOOTER */
 #footer {
     clear: both;
-    background: url(images/footer_bg.gif) no-repeat bottom;
-    height: 100px;
+    background: url("images/footer_bg.gif") no-repeat bottom;
+    height: 120px;
     border-top: 1px dashed #ccc;
 }
 
