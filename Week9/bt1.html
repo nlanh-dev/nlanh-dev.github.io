@@ -6,7 +6,6 @@
     <script>
         // Nhập A
         var txta = prompt("Enter number A");
-
         // Kiểm tra A
         if (txta == null || txta == "" || isNaN(txta)) {
             alert("Number A is formatted incorrect");
@@ -14,7 +13,6 @@
         else {
             // Nhập B (chỉ khi A đúng)
             var txtb = prompt("Enter number B");
-
             // Kiểm tra B
             if (txtb == null || txtb == "" || isNaN(txtb)) {
                 alert("Number B is formatted incorrect");
@@ -22,7 +20,6 @@
             else {
                 // Tính tổng
                 var result = parseFloat(txta) + parseFloat(txtb);
-
                 alert("Result: " + txta + " + " + txtb + " = " + result);
             }
         }

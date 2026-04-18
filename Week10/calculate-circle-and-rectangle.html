@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Math Tools</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    overflow: hidden;
+}
+
+/* glow background */
+body::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: rgba(255,255,255,0.1);
+    filter: blur(120px);
+    top: -100px;
+    left: -100px;
+}
+
+.container {
+    backdrop-filter: blur(20px);
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 30px;
+    width: 320px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    color: white;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1;}
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* tabs */
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tabs button {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    color: white;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.tabs button.active {
+    border-bottom: 2px solid white;
+    font-weight: bold;
+}
+
+/* inputs */
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    transform: scale(1.03);
+}
+
+/* button */
+.btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    color: #333;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* hide */
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+</style>
+
+<script>
+function showTab(id) {
+    document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
+    document.querySelectorAll(".tabs button").forEach(b => b.classList.remove("active"));
+
+    document.getElementById(id).classList.add("active");
+    event.target.classList.add("active");
+}
+
+/* rectangle */
+function calcRectangle() {
+    let l = parseFloat(document.getElementById("length").value);
+    let w = parseFloat(document.getElementById("width").value);
+
+    if (isNaN(l) || isNaN(w)) return alert("Invalid input");
+
+    document.getElementById("rp").value = 2*(l+w);
+    document.getElementById("ra").value = l*w;
+}
+
+/* circle */
+function calcCircle() {
+    let r = parseFloat(document.getElementById("radius").value);
+    if (isNaN(r)) return alert("Invalid input");
+
+    let pi = 3.14;
+    document.getElementById("cp").value = 2*pi*r;
+    document.getElementById("ca").value = pi*r*r;
+}
+
+/* date */
+function isLeapYear(n) {
+    return (n%4==0 && n%100!=0) || n%400==0;
+}
+
+function updateDate() {
+    let y = document.getElementById("year").value;
+    let m = document.getElementById("month").value;
+
+    if (isNaN(y)) {
+        document.getElementById("date").value = "Invalid year";
+        return;
+    }
+
+    let d = 31;
+    if ([4,6,9,11].includes(parseInt(m))) d = 30;
+    if (m == 2) d = isLeapYear(y) ? 29 : 28;
+
+    document.getElementById("date").value = d;
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>✨ Math Tools</h2>
+
+    <div class="tabs">
+        <button class="active" onclick="showTab('rect')">Rectangle</button>
+        <button onclick="showTab('circle')">Circle</button>
+        <button onclick="showTab('dateTab')">Date</button>
+    </div>
+
+    <!-- Rectangle -->
+    <div id="rect" class="section active">
+        <input id="length" placeholder="Length">
+        <input id="width" placeholder="Width">
+        <input id="rp" placeholder="Perimeter" readonly>
+        <input id="ra" placeholder="Area" readonly>
+        <button class="btn" onclick="calcRectangle()">Calculate</button>
+    </div>
+
+    <!-- Circle -->
+    <div id="circle" class="section">
+        <input id="radius" placeholder="Radius">
+        <input id="cp" placeholder="Perimeter" readonly>
+        <input id="ca" placeholder="Area" readonly>
+        <button class="btn" onclick="calcCircle()">Calculate</button>
+    </div>
+
+    <!-- Date -->
+    <div id="dateTab" class="section">
+        <input id="year" placeholder="Year" oninput="updateDate()">
+        <select id="month" onchange="updateDate()">
+            <option value="1">Jan</option>
+            <option value="2">Feb</option>
+            <option value="3">Mar</option>
+            <option value="4">Apr</option>
+            <option value="5">May</option>
+            <option value="6">Jun</option>
+            <option value="7">Jul</option>
+            <option value="8">Aug</option>
+            <option value="9">Sep</option>
+            <option value="10">Oct</option>
+            <option value="11">Nov</option>
+            <option value="12">Dec</option>
+        </select>
+        <input id="date" placeholder="Days" readonly>
+    </div>
+
+</div>
+
+</body>
+</html>
