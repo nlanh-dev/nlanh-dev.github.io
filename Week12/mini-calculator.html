@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mini Calculator</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+/* card */
+.container {
+    width: 320px;
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    color: white;
+    animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1;}
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* form row */
+.row {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* input */
+input, select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus, select:focus {
+    transform: scale(1.05);
+}
+
+/* button */
+button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background: white;
+    color: #333;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+</style>
+
+<script>
+function calculate() {
+    var a = document.frmCal.txta;
+    var b = document.frmCal.txtb;
+    var o = document.frmCal.slto;
+    var r = document.frmCal.txtr;
+
+    var numberFormat = /^[+-]?\d+(\.\d+)?$/;
+
+    if (numberFormat.test(a.value) == false) {
+        alert("a must be a number!");
+        a.focus();
+    }
+    else if (numberFormat.test(b.value) == false) {
+        alert("b must be a number!");
+        b.focus();
+    }
+    else if ((o.value == "/" || o.value == "%") && parseInt(b.value) == 0) {
+        alert("b can't be 0!");
+        r.value = "";
+        b.focus();
+    }
+    else {
+        r.value = eval(a.value + o.value + b.value);
+    }
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+    <h2>🧮 Mini Calculator</h2>
+
+    <form name="frmCal">
+
+        <div class="row">
+            <label>a</label>
+            <input name="txta" value="5">
+        </div>
+
+        <div class="row">
+            <label>b</label>
+            <input name="txtb" value="2">
+        </div>
+
+        <div class="row">
+            <label>Operator</label>
+            <select name="slto">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="%">%</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <label>Result</label>
+            <input name="txtr" readonly>
+        </div>
+
+        <button type="button" onclick="calculate()">Calculate</button>
+
+    </form>
+</div>
+
+</body>
+</html>

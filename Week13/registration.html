@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Registration</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #f5f5f5;
+}
+
+.container {
+    width: 600px;
+    margin: 30px auto;
+    background: white;
+    padding: 20px 30px;
+    border: 1px solid #ccc;
+}
+
+h2 {
+    color: #c0392b;
+    margin-bottom: 10px;
+}
+
+hr {
+    margin: 15px 0;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+/* layout */
+.row {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.label {
+    width: 150px;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+    width: 200px;
+    padding: 5px;
+}
+
+/* birthday inline */
+.birthday input {
+    width: 80px;
+    margin-right: 5px;
+}
+
+/* checkbox grid */
+.checkbox-group {
+    display: flex;
+    gap: 50px;
+}
+
+.checkbox-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-col label {
+    margin-bottom: 5px;
+}
+
+/* button */
+.btn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 0 #c0392b;
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #c0392b;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>REGISTRATION</h2>
+<hr>
+
+<div class="row">
+    <div class="label">Username:</div>
+    <input type="text">
+</div>
+
+<div class="row">
+    <div class="label">Password:</div>
+    <input type="password">
+</div>
+
+<div class="row">
+    <div class="label">Re-type Password:</div>
+    <input type="password">
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="label">Birthday:</div>
+    <div class="birthday">
+        <select>
+            <option>[select one]</option>
+            <option>Jan</option><option>Feb</option><option>Mar</option>
+        </select>
+        <input type="text" placeholder="Day">
+        <input type="text" placeholder="Year">
+        (Month Day, Year)
+    </div>
+</div>
+
+<div class="row">
+    <div class="label">Images:</div>
+    <input type="file">
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="label">First Name:</div>
+    <input type="text">
+</div>
+
+<div class="row">
+    <div class="label">Last Name:</div>
+    <input type="text">
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="label">Interests (optional):</div>
+
+    <div class="checkbox-group">
+
+        <div class="checkbox-col">
+            <label><input type="checkbox"> Entertainment</label>
+            <label><input type="checkbox"> Home & Family</label>
+            <label><input type="checkbox"> Health</label>
+            <label><input type="checkbox"> Music</label>
+        </div>
+
+        <div class="checkbox-col">
+            <label><input type="checkbox"> Business</label>
+            <label><input type="checkbox"> Computers & Technology</label>
+            <label><input type="checkbox"> Personal Finance</label>
+            <label><input type="checkbox"> Small Business</label>
+        </div>
+
+    </div>
+</div>
+
+<div class="btn">
+    <button>REGISTER</button>
+</div>
+
+</div>
+
+</body>
+</html>
