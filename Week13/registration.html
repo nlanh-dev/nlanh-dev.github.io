@@ -20,16 +20,13 @@ body {
 
 h2 {
     color: #c0392b;
-    margin-bottom: 10px;
 }
 
 hr {
     margin: 15px 0;
-    border: 0;
     border-top: 1px solid #ccc;
 }
 
-/* layout */
 .row {
     display: flex;
     margin-bottom: 10px;
@@ -40,20 +37,17 @@ hr {
     width: 150px;
 }
 
-input[type="text"],
-input[type="password"],
-select {
-    width: 200px;
+input, select {
     padding: 5px;
 }
 
-/* birthday inline */
-.birthday input {
-    width: 80px;
-    margin-right: 5px;
+.error {
+    color: red;
+    font-size: 13px;
+    margin-left: 150px;
 }
 
-/* checkbox grid */
+/* checkbox */
 .checkbox-group {
     display: flex;
     gap: 50px;
@@ -62,10 +56,6 @@ select {
 .checkbox-col {
     display: flex;
     flex-direction: column;
-}
-
-.checkbox-col label {
-    margin-bottom: 5px;
 }
 
 /* button */
@@ -82,14 +72,54 @@ button {
     border-radius: 20px;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 3px 0 #c0392b;
-}
-
-button:active {
-    transform: translateY(2px);
-    box-shadow: 0 1px 0 #c0392b;
 }
 </style>
+
+<script>
+function validateForm(event) {
+    event.preventDefault();
+
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    let repassword = document.getElementById("repassword").value;
+    let month = document.getElementById("month").value;
+
+    let error = document.getElementById("errorMsg");
+    error.innerHTML = "";
+
+    // validate
+    if (username === "") {
+        error.innerHTML = "Username is required";
+        return;
+    }
+
+    if (password === "") {
+        error.innerHTML = "Password is required";
+        return;
+    }
+
+    if (password !== repassword) {
+        error.innerHTML = "Passwords do not match";
+        return;
+    }
+
+    if (month === "") {
+        error.innerHTML = "Please select your birth month";
+        return;
+    }
+
+    // lưu dữ liệu
+    let userData = {
+        username: username,
+        password: password,
+        month: month
+    };
+
+    localStorage.setItem("user", JSON.stringify(userData));
+
+    alert("✅ Registration successful!");
+}
+</script>
 
 </head>
 
@@ -100,35 +130,40 @@ button:active {
 <h2>REGISTRATION</h2>
 <hr>
 
+<form onsubmit="validateForm(event)">
+
 <div class="row">
     <div class="label">Username:</div>
-    <input type="text">
+    <input id="username" type="text">
 </div>
 
 <div class="row">
     <div class="label">Password:</div>
-    <input type="password">
+    <input id="password" type="password">
 </div>
 
 <div class="row">
     <div class="label">Re-type Password:</div>
-    <input type="password">
+    <input id="repassword" type="password">
 </div>
 
 <hr>
 
 <div class="row">
     <div class="label">Birthday:</div>
-    <div class="birthday">
-        <select>
-            <option>[select one]</option>
-            <option>Jan</option><option>Feb</option><option>Mar</option>
-        </select>
-        <input type="text" placeholder="Day">
-        <input type="text" placeholder="Year">
-        (Month Day, Year)
-    </div>
+    <select id="month">
+        <option value="">[select one]</option>
+        <option>Jan</option>
+        <option>Feb</option>
+        <option>Mar</option>
+    </select>
+    <input type="text" placeholder="Day">
+    <input type="text" placeholder="Year">
 </div>
+
+<div id="errorMsg" class="error"></div>
+
+<hr>
 
 <div class="row">
     <div class="label">Images:</div>
@@ -150,10 +185,9 @@ button:active {
 <hr>
 
 <div class="row">
-    <div class="label">Interests (optional):</div>
+    <div class="label">Interests:</div>
 
     <div class="checkbox-group">
-
         <div class="checkbox-col">
             <label><input type="checkbox"> Entertainment</label>
             <label><input type="checkbox"> Home & Family</label>
@@ -163,17 +197,18 @@ button:active {
 
         <div class="checkbox-col">
             <label><input type="checkbox"> Business</label>
-            <label><input type="checkbox"> Computers & Technology</label>
-            <label><input type="checkbox"> Personal Finance</label>
+            <label><input type="checkbox"> Computers</label>
+            <label><input type="checkbox"> Finance</label>
             <label><input type="checkbox"> Small Business</label>
         </div>
-
     </div>
 </div>
 
 <div class="btn">
-    <button>REGISTER</button>
+    <button type="submit">REGISTER</button>
 </div>
+
+</form>
 
 </div>
 
