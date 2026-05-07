@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đêm nhạc Mỹ Vị Cuộc Đời - Trung Quân & Myra Trần</title>
+</head>
+<style>
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f6f6fb;
+    color: #1a1a2e;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px 15px;
+}
+
+/* ================= CONTAINER ================= */
+details {
+    width: 100%;
+    max-width: 700px;
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+details:hover {
+    transform: translateY(-3px);
+}
+
+/* ================= SUMMARY ================= */
+summary {
+    list-style: none;
+    cursor: pointer;
+    outline: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* ================= IMAGE ================= */
+summary img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Badge */
+summary div div:first-child > div {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #c4b5fd;
+    color: #3b2f63;
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* ================= HEADER CONTENT ================= */
+summary > div:last-child {
+    padding: 24px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #1a1a2e;
+}
+
+/* Giá */
+p span {
+    color: #a78bfa;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Info */
+summary > div:last-child > div {
+    margin: 10px 0;
+    color: #555;
+    font-size: 14.5px;
+}
+
+/* Địa điểm */
+strong {
+    color: #a78bfa;
+}
+
+/* Divider text */
+summary > div:last-child > div:last-child {
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+    margin-top: 15px;
+}
+
+/* ================= EXPAND ================= */
+details > div {
+    padding: 25px;
+    border-top: 1px solid #eee;
+    background: #fafafe;
+}
+
+/* Section */
+section {
+    margin-bottom: 30px;
+}
+
+/* Title */
+h4 {
+    color: #a78bfa;
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-left: 4px solid #a78bfa;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+/* Text */
+section p {
+    color: #444;
+    line-height: 1.8;
+    font-size: 14.5px;
+}
+
+/* List */
+ul {
+    padding-left: 20px;
+    color: #444;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+/* Images */
+section img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 15px 0;
+    border: 1px solid #eee;
+}
+.section-intro img{
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 16px;
+    object-fit: cover;
+}
+/* Box */
+section > div {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    padding: 18px;
+}
+
+/* ================= NOTE ================= */
+section:last-of-type {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+.note-section {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.note-section h4 {
+    writing-mode: horizontal-tb;
+    transform: none;
+    font-size: 14px;
+    padding: 0;
+}
+
+/* ================= BUTTON ================= */
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Active */
+button:not([disabled]) {
+    background: linear-gradient(135deg, #c4b5fd, #a78bfa);
+    color: #fff;
+}
+
+button:not([disabled]):hover {
+    transform: scale(1.03);
+}
+
+/* Disabled */
+button[disabled] {
+    background: #eee;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    details {
+        width: 100%;
+    }
+
+    body {
+        padding: 20px;
+    }
+}
+</style>
+<body>
+    <details>
+        <summary>
+            <div class="event-banner">
+                <img src="image1.png" alt="Banner Mỹ Vị Cuộc Đời">
+            </div>
+
+            <div class="event-content">
+                <h3 class="event-title">
+                    [CAT&MOUSE] CA SĨ TRUNG QUÂN + CA SĨ MYRA TRẦN
+                </h3>
+                <p>
+                    Giá từ <span class="event-price">1.200.000đ</span>
+                </p>
+                <div>
+                    <span>🗓️</span>
+                    <span class="event-date">02 tháng 05, 2026</span>
+                </div>
+                <div>
+                    ▼ Click để xem Giới thiệu & Lịch diễn chi tiết ▼
+                </div>
+            </div>
+        </summary>
+
+        <div>
+            <div class="section-intro">
+                <h4>GIỚI THIỆU SỰ KIỆN</h4>
+                <p>Đêm nhạc đặc biệt mang tên "Mỹ Vị Cuộc Đời" với sự kết hợp của hai giọng ca nội lực Trung Quân và Myra Trần.</p>
+                <img src="skns1.1.png" alt="Trung Quân Idol">
+                <img src="skns1.2.png" alt="Myra Trần">
+            </div>
+
+            <div class="section-schedule">
+                <h4>Lịch diễn</h4>
+                
+                <div>
+                    <div>
+                        <div>
+                            <p>20:00 - 23:00, T7</p>
+                            <p>02 Tháng 05, 2026</p>
+                        </div>
+                        <a href="thanh toan/thanhtoan.html">
+                            <button>Mua vé ngay</button>
+                        </a>
+                    </div>
+
+                    <div>
+                        <p>Thông tin vé</p>
+                        
+                        <div>
+                            <span>STANDARD 1</span>
+                            <span>1.200.000 đ</span>
+                        </div>
+
+                        <div>
+                            <span>VIP</span>
+                            <span>2.100.000 đ</span>
+                        </div>
+
+                        <div>
+                            <span>SUPER VIP</span>
+                            <span>2.400.000 đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="organizer-section">
+                <h4>Ban tổ chức</h4>
+                <div>
+                    <img src="skns1.3.png" alt="Logo Cat&Mouse">
+                    <div>
+                        <h3>Cat&Mouse Live Music</h3>
+                        <p>Phòng trà Cat&Mouse Live Music</p>
+                    </div>
+                </div>
+                <p>📍 37B Phạm Ngọc Thạch, P. Xuân Hòa, TP. Hồ Chí Minh</p>
+            </div>
+            <!-- ACTION -->
+<div class="action-bar" data-id="event1" data-name="Đêm nhạc Mỹ Vị Cuộc Đời - Trung Quân & Myra Trần">
+    <button class="cart-btn">🛒 Thêm vào giỏ</button>
+    <button class="fav-btn">❤️ Yêu thích</button>
+</div>
+
+<!-- COMMENT -->
+<section class="comment-box">
+    <h4>Bình luận</h4>
+
+    <div class="comment-input">
+        <input type="text" id="cmtInput" placeholder="Viết bình luận...">
+        <button onclick="addComment()">Gửi</button>
+    </div>
+
+    <div id="commentList"></div>
+</section>
+
+<!-- SUGGEST -->
+<section class="note-section">
+    <h4>Bạn có thể thích</h4>
+
+    <div class="suggest-grid">
+        <div class="suggest-card">
+            <img src="image2.png">
+            <a href="sukien2.html">Sự kiện: Tan Tan Acoustic - Monarch Creative Studio</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image3.png">
+            <a href="sukien3.html">Chi tiết Sự kiện - BLU Nightfall</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image4.png">
+            <a href="sukien4.html">Sự kiện: Ladies Night Negav</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image5.png">
+            <a href="sukien5.html">Mr Siro Fan Concert</a>
+        </div>
+    </div>
+</section>
+        </div>
+    </details>
+    <script>
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const actionBar = document.querySelector(".action-bar");
+const favBtn = document.querySelector(".fav-btn");
+const cartBtn = document.querySelector(".cart-btn");
+
+// ❤️ YÊU THÍCH
+if (favBtn) {
+    favBtn.onclick = () => {
+        const id = actionBar.dataset.id;
+        const name = actionBar.dataset.name;
+
+        const index = favorites.findIndex(i => i.id === id);
+
+        if (index === -1) {
+            favorites.push({ id, name });
+            favBtn.innerText = "💜 Đã thích";
+        } else {
+            favorites.splice(index, 1);
+            favBtn.innerText = "❤️ Yêu thích";
+        }
+
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+    };
+}
+
+// 🛒 GIỎ HÀNG
+if (cartBtn) {
+    cartBtn.onclick = () => {
+        const id = actionBar.dataset.id;
+        const name = actionBar.dataset.name;
+
+        cart.push({ id, name });
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert("Đã thêm vào giỏ 🛒");
+    };
+}
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sự kiện: Cùng Con Du Học Không Khó - SBS</title>
+</head>
+<style>
+        /* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f6f6fb;
+    color: #1a1a2e;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px 15px;
+}
+
+/* ================= CONTAINER ================= */
+details {
+    width: 700px;
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+details:hover {
+    transform: translateY(-3px);
+}
+
+/* ================= SUMMARY ================= */
+summary {
+    list-style: none;
+    cursor: pointer;
+    outline: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* ================= IMAGE ================= */
+summary img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Badge */
+summary div div:first-child > div {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #c4b5fd;
+    color: #3b2f63;
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* ================= HEADER CONTENT ================= */
+summary > div:last-child {
+    padding: 24px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #1a1a2e;
+}
+
+/* Giá */
+p span {
+    color: #a78bfa;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Info */
+summary > div:last-child > div {
+    margin: 10px 0;
+    color: #555;
+    font-size: 14.5px;
+}
+
+/* Địa điểm */
+strong {
+    color: #a78bfa;
+}
+
+/* Divider text */
+summary > div:last-child > div:last-child {
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+    margin-top: 15px;
+}
+
+/* ================= EXPAND ================= */
+details > div {
+    padding: 25px;
+    border-top: 1px solid #eee;
+    background: #fafafe;
+}
+
+/* Section */
+section {
+    margin-bottom: 30px;
+}
+
+/* Title */
+h4 {
+    color: #a78bfa;
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-left: 4px solid #a78bfa;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+/* Text */
+section p {
+    color: #444;
+    line-height: 1.8;
+    font-size: 14.5px;
+}
+
+/* List */
+ul {
+    padding-left: 20px;
+    color: #444;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+/* Images */
+section img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 15px 0;
+    border: 1px solid #eee;
+}
+
+/* Box */
+section > div {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    padding: 18px;
+}
+
+/* ================= NOTE ================= */
+section:last-of-type {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.suggest h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #a78bfa;
+    border-left: 4px solid #a78bfa;
+    padding-left: 10px;
+}
+/* ================= BUTTON ================= */
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Active */
+button:not([disabled]) {
+    background: linear-gradient(135deg, #c4b5fd, #a78bfa);
+    color: #fff;
+}
+
+button:not([disabled]):hover {
+    transform: scale(1.03);
+}
+
+/* Disabled */
+button[disabled] {
+    background: #eee;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    details {
+        width: 100%;
+    }
+
+    body {
+        padding: 20px;
+    }
+}
+/* ACTION */
+.action-bar {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.action-bar button {
+    flex: 1;
+}
+
+/* COMMENT */
+.comment-box {
+    margin-top: 30px;
+}
+
+.comment-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.comment-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+#commentList div {
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #eee;
+}
+
+/* SUGGEST */
+.suggest {
+    margin-top: 30px;
+}
+
+.suggest-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+}
+
+.suggest-card {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.suggest-card:hover {
+    transform: scale(1.05);
+}
+
+.suggest-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+</style>
+<body>
+    <details>
+        <summary>
+            <div>
+                <img src="sksk2.1.png" alt="Cùng Con Du Học Không Khó">
+                <div>
+                    Đã diễn ra
+                </div>
+            </div>
+            
+            <div>
+                <h3>
+                    SỰ KIỆN: CÙNG CON DU HỌC KHÔNG KHÓ - XÉT TUYỂN THẲNG VÀO ĐẠI HỌC TOP 1%...
+                </h3>
+                <p>
+                    Giá vé: <span>Miễn phí</span>
+                </p>
+                <div>
+                    <span>🗓️</span> 09:30 - 11:30, Chủ Nhật, 23 Tháng 02, 2025
+                </div>
+                <div>
+                    <span>📍</span>
+                    <div>
+                        <strong>The Audri Building</strong>
+                        <span>Số 7, đường 23, Phường Tân Phú, Quận 7, TP. Hồ Chí Minh</span>
+                    </div>
+                </div>
+                <div>
+                    ▼ Nhấn để xem Giới thiệu chi tiết, Diễn giả & Ban tổ chức ▼
+                </div>
+            </div>
+        </summary>
+
+        <div>
+            
+            <section>
+                <h4>Giới thiệu sự kiện</h4>
+                
+                <div>
+                    <p><strong>Đi Du Học Không Chỉ Là Hành Trình Của Con Mà Còn Là Hành Trình Của Cả Gia Đình</strong></p>
+                    <p>Là bậc Cha Mẹ luôn trăn trở về định hướng chọn trường, tìm ngành cho con, Anh/Chị có đang có những băn khoăn về chất lượng đào tạo, sự an toàn và lộ trình tài chính tối ưu nhất? SBS thấu hiểu rằng am hiểu kỹ lưỡng là chìa khóa vàng giúp con tự tin chạm đến sự nghiệp toàn cầu.</p>
+
+                    <img src="sksk2.1.png" alt="Du học là hành trình gia đình">
+
+                    <p><strong>Tại Sao Chọn Học Trường Đại Học Top 1% Thế Giới?</strong></p>
+                    <p>Giữa hàng ngàn trường đại học, việc ưu tiên sàng lọc các trường top 1% giúp Cha Mẹ an tâm bởi các tiêu chí: chất lượng học thuật hàng đầu, giảng viên xuất sắc, và cơ sở vật chất hiện đại, đảm bảo trải nghiệm học tập cao nhất.</p>
+
+                    <ul>
+                        <li>Cơ hội tiết kiệm ngân sách đầu tư du học đến 50%.</li>
+                        <li>Lộ trình du học tối ưu nhất về tài chính trong bối cảnh suy thoái kinh tế.</li>
+                        <li>Trải nghiệm từ cựu du học sinh trường Quản trị Khách sạn Thụy Sĩ (SHMS).</li>
+                    </ul>
+
+                    <img src="sksk2.2.png" alt="Lợi ích học trường Top 1%">
+
+                    <p><strong>Buổi Hội Thảo Được Đồng Hành Và Chia Sẻ Bởi</strong></p>
+                    <p>Với sự tham gia của các chuyên gia giáo dục giàu kinh nghiệm, buổi hội thảo sẽ "mở khoá" những lo lắng về hành trình du học cho con, giúp con trẻ tự lập, tự tin và bản lĩnh trên bước đường hội nhập quốc tế.</p>
+
+                    <img src="sksk2.3.png" alt="Diễn giả chương trình">
+
+                    <p><strong>Về Trường Kinh Doanh Sài Gòn SBS</strong></p>
+                    <p>Trường Kinh Doanh Sài Gòn (SBS) mang đến các chương trình liên kết đào tạo với các trường đại học thuộc top 1% thế giới, giúp sinh viên bước một bước gần hơn trong hành trình trở thành công dân toàn cầu.</p>
+
+                    <img src="sksk2.4.png" alt="Đối tác quốc tế SBS">
+                </div>
+            </section>
+
+            <section>
+                <h4>Lịch diễn</h4>
+                <div>
+                    <div>
+                        <p>09:30 - 11:30, Chủ Nhật, 23/02/2025</p>
+                        <p>Ngừng đăng ký online</p>
+                    </div>
+                    <div>Miễn phí</div>
+                </div>
+            </section>
+
+            <section>
+                <h4>Ban tổ chức</h4>
+                <div>
+                    <img src="sksk2.5.png" alt="Saigon Business School">
+                    <div>
+                        <h3>Saigon Business School - SBS</h3>
+                        <p>Đơn vị thành viên thuộc Tổ chức Giáo dục EQuest, kiến tạo môi trường học tập quốc tế chất lượng cao tại Việt Nam.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div>
+                    <div>
+                        <h4>LƯU Ý</h4>
+                    </div>
+                    <div>
+                        <p>• Quý Cha Mẹ vui lòng có mặt trước 15 phút để ổn định chỗ ngồi.</p>
+                        <p>• Chương trình dành riêng cho phụ huynh và học sinh quan tâm đến du học chuyển tiếp.</p>
+                        <p>• Tài liệu hội thảo sẽ được gửi tặng trực tiếp tại sự kiện.</p>
+                    </div>
+                </div>
+            </section>
+
+            <button type="button" disabled>
+                SUẤT DIỄN ĐÃ KẾT THÚC
+            </button>
+            <!-- ACTION -->
+<div class="action-bar" data-id="event2" data-name="Hội Thảo Du Học">
+    <button class="cart-btn">🛒 Thêm vào giỏ</button>
+    <button class="fav-btn">❤️ Yêu thích</button>
+</div>
+
+<!-- COMMENT -->
+<section class="comment-box">
+    <h4>Bình luận</h4>
+
+    <div class="comment-input">
+        <input type="text" id="cmtInput" placeholder="Viết bình luận...">
+        <button onclick="addComment()">Gửi</button>
+    </div>
+
+    <div id="commentList"></div>
+</section>
+
+<!-- SUGGEST -->
+<section class="suggest">
+    <h4>Bạn có thể thích</h4>
+
+    <div class="suggest-grid">
+        <div class="suggest-card">
+            <img src="image1.png">
+            <a href="sukien1.html">Thiền Tập Bên Nhau - Đón Chào Năm Mới 2026</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image3.png">
+            <a href="sukien3.html">Luyện thi chứng chỉ IIBA (ECBA, CCBA, CBAP) 3.0 - ONLINE</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image4.png">
+            <a href="sukien4.html">[Metashow] Triển Lãm Nghệ Thuật Ánh Sáng</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image5.png">
+            <a href="sukien5.html">THE GLOBAL LEADERSHIP SUMMIT 2026</a>
+        </div>
+    </div>
+</section>
+        </div>
+    </details>
+    <script>
+function addToCart() {
+    alert("Đã thêm vào giỏ hàng 🛒");
+}
+
+let liked = false;
+function toggleLike() {
+    liked = !liked;
+    alert(liked ? "Đã thêm vào yêu thích ❤️" : "Đã bỏ yêu thích");
+}
+
+function addComment() {
+    let input = document.getElementById("cmtInput");
+    let text = input.value.trim();
+
+    if(text === "") return;
+
+    let div = document.createElement("div");
+    div.innerText = text;
+
+    document.getElementById("commentList").prepend(div);
+    input.value = "";
+}
+
+
+// LƯU YÊU THÍCH //
+// ================= INIT =================
+let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// ================= SELECT =================
+const favButtons = document.querySelectorAll(".fav-btn");
+const cartButtons = document.querySelectorAll(".cart-btn");
+
+const favIcon = document.getElementById("favIcon");
+const cartIcon = document.getElementById("cartIcon");
+
+// ================= FAVORITE =================
+favButtons.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        const card = btn.closest(".card");
+        const id = card.dataset.id;
+        const name = card.dataset.name;
+
+        const index = favorites.findIndex(item => item.id === id);
+
+        if (index === -1) {
+            favorites.push({ id, name });
+            btn.innerText = "💜";
+        } else {
+            favorites.splice(index, 1);
+            btn.innerText = "❤️";
+        }
+
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+        updateIcons();
+    });
+});
+
+// ================= CART =================
+cartButtons.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        const card = btn.closest(".card");
+        const id = card.dataset.id;
+        const name = card.dataset.name;
+
+        cart.push({ id, name });
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateIcons();
+
+        alert("Đã thêm vào giỏ 🛒");
+    });
+});
+
+// ================= UPDATE ICON =================
+function updateIcons() {
+    favIcon.innerText = `❤️ (${favorites.length})`;
+    cartIcon.innerText = `🛒 (${cart.length})`;
+}
+
+// ================= CLICK ICON =================
+favIcon.addEventListener("click", () => {
+    alert("Danh sách yêu thích:\n" + favorites.map(i => i.name).join("\n"));
+});
+
+cartIcon.addEventListener("click", () => {
+    alert("Giỏ hàng:\n" + cart.map(i => i.name).join("\n"));
+});
+
+// ================= LOAD =================
+updateIcons();
+
+</script>
+</body>
+</html>

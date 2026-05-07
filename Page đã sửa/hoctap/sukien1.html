@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiền Tập Bên Nhau - Đón Chào Năm Mới 2026</title>
+</head>
+<style>
+    /* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f6f6fb;
+    color: #1a1a2e;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px 15px;
+}
+
+/* ================= CONTAINER ================= */
+details {
+    width: 700px;
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+details:hover {
+    transform: translateY(-3px);
+}
+
+/* ================= SUMMARY ================= */
+summary {
+    list-style: none;
+    cursor: pointer;
+    outline: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* ================= IMAGE ================= */
+summary img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Badge */
+summary div div:first-child > div {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #c4b5fd;
+    color: #3b2f63;
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* ================= HEADER CONTENT ================= */
+summary > div:last-child {
+    padding: 24px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #1a1a2e;
+}
+
+/* Giá */
+p span {
+    color: #a78bfa;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Info */
+summary > div:last-child > div {
+    margin: 10px 0;
+    color: #555;
+    font-size: 14.5px;
+}
+
+/* Địa điểm */
+strong {
+    color: #a78bfa;
+}
+
+/* Divider text */
+summary > div:last-child > div:last-child {
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+    margin-top: 15px;
+}
+
+/* ================= EXPAND ================= */
+details > div {
+    padding: 25px;
+    border-top: 1px solid #eee;
+    background: #fafafe;
+}
+
+/* Section */
+section {
+    margin-bottom: 30px;
+}
+
+/* Title */
+h4 {
+    color: #a78bfa;
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-left: 4px solid #a78bfa;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+/* Text */
+section p {
+    color: #444;
+    line-height: 1.8;
+    font-size: 14.5px;
+}
+
+/* List */
+ul {
+    padding-left: 20px;
+    color: #444;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+/* Images */
+section img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 15px 0;
+    border: 1px solid #eee;
+}
+
+/* Box */
+section > div {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    padding: 18px;
+}
+
+/* ================= NOTE ================= */
+section:last-of-type {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.suggest h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #a78bfa;
+    border-left: 4px solid #a78bfa;
+    padding-left: 10px;
+}
+/* ================= BUTTON ================= */
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Active */
+button:not([disabled]) {
+    background: linear-gradient(135deg, #c4b5fd, #a78bfa);
+    color: #fff;
+}
+
+button:not([disabled]):hover {
+    transform: scale(1.03);
+}
+
+/* Disabled */
+button[disabled] {
+    background: #eee;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    details {
+        width: 100%;
+    }
+
+    body {
+        padding: 20px;
+    }
+}
+/* ACTION */
+.action-bar {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.action-bar button {
+    flex: 1;
+}
+
+/* COMMENT */
+.comment-box {
+    margin-top: 30px;
+}
+
+.comment-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.comment-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+#commentList div {
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #eee;
+}
+
+/* SUGGEST */
+.suggest {
+    margin-top: 30px;
+}
+
+.suggest-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+}
+
+.suggest-card {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.suggest-card:hover {
+    transform: scale(1.05);
+}
+
+.suggest-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+</style>
+<body>
+    <details>
+        <summary>
+            <div>
+                <img src="image1.png" alt="Thiền Tập Bên Nhau 2026">
+                <div>
+                    Sự kiện đã kết thúc
+                </div>
+            </div>
+            
+            <div>
+                <h3>
+                    Thiền Tập Bên Nhau - Đón Chào Năm Mới 2026
+                </h3>
+                <p>
+                    Giá từ <span>900.000đ</span>
+                </p>
+                <div>
+                    <span>🗓️</span> 14:00, 31 Tháng 12, 2025 – 16:00, 01 Tháng 01, 2026
+                </div>
+                <div>
+                    <span>📍</span>
+                    <div>
+                        <strong>Tịnh Viện Pháp Thường</strong>
+                        <span>Ấp Bến Đình, Xã Phú Đông, Huyện Nhơn Trạch, Tỉnh Đồng Nai</span>
+                    </div>
+                </div>
+                <div>
+                    ▼ Click để xem Giới thiệu đầy đủ, Lịch diễn & Ban tổ chức ▼
+                </div>
+            </div>
+        </summary>
+
+        <div>
+            
+            <section>
+                <h4>Giới thiệu</h4>
+                
+                <div>
+                    <p>Bạn thân mến!</p>
+                    <p>Chỉ còn vài tuần nữa chúng ta sẽ tiễn đưa những ngày cuối cùng của năm 2025 để chào đón năm mới 2026. Trong khoảnh khắc chuyển giao đầy ý nghĩa ấy, hãy dành cho chính mình một khoảng lặng để nhìn lại chặng đường đã qua và chuẩn bị sẵn sàng cho một hành trình mới.</p>
+                    <p>Thiền Như Chính Là Thiền thương gửi đến bạn chương trình đặc biệt <strong>THIỀN TẬP BÊN NHAU – ĐÓN CHÀO NĂM MỚI 2026</strong>, như một lời tri ân sâu sắc dành cho bạn thiền đã tin tưởng và đồng hành cùng chúng tôi trong suốt thời gian vừa qua.</p>
+                    <p>Chương trình được thiết kế giúp bạn dọn dẹp <strong>THÂN – TÂM – TRÍ</strong> của năm cũ, để đón chào năm mới với nguồn năng lượng trong lành và tinh khôi nhất.</p>
+                    
+                    <p>NỘI DUNG CHÍNH</p>
+                    <ul>
+                        <li>Tiễn đưa năm cũ theo phong tục của người Việt</li>
+                        <li>Tắm tất niên</li>
+                        <li>Nguyện cầu cho năm mới</li>
+                        <li>Thiền với năng lượng của mặt trời</li>
+                        <li>Yoga cho ngày mới</li>
+                        <li>Buông thư cơ thể</li>
+                        <li>Thưởng trà và thiền trà</li>
+                        <li>Chia sẻ trải nghiệm</li>
+                    </ul>
+
+                    <p>THỜI GIAN & ĐỊA ĐIỂM</p>
+                    <p>• Thời gian: Từ 14h00, ngày 31/12/2025 đến 16h00, ngày 01/01/2026 (Thứ Tư & Thứ Năm).</p>
+                    <p>• Địa điểm: Đạo Tràng Định Huệ, Tịnh Viện Pháp Thường, Nhơn Trạch Đồng Nai.</p>
+                    <p>Cách phà Cát Lái, TPHCM 10 km, Tịnh viện Pháp Thường tọa lạc nơi sông nước hữu tình, không gian mát mẻ, yên bình, tĩnh lặng.</p>
+
+                    <p>MỨC PHÍ</p>
+                    <p>• Phí tham dự: 900.000 đồng / 1 người</p>
+                    <p>• Trẻ em dưới 10 tuổi: 450.000 đồng / 1 bé</p>
+                    <p><strong>HẠN ĐĂNG KÝ:</strong> Trước ngày 28/12/2025.</p>
+                    <p>Thương mến, <br>--- <br>Thiền Như Chính Là Thiền, Việt Nam</p>
+                </div>
+            </section>
+
+            <section>
+                <h4>Lịch diễn</h4>
+                <div>
+                    <div>
+                        <p>14:00, 31 Tháng 12, 2025 - 16:00, 01 Tháng 01, 2026</p>
+                        <p>Vé ngừng bán online</p>
+                    </div>
+                    <div>900.000 đ</div>
+                </div>
+            </section>
+
+            <section>
+                <h4>Ban tổ chức</h4>
+                <div>
+                    <img src="sksk1.1.png" alt="Logo Meditation">
+                    <div>
+                        <h3>Công ty CP Thiền Vũ Trụ Bên Trong Bạn</h3>
+                        <p>"Thiền giản đơn và nguyên bản - Meditation as it is"</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div>
+                    <div>
+                        <h4>LƯU Ý</h4>
+                    </div>
+                    <div>
+                        <p>• Chương trình phù hợp cho các bạn thiền từ <strong>18 tuổi trở lên</strong>.</p>
+                        <p>• Vui lòng chuẩn bị trang phục kín đáo, thoải mái để thuận tiện cho việc ngồi thiền.</p>
+                        <p>• Phí tham dự đã bao gồm chỗ ở và các bữa ăn chay trong suốt thời gian diễn ra.</p>
+                        <p>• Vui lòng có mặt đúng giờ để ổn định chỗ ngồi và bắt đầu chương trình.</p>
+                    </div>
+                </div>
+            </section>
+
+            <button type="button" disabled>
+                SỰ KIỆN ĐÃ KẾT THÚC
+            </button>
+            <!-- ACTION -->
+<div class="action-bar" data-id="event1" data-name="Thiền Tập Bên Nhau">
+    <button class="cart-btn">🛒 Thêm vào giỏ</button>
+    <button class="fav-btn">❤️ Yêu thích</button>
+</div>
+
+<!-- COMMENT -->
+<section class="comment-box">
+    <h4>Bình luận</h4>
+
+    <div class="comment-input">
+        <input type="text" id="cmtInput" placeholder="Viết bình luận...">
+        <button onclick="addComment()">Gửi</button>
+    </div>
+
+    <div id="commentList"></div>
+</section>
+
+<!-- SUGGEST -->
+<section class="suggest">
+    <h4>Bạn có thể thích</h4>
+
+    <div class="suggest-grid">
+        <div class="suggest-card">
+            <img src="sksk2.1.png">
+            <a href="sukien2.html">Sự kiện: Cùng Con Du Học Không Khó - SBS</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image3.png">
+            <a href="sukien3.html">Luyện thi chứng chỉ IIBA (ECBA, CCBA, CBAP) 3.0 - ONLINE</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image4.png">
+            <a href="sukien4.html">[Metashow] Triển Lãm Nghệ Thuật Ánh Sáng</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image5.png">
+            <a href="sukien5.html">THE GLOBAL LEADERSHIP SUMMIT 2026</a>
+        </div>
+    </div>
+</section>
+        </div>
+    </details>
+    <script>
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const actionBar = document.querySelector(".action-bar");
+const favBtn = document.querySelector(".fav-btn");
+const cartBtn = document.querySelector(".cart-btn");
+
+// ❤️ YÊU THÍCH
+if (favBtn) {
+    favBtn.onclick = () => {
+        const id = actionBar.dataset.id;
+        const name = actionBar.dataset.name;
+
+        const index = favorites.findIndex(i => i.id === id);
+
+        if (index === -1) {
+            favorites.push({ id, name });
+            favBtn.innerText = "💜 Đã thích";
+        } else {
+            favorites.splice(index, 1);
+            favBtn.innerText = "❤️ Yêu thích";
+        }
+
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+    };
+}
+
+// 🛒 GIỎ HÀNG
+if (cartBtn) {
+    cartBtn.onclick = () => {
+        const id = actionBar.dataset.id;
+        const name = actionBar.dataset.name;
+
+        cart.push({ id, name });
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert("Đã thêm vào giỏ 🛒");
+    };
+}
+    </script>
+</body>
+</html>

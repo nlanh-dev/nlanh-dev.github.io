@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sự kiện Infinity Racing - Go-Kart Đa Tầng</title>
+</head>
+<style>
+    /* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f6f6fb;
+    color: #1a1a2e;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px 15px;
+}
+
+/* ================= CONTAINER ================= */
+details {
+    width: 700px;
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+details:hover {
+    transform: translateY(-3px);
+}
+
+/* ================= SUMMARY ================= */
+summary {
+    list-style: none;
+    cursor: pointer;
+    outline: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* ================= IMAGE ================= */
+summary img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Badge */
+summary div div:first-child > div {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #c4b5fd;
+    color: #3b2f63;
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* ================= HEADER CONTENT ================= */
+summary > div:last-child {
+    padding: 24px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #1a1a2e;
+}
+
+/* Giá */
+p span {
+    color: #a78bfa;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Info */
+summary > div:last-child > div {
+    margin: 10px 0;
+    color: #555;
+    font-size: 14.5px;
+}
+
+/* Địa điểm */
+strong {
+    color: #a78bfa;
+}
+
+/* Divider text */
+summary > div:last-child > div:last-child {
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+    margin-top: 15px;
+}
+
+/* ================= EXPAND ================= */
+details > div {
+    padding: 25px;
+    border-top: 1px solid #eee;
+    background: #fafafe;
+}
+
+/* Section */
+section {
+    margin-bottom: 30px;
+}
+
+/* Title */
+h4 {
+    color: #a78bfa;
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-left: 4px solid #a78bfa;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+/* Text */
+section p {
+    color: #444;
+    line-height: 1.8;
+    font-size: 14.5px;
+}
+
+/* List */
+ul {
+    padding-left: 20px;
+    color: #444;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+/* Images */
+section img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 15px 0;
+    border: 1px solid #eee;
+}
+
+/* Box */
+section > div {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    padding: 18px;
+}
+
+/* ================= NOTE ================= */
+section:last-of-type {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.suggest h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #a78bfa;
+    border-left: 4px solid #a78bfa;
+    padding-left: 10px;
+}
+/* ================= BUTTON ================= */
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Active */
+button:not([disabled]) {
+    background: linear-gradient(135deg, #c4b5fd, #a78bfa);
+    color: #fff;
+}
+
+button:not([disabled]):hover {
+    transform: scale(1.03);
+}
+
+/* Disabled */
+button[disabled] {
+    background: #eee;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    details {
+        width: 100%;
+    }
+
+    body {
+        padding: 20px;
+    }
+}
+/* ACTION */
+.action-bar {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.action-bar button {
+    flex: 1;
+}
+
+/* COMMENT */
+.comment-box {
+    margin-top: 30px;
+}
+
+.comment-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.comment-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+#commentList div {
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #eee;
+}
+
+/* SUGGEST */
+.suggest {
+    margin-top: 30px;
+}
+
+.suggest-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+}
+
+.suggest-card {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.suggest-card:hover {
+    transform: scale(1.05);
+}
+
+.suggest-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+</style>
+<body>
+
+    <!-- Container chính dùng details/summary -->
+    <details>
+        
+        <!-- PHẦN SUMMARY: Card hiển thị ban đầu -->
+        <summary>
+            <div>
+                <img src="image2.png" alt="Infinity Racing Banner">
+                <span>Đã diễn ra</span>
+            </div>
+            
+            <div>
+                <h3>
+                    TRẢI NGHIỆM ĐƯỜNG ĐUA GO - KART ĐA TẦNG TRONG NHÀ ĐẦU TIÊN TẠI VIỆT NAM
+                </h3>
+                <p>
+                    Giá từ <span class="event-price">300.000đ</span>
+                </p>
+                <div>
+                    <span>🗓️</span>
+                    <span class="event-date">30 tháng 04, 2026</span>
+                </div>
+                <div>
+                    <span>📍</span>
+                    <div>
+                        <strong>INFINITY RACING</strong>
+                        <span>Lầu 5, Vincom Megamall Thảo Điền, 161 Võ Nguyên Giáp, Thảo Điền, Thủ Đức, TP. HCM</span>
+                    </div>
+                </div>
+                <div>
+                    ▼ Click để xem Giới thiệu đầy đủ, Lịch diễn & BTC ▼
+                </div>
+            </div>
+        </summary>
+
+        <!-- PHẦN CHI TIẾT HIỆN RA KHI NHẤN -->
+        <div>
+            
+            <!-- 1. GIỚI THIỆU -->
+            <section>
+                <h4>Giới thiệu sự kiện</h4>
+                
+                <div>
+                    <p><strong>TRẢI NGHIỆM ĐƯỜNG ĐUA GO - KART ĐA TẦNG TRONG NHÀ ĐẦU TIÊN TẠI VIỆT NAM</strong></p>
+                    
+                    <p>Infinity Racing là mô hình đường đua Go-Kart điện đa tầng trong nhà đầu tiên tại Việt Nam, tọa lạc tại Tầng 5 – Vincom Mega Mall Thảo Điền.</p>
+                    
+                    <p>Được thiết kế với nhiều tầng chuyển tiếp, các đoạn cua và khoảng tăng tốc, đường đua mang lại trải nghiệm lái có nhịp độ rõ ràng và cảm giác kiểm soát khác biệt so với các mô hình go-kart thông thường. Hệ thống xe điện vận hành êm ái, không khí thải, giúp người chơi tập trung hoàn toàn vào trải nghiệm trong một không gian trong nhà hiện đại và thoải mái.</p>
+                    
+                    <p>Với lợi thế là mô hình indoor, Infinity Racing hoạt động ổn định bất kể thời tiết, phù hợp cho các kế hoạch vui chơi linh hoạt mà không bị ảnh hưởng bởi nắng hay mưa. Người chơi có thể dễ dàng làm quen với đường đua và cảm nhận rõ sự thay đổi qua từng vòng chạy khi dần cải thiện tốc độ và khả năng điều khiển.</p>
+                    
+                    <p>Hoạt động phù hợp cho cá nhân, nhóm bạn, gia đình hoặc các chương trình team building, với tính giải trí cao và dễ tiếp cận.</p>
+                    
+                    <p>Một trải nghiệm đủ khác biệt để thử ngay, và luôn sẵn sàng để bạn quay lại bất cứ lúc nào.</p>
+                </div>
+
+                <img src="sktt2.1.png" alt="Đường đua Infinity Racing">
+            </section>
+
+            <!-- 2. LỊCH DIỄN -->
+            <section>
+                <h4>Lịch diễn & Vé</h4>
+                <div>
+                    <div>
+                        <div>
+                            <p>10:00 - 22:00, Thứ Năm</p>
+                            <p>30 Tháng 04, 2026</p>
+                        </div>
+                        <span>Suất diễn đã kết thúc</span>
+                    </div>
+                    
+                    <div>
+                        <div>
+                            <span>> Vé Kids</span>
+                            <div>
+                                <span>300.000 đ</span>
+                                <span>Vé ngừng bán online</span>
+                            </div>
+                        </div>
+                        <div>
+                            <span>> Vé Cấp Độ Beginner</span>
+                            <div>
+                                <span>330.000 đ</span>
+                                <span>Vé ngừng bán online</span>
+                            </div>
+                        </div>
+                        <div>
+                            <span>> Vé Cấp Độ Intermediate</span>
+                            <div>
+                                <span>370.000 đ</span>
+                                <span>Vé ngừng bán online</span>
+                            </div>
+                        </div>
+                        <div>
+                            <span>> Vé Cấp Độ Professional</span>
+                            <div>
+                                <span>390.000 đ</span>
+                                <span>Vé ngừng bán online</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. BAN TỔ CHỨC -->
+            <section>
+                <h4>Ban tổ chức</h4>
+                <div>
+                    <img src="sktt2.2.png" alt="Logo Infinity Racing">
+                    <div>
+                        <h3>INFINITY RACING</h3>
+                        <p>Infinity Racing là đơn vị phát triển mô hình Go-Kart điện trong nhà tại Việt Nam, hướng đến việc xây dựng một không gian giải trí kết hợp giữa vận động, công nghệ và trải nghiệm nhóm.</p>
+                        <p>Với định hướng phát triển lâu dài, Infinity Racing tập trung vào việc mang lại trải nghiệm ổn định, an toàn và có tính lặp lại cao.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. LƯU Ý -->
+            <section>
+                <div>
+                    <div>
+                        <h4>LƯU Ý</h4>
+                    </div>
+                    <div>
+                        <p>• Hoạt động ổn định bất kể thời tiết (Indoor).</p>
+                        <p>• Vui lòng tuân thủ hướng dẫn an toàn của kỹ thuật viên tại đường đua.</p>
+                        <p>• Các hạng vé Beginner/Intermediate/Professional áp dụng tùy theo kỹ năng lái xe.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nút trạng thái cuối -->
+            <button type="button" disabled>
+                SỰ KIỆN ĐÃ KẾT THÚC
+            </button>
+            <!-- ACTION -->
+<div class="action-bar" data-id="event2" data-name="Sự kiện Infinity Racing - Go-Kart Đa Tầng">
+    <button class="cart-btn">🛒 Thêm vào giỏ</button>
+    <button class="fav-btn">❤️ Yêu thích</button>
+</div>
+
+<!-- COMMENT -->
+<section class="comment-box">
+    <h4>Bình luận</h4>
+
+    <div class="comment-input">
+        <input type="text" id="cmtInput" placeholder="Viết bình luận...">
+        <button onclick="addComment()">Gửi</button>
+    </div>
+
+    <div id="commentList"></div>
+</section>
+
+<!-- SUGGEST -->
+<section class="suggest">
+    <h4>Bạn có thể thích</h4>
+
+    <div class="suggest-grid">
+        <div class="suggest-card">
+            <img src="image1.png">
+            <a href="sukien1.html">AIC 2025 - Semi Finals & Grand Final</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image3.png">
+            <a href="sukien3.html">VCBC 2025 - 2026 | Vietnam Collegiate Basketball Championship</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image4.png">
+            <a href="sukien4.html">Giải đấu PICKLEBALL TỨ HÙNG 2026 - SeABank</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image5.png">
+            <a href="sukien5.html">Lion Championship 31 - 2026</a>
+        </div>
+    </div>
+</section>
+        </div>
+    </details>
+    <script>
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const actionBar = document.querySelector(".action-bar");
+const favBtn = document.querySelector(".fav-btn");
+const cartBtn = document.querySelector(".cart-btn");
+
+// ❤️ YÊU THÍCH
+if (favBtn) {
+    favBtn.onclick = () => {
+        const id = actionBar.dataset.id;
+        const name = actionBar.dataset.name;
+
+        const index = favorites.findIndex(i => i.id === id);
+
+        if (index === -1) {
+            favorites.push({ id, name });
+            favBtn.innerText = "💜 Đã thích";
+        } else {
+            favorites.splice(index, 1);
+            favBtn.innerText = "❤️ Yêu thích";
+        }
+
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+    };
+}
+
+// 🛒 GIỎ HÀNG
+if (cartBtn) {
+    cartBtn.onclick = () => {
+        const id = actionBar.dataset.id;
+        const name = actionBar.dataset.name;
+
+        cart.push({ id, name });
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert("Đã thêm vào giỏ 🛒");
+    };
+}
+    </script>
+
+</body>
+</html>

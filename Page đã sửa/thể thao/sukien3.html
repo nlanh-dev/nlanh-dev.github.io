@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VCBC 2025 - 2026 | Vietnam Collegiate Basketball Championship</title>
+</head>\
+<style>
+    /* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f6f6fb;
+    color: #1a1a2e;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px 15px;
+}
+
+/* ================= CONTAINER ================= */
+details {
+    width: 700px;
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+details:hover {
+    transform: translateY(-3px);
+}
+
+/* ================= SUMMARY ================= */
+summary {
+    list-style: none;
+    cursor: pointer;
+    outline: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* ================= IMAGE ================= */
+summary img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Badge */
+summary div div:first-child > div {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #c4b5fd;
+    color: #3b2f63;
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* ================= HEADER CONTENT ================= */
+summary > div:last-child {
+    padding: 24px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #1a1a2e;
+}
+
+/* Giá */
+p span {
+    color: #a78bfa;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Info */
+summary > div:last-child > div {
+    margin: 10px 0;
+    color: #555;
+    font-size: 14.5px;
+}
+
+/* Địa điểm */
+strong {
+    color: #a78bfa;
+}
+
+/* Divider text */
+summary > div:last-child > div:last-child {
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+    margin-top: 15px;
+}
+
+/* ================= EXPAND ================= */
+details > div {
+    padding: 25px;
+    border-top: 1px solid #eee;
+    background: #fafafe;
+}
+
+/* Section */
+section {
+    margin-bottom: 30px;
+}
+
+/* Title */
+h4 {
+    color: #a78bfa;
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-left: 4px solid #a78bfa;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+/* Text */
+section p {
+    color: #444;
+    line-height: 1.8;
+    font-size: 14.5px;
+}
+
+/* List */
+ul {
+    padding-left: 20px;
+    color: #444;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+/* Images */
+section img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 15px 0;
+    border: 1px solid #eee;
+}
+
+/* Box */
+section > div {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    padding: 18px;
+}
+
+/* ================= NOTE ================= */
+section:last-of-type {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.suggest h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #a78bfa;
+    border-left: 4px solid #a78bfa;
+    padding-left: 10px;
+}
+/* ================= BUTTON ================= */
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Active */
+button:not([disabled]) {
+    background: linear-gradient(135deg, #c4b5fd, #a78bfa);
+    color: #fff;
+}
+
+button:not([disabled]):hover {
+    transform: scale(1.03);
+}
+
+/* Disabled */
+button[disabled] {
+    background: #eee;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    details {
+        width: 100%;
+    }
+
+    body {
+        padding: 20px;
+    }
+}
+/* ACTION */
+.action-bar {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.action-bar button {
+    flex: 1;
+}
+
+/* COMMENT */
+.comment-box {
+    margin-top: 30px;
+}
+
+.comment-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.comment-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+#commentList div {
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #eee;
+}
+
+/* SUGGEST */
+.suggest {
+    margin-top: 30px;
+}
+
+.suggest-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+}
+
+.suggest-card {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.suggest-card:hover {
+    transform: scale(1.05);
+}
+
+.suggest-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+</style>
+<body>
+
+    <!-- Container chính dùng details/summary -->
+    <details>
+        
+        <!-- PHẦN SUMMARY: Card hiển thị ban đầu -->
+        <summary>
+            <div>
+                <!-- Banner sự kiện -->
+                <img src="image3.png" alt="VCBC 2025 Banner">
+                <span>Đã diễn ra</span>
+            </div>
+            
+            <div>
+                <h3>
+                    VIETNAM COLLEGIATE BASKETBALL CHAMPIONSHIP 2025 - 2026 | MIỀN BẮC
+                </h3>
+                <p>
+                    Giá từ <span>0đ (Miễn phí)</span>
+                </p>
+                <div>
+                    <span>🗓️</span> 17 tháng 04, 2026
+                </div>
+                <div>
+                    <span>📍</span>
+                    <div>
+                        <strong>Cung Thiếu Nhi Hà Nội</strong>
+                        <span>17 Phạm Hùng, Phường Mỹ Đình 2, Quận Nam Từ Liêm, Hà Nội</span>
+                    </div>
+                </div>
+                <div>
+                    ▼ Click để xem Giới thiệu chi tiết, Lịch diễn & BTC ▼
+                </div>
+            </div>
+        </summary>
+
+        <!-- PHẦN CHI TIẾT HIỆN RA KHI NHẤN -->
+        <div>
+            
+            <!-- 1. GIỚI THIỆU -->
+            <section>
+                <h4>Giới thiệu sự kiện</h4>
+                
+                <div>
+                    <p>Giới thiệu sự kiện:</p>
+                    <p>Giải đấu bóng rổ sinh viên Việt Nam - VCBC là một sân chơi với quy mô giữa các trường ĐH, CĐ, Học viện cấp độ sinh viên.</p>
+                    <p>Tới vòng Play-off miền Bắc, chỉ còn 2 đội nam và 2 đội nữ thi đấu để chọn ra nhà vô địch, liệu đội tuyển nào sẽ vinh quang nâng cao chiếc cúp VCBC miền Bắc?</p>
+                    
+                    <p>Chi tiết sự kiện:</p>
+                    <ul>
+                        <li>• <strong>Thể thức thi đấu:</strong> B.O.3 (Best of 3)</li>
+                        <li>• <strong>Thời gian diễn ra vòng play-off:</strong> 15/4 - 17/4 - 19/4/2026</li>
+                        <li>• <strong>Địa điểm:</strong> Cung thiếu nhi Hà Nội, Phạm Hùng, Phường Cầu Giấy, Hà Nội</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 2. LỊCH DIỄN & TRẠNG THÁI VÉ -->
+            <section>
+                <h4>Lịch diễn & Vé</h4>
+                <div>
+                    <div>
+                        <div>
+                            <p>18:45 - 22:30, Thứ Sáu</p>
+                            <p>17 Tháng 04, 2026</p>
+                        </div>
+                        <span>Suất diễn đã kết thúc</span>
+                    </div>
+                    
+                    <!-- Thông tin hạng vé -->
+                    <div>
+                        <div>
+                            <span>> Hạng vé <strong>STANDARD</strong></span>
+                            <div>
+                                <span>Miễn phí</span>
+                                <span>Hết vé</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. BAN TỔ CHỨC -->
+            <section>
+                <h4>Ban tổ chức</h4>
+                <div>
+                    <img src="sktt3.1.png" alt="Logo New Sports">
+                    <div>
+                        <h3>GIẢI BÓNG RỔ SINH VIÊN VIỆT NAM</h3>
+                        <p><strong>CÔNG TY CỔ PHẦN NEW SPORTS</strong></p>
+                        <p>TRUNG TÂM HỖ TRỢ VÀ PHÁT TRIỂN SINH VIÊN VIỆT NAM</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. LƯU Ý -->
+            <section>
+                <div>
+                    <div>
+                        <h4>LƯU Ý</h4>
+                    </div>
+                    <div>
+                        <p>• Giải đấu áp dụng thể thức B.O.3 kịch tính.</p>
+                        <p>• Vui lòng đến sớm trước 18:45 để ổn định chỗ ngồi cổ vũ cho các đội tuyển.</p>
+                        <p>• Vé được phát hành miễn phí nhưng số lượng có hạn và hiện đã hết vé trực tuyến.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nút trạng thái cuối -->
+            <button type="button" disabled>
+                SỰ KIỆN ĐÃ KẾT THÚC
+            </button>
+            <!-- ACTION -->
+<div class="action-bar" data-id="event3" data-name="VCBC 2025 - 2026 | Vietnam Collegiate Basketball Championship">
+    <button class="cart-btn">🛒 Thêm vào giỏ</button>
+    <button class="fav-btn">❤️ Yêu thích</button>
+</div>
+
+<!-- COMMENT -->
+<section class="comment-box">
+    <h4>Bình luận</h4>
+
+    <div class="comment-input">
+        <input type="text" id="cmtInput" placeholder="Viết bình luận...">
+        <button onclick="addComment()">Gửi</button>
+    </div>
+
+    <div id="commentList"></div>
+</section>
+
+<!-- SUGGEST -->
+<section class="suggest">
+    <h4>Bạn có thể thích</h4>
+
+    <div class="suggest-grid">
+        <div class="suggest-card">
+            <img src="image1.png">
+            <a href="sukien1.html">AIC 2025 - Semi Finals & Grand Final</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image2.png">
+            <a href="sukien2.html">Sự kiện Infinity Racing - Go-Kart Đa Tầng</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image4.png">
+            <a href="sukien4.html">Giải đấu PICKLEBALL TỨ HÙNG 2026 - SeABank</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image5.png">
+            <a href="sukien5.html">Lion Championship 31 - 2026</a>
+        </div>
+    </div>
+</section>
+        </div>
+    </details>
+    <script>
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const actionBar = document.querySelector(".action-bar");
+const favBtn = document.querySelector(".fav-btn");
+const cartBtn = document.querySelector(".cart-btn");
+
+// ❤️ YÊU THÍCH
+if (favBtn) {
+    favBtn.onclick = () => {
+        const id = actionBar.dataset.id;
+        const name = actionBar.dataset.name;
+
+        const index = favorites.findIndex(i => i.id === id);
+
+        if (index === -1) {
+            favorites.push({ id, name });
+            favBtn.innerText = "💜 Đã thích";
+        } else {
+            favorites.splice(index, 1);
+            favBtn.innerText = "❤️ Yêu thích";
+        }
+
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+    };
+}
+
+// 🛒 GIỎ HÀNG
+if (cartBtn) {
+    cartBtn.onclick = () => {
+        const id = actionBar.dataset.id;
+        const name = actionBar.dataset.name;
+
+        cart.push({ id, name });
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert("Đã thêm vào giỏ 🛒");
+    };
+}
+    </script>
+
+</body>
+</html>
+
+</body>
+</html>

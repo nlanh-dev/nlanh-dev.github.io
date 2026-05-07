@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Thực Cảnh Anh Hùng Cờ Lau - Đinh Bộ Lĩnh</title>
+</head>
+<style>
+    /* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f6f6fb;
+    color: #1a1a2e;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px 15px;
+}
+
+/* ================= CONTAINER ================= */
+details {
+    width: 700px;
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+details:hover {
+    transform: translateY(-3px);
+}
+
+/* ================= SUMMARY ================= */
+summary {
+    list-style: none;
+    cursor: pointer;
+    outline: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* ================= IMAGE ================= */
+summary img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Badge */
+summary div div:first-child > div {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #c4b5fd;
+    color: #3b2f63;
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* ================= HEADER CONTENT ================= */
+summary > div:last-child {
+    padding: 24px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #1a1a2e;
+}
+
+/* Giá */
+p span {
+    color: #a78bfa;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Info */
+summary > div:last-child > div {
+    margin: 10px 0;
+    color: #555;
+    font-size: 14.5px;
+}
+
+/* Địa điểm */
+strong {
+    color: #a78bfa;
+}
+
+/* Divider text */
+summary > div:last-child > div:last-child {
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+    margin-top: 15px;
+}
+
+/* ================= EXPAND ================= */
+details > div {
+    padding: 25px;
+    border-top: 1px solid #eee;
+    background: #fafafe;
+}
+
+/* Section */
+section {
+    margin-bottom: 30px;
+}
+
+/* Title */
+h4 {
+    color: #a78bfa;
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-left: 4px solid #a78bfa;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+/* Text */
+section p {
+    color: #444;
+    line-height: 1.8;
+    font-size: 14.5px;
+}
+
+/* List */
+ul {
+    padding-left: 20px;
+    color: #444;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+/* Images */
+section img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 15px 0;
+    border: 1px solid #eee;
+}
+
+/* Box */
+section > div {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    padding: 18px;
+}
+
+/* ================= NOTE ================= */
+section:last-of-type {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.suggest h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #a78bfa;
+    border-left: 4px solid #a78bfa;
+    padding-left: 10px;
+}
+/* ================= BUTTON ================= */
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Active */
+button:not([disabled]) {
+    background: linear-gradient(135deg, #c4b5fd, #a78bfa);
+    color: #fff;
+}
+
+button:not([disabled]):hover {
+    transform: scale(1.03);
+}
+
+/* Disabled */
+button[disabled] {
+    background: #eee;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    details {
+        width: 100%;
+    }
+
+    body {
+        padding: 20px;
+    }
+}
+/* ACTION */
+.action-bar {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.action-bar button {
+    flex: 1;
+}
+
+/* COMMENT */
+.comment-box {
+    margin-top: 30px;
+}
+
+.comment-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.comment-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+#commentList div {
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #eee;
+}
+
+/* SUGGEST */
+.suggest {
+    margin-top: 30px;
+}
+
+.suggest-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+}
+
+.suggest-card {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.suggest-card:hover {
+    transform: scale(1.05);
+}
+
+.suggest-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+</style>
+<body >
+
+    <details >
+        
+        <!-- PHẦN SUMMARY: Card hiển thị ban đầu -->
+        <summary >
+            <img src="image3.png" alt="Show Anh Hùng Cờ Lau" >
+            
+            <div >
+                <h3 >
+                    Show Thực Cảnh Anh Hùng Cờ Lau - Đinh Bộ Lĩnh
+                </h3>
+                <p >
+                    Giá từ <span >150.000đ</span>
+                </p>
+                <div >
+                    <span >🗓️</span> 02 tháng 05, 2026
+                </div>
+                <p >
+                    ▼ Click để xem Giới thiệu chi tiết & Ekip thực hiện ▼
+                </p>
+            </div>
+        </summary>
+
+        <!-- NỘI DUNG CHI TIẾT -->
+        <div >
+            
+            <!-- 1. GIỚI THIỆU SỰ KIỆN -->
+            <section >
+                <h4 >Giới thiệu sự kiện</h4>
+                <p >
+                    <i>Show Thực Cảnh "Anh Hùng Cờ Lau – Đinh Bộ Lĩnh"</i> là vở diễn ngoài trời quy mô lớn tái hiện hành trình từ cậu bé chăn trâu phất cờ lau tập trận đến khi lên ngôi Hoàng đế, mở đầu triều đại Đại Cồ Việt — thời kỳ độc lập đầu tiên của dân tộc.
+                </p>
+                <p >
+                    Được trình diễn trên sân khấu thủy đình độc đáo giữa không gian Phố Cổ Hoa Lư, chương trình quy tụ hàng chục nghệ sĩ, diễn viên cùng hệ thống âm thanh — ánh sáng hiện đại, hiệu ứng khói lửa và pháo hoa rực rỡ.
+                </p>
+
+                <h5 >Chương trình chính:</h5>
+                <ul >
+                    <li>Đại cảnh tái hiện tuổi thơ Đinh Bộ Lĩnh với trò chơi cờ lau tập trận.</li>
+                    <li>Các trường đoạn lịch sử: dẹp loạn 12 sứ quân, thống nhất đất nước.</li>
+                    <li>Màn đăng quang Hoàng đế Đinh Tiên Hoàng.</li>
+                    <li>Biểu diễn nghệ thuật truyền thống kết hợp âm thanh – ánh sáng hiện đại.</li>
+                    <li>Hiệu ứng sân khấu nước, khói lửa và pháo hoa kết thúc hoành tráng.</li>
+                </ul>
+            </section>
+
+            <!-- 2. EKIP SÁNG TẠO -->
+            <section >
+                <h4 >EKIP SÁNG TẠO & DÀN DỰNG</h4>
+                <div >
+                    <span><b>Tổng Biên Đạo:</b> Uyên Chi</span>
+                    <span><b>Đạo Diễn Xiếc:</b> Trịnh Thắng</span>
+                    <span><b>Đạo Diễn Âm Nhạc:</b> NSND Huỳnh Tú</span>
+                    <span><b>Đạo Diễn Ánh Sáng:</b> Xuân Phong</span>
+                    <span><b>Lời Bình:</b> NSND Lê Chức</span>
+                    <span><b>Thiết kế sân khấu:</b> Xuân Tường</span>
+                </div>
+                <p >
+                    <b>Diễn viên chính:</b> Trung Hiếu (Đinh Bộ Lĩnh thiếu niên) & Trịnh Thắng (Đinh Bộ Lĩnh trưởng thành).
+                </p>
+            </section>
+
+            <!-- 3. LỊCH DIỄN -->
+            <section >
+                <h4 >LỊCH DIỄN THÁNG 5/2026</h4>
+                <div >
+                    <p >🎭 <b>Suất diễn:</b> 20:45 - 21:45</p>
+                    <p >📅 <b>Ngày diễn:</b> 02, 09, 16, 23, 29, 30 Tháng 05</p>
+                </div>
+            </section>
+
+            <!-- 4. LƯU Ý & ĐIỀU KHOẢN -->
+            <section >
+                <p><b>Điều khoản VAT:</b> Giá vé đã bao gồm VAT. Hóa đơn điện tử xuất tự động trong 02 giờ.</p>
+                <p><b>Trẻ em:</b> Dưới 1m miễn phí khi ngồi cùng người lớn. Trên 1m tính vé riêng.</p>
+            </section>
+
+            <!-- PHẦN BỔ SUNG: BAN TỔ CHỨC -->
+            <div class="organizer-section" >
+                <h4 >Ban tổ chức</h4>
+                <div >
+                    <!-- Ảnh đại diện sự kiện -->
+                    <img src="sk3.1.png" alt="Anh Hùng Cờ Lau" >
+
+                    <!-- Thông tin chi tiết BTC -->
+                    <div >
+                        <h3 >BTC Show Thực Cảnh Anh Hùng Cờ Lau</h3>
+                        <p >SHOW THỰC CẢNH “ANH HÙNG CỜ LAU” HOA LƯ NINH BÌNH</p>
+                        
+                        <p ><strong>Trụ sở Văn phòng chính:</strong> Tầng 4, Toà nhà số 01, Đường Tràng An, Đông Thành, Ninh Bình</p>
+                        <p ><strong>Địa điểm biểu diễn:</strong> Sân Khấu Thuỷ Đình, Khu Du Lịch Phố Cổ Hoa Lư, Ninh Bình</p>
+                        <p ><strong>Phone / Zalo:</strong> 0911585522</p>
+                        <p ><strong>Website:</strong> <a href="https://anhhungcolau.vn" >https://anhhungcolau.vn</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" >
+                MUA VÉ NGAY
+            </button>
+            <!-- ACTION -->
+<div class="action-bar" data-id="event3" data-name="Show Thực Cảnh Anh Hùng Cờ Lau - Đinh Bộ Lĩnh">
+    <button class="cart-btn">🛒 Thêm vào giỏ</button>
+    <button class="fav-btn">❤️ Yêu thích</button>
+</div>
+
+<!-- COMMENT -->
+<section class="comment-box">
+    <h4>Bình luận</h4>
+
+    <div class="comment-input">
+        <input type="text" id="cmtInput" placeholder="Viết bình luận...">
+        <button onclick="addComment()">Gửi</button>
+    </div>
+
+    <div id="commentList"></div>
+</section>
+
+<!-- SUGGEST -->
+<section class="suggest">
+    <h4>Bạn có thể thích</h4>
+
+    <div class="suggest-grid">
+        <div class="suggest-card">
+            <img src="image1.png">
+            <a href="sukien1.html">Vietcharm: Live The Legacy</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image2.png">
+            <a href="sukien2.html">Sự kiện: Tấm Cám Đại Chiến! - IDECAF</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image4.png">
+            <a href="sukien4.html">Sân Khấu 5B: Xóm Phông Bạt</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image5.png">
+            <a href="sukien5.html">Sự kiện: Ngăn Lạnh Số 44 - SKNT Trương Hùng Minh</a>
+        </div>
+    </div>
+</section>
+        </div>
+    </details>
+    <script>
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const actionBar = document.querySelector(".action-bar");
+const favBtn = document.querySelector(".fav-btn");
+const cartBtn = document.querySelector(".cart-btn");
+
+// ❤️ YÊU THÍCH
+if (favBtn) {
+    favBtn.onclick = () => {
+        const id = actionBar.dataset.id;
+        const name = actionBar.dataset.name;
+
+        const index = favorites.findIndex(i => i.id === id);
+
+        if (index === -1) {
+            favorites.push({ id, name });
+            favBtn.innerText = "💜 Đã thích";
+        } else {
+            favorites.splice(index, 1);
+            favBtn.innerText = "❤️ Yêu thích";
+        }
+
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+    };
+}
+
+// 🛒 GIỎ HÀNG
+if (cartBtn) {
+    cartBtn.onclick = () => {
+        const id = actionBar.dataset.id;
+        const name = actionBar.dataset.name;
+
+        cart.push({ id, name });
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert("Đã thêm vào giỏ 🛒");
+    };
+}
+    </script>
+</body>
+</htm

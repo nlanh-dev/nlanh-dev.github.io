@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoạt động | Events Vietnam</title>
+
+<link rel="stylesheet" href="css/trangchu.css">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAV -->
+<header class="nav">
+    <div class="logo">EVENTS VIETNAM</div>
+
+    <div class="menu">
+        <a href="index.html">Trang chủ</a>
+        <a href="gioithieu.html">Giới thiệu</a>
+        <a class="active" href="hoatdong.html">Hoạt động</a>
+        <a href="dichvu.html">Dịch vụ</a>
+    </div>
+
+    <div class="nav-right">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <a id="favicon" href="yeuthich.html">
+            <button>❤️</button>
+        </a>
+        <a id="carticon" href="giohang.html">
+            <button>🛒</button>
+        </a>
+        <a href="login.html">
+            <button>Đăng nhập</button>
+        </a>
+    </div>
+</header>
+
+<!-- HERO (CSS của em là center rồi nên bỏ hero-left) -->
+<section class="hero">
+    <h1>Khám phá hoạt động 🔥</h1>
+    <p>Trải nghiệm – kết nối – tận hưởng</p>
+</section>
+
+<!-- FILTER -->
+<section class="category">
+    <button class="active" onclick="filterCategory(event, 'all')">Tất cả</button>
+    <button onclick="filterCategory(event, 'study')">Học tập</button>
+    <button onclick="filterCategory(event, 'workshop')">Workshop</button>
+    <button onclick="filterCategory(event, 'music')">Âm nhạc</button>
+    <button onclick="filterCategory(event, 'art')">Nghệ thuật</button>
+    <button onclick="filterCategory(event, 'experience')">Trải nghiệm</button>
+    <button onclick="filterCategory(event, 'sport')">Thể thao</button>
+</section>
+
+<!-- ACTIVITIES -->
+<section class="section">
+    <h2>Danh sách hoạt động</h2>
+
+    <div class="grid-4" id="activityList">
+
+        <div class="card" data-category="study" onclick="openPopup('Thiền Tập Bên Nhau - Đón Chào Năm Mới 2026')">
+            <h3>Thiền Tập Bên Nhau - Đón Chào Năm Mới 2026</h3>
+            <img src="hoctap/image1.png">
+            <p> 
+                <a href="hoctap/sukien1.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+
+        <div class="card" data-category="study" onclick="openPopup('Sự kiện: Cùng Con Du Học Không Khó - SBS')">
+            <h3>Sự kiện: Cùng Con Du Học Không Khó - SBS</h3>
+            <img src="hoctap/sksk2.1.png">
+            <p>
+                <a href="hoctap/sukien2.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+
+        <div class="card" data-category="study" onclick="openPopup('Luyện thi chứng chỉ IIBA (ECBA, CCBA, CBAP) 3.0 - ONLINE')">
+            <h3>Luyện thi chứng chỉ IIBA (ECBA, CCBA, CBAP) 3.0 - ONLINE</h3>
+            <img src="hoctap/image3.png">
+            <p>
+                <a href="hoctap/sukien3.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+
+        <div class="card" data-category="study" onclick="openPopup('[Metashow] Triển Lãm Nghệ Thuật Ánh Sáng')">
+            <h3>[Metashow] Triển Lãm Nghệ Thuật Ánh Sáng</h3>
+            <img src="hoctap/image4.png">
+            <p>
+                <a href="hoctap/sukien4.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+
+        <div class="card" data-category="study" onclick="openPopup('THE GLOBAL LEADERSHIP SUMMIT 2026')">
+            <h3>THE GLOBAL LEADERSHIP SUMMIT 2026</h3>
+            <img src="hoctap/image5.png">
+            <p>
+                <a href="hoctap/sukien5.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+
+        <div class="card" data-category="workshop" onclick="openPopup('[VIVIAN VU’S CANDLES] WORKSHOP LÀM NẾN THƠM')">
+            <h3>[VIVIAN VU’S CANDLES] WORKSHOP LÀM NẾN THƠM</h3>
+            <img src="workshop/image1.png">
+            <p>
+                <a href="workshop/sukien1.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+
+        <div class="card" data-category="workshop" onclick="openPopup('[LEMLAB] Workshop TRẢI NGHIỆM LÀM GỐM TRẺ EM')">
+            <h3>[LEMLAB] Workshop TRẢI NGHIỆM LÀM GỐM TRẺ EM</h3>
+            <img src="workshop/image2.png">
+            <p>
+                <a href="workshop/sukien2.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+
+        <div class="card" data-category="workshop" onclick="openPopup('[LEMLAB] Workshop TRẢI NGHIỆM VẼ LY GỐM')">
+            <h3>[LEMLAB] Workshop TRẢI NGHIỆM VẼ LY GỐM</h3>
+            <br>
+            <img src="workshop/image3.png">
+            <p>
+                <a href="workshop/sukien3.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+
+        <div class="card" data-category="workshop" onclick="openPopup('Workshop Hương Sắc Tâm Ý - Quà Tặng Tâm Ý')">
+            <h3>Workshop Hương Sắc Tâm Ý - Quà Tặng Tâm Ý</h3>
+            <br>
+            <img src="workshop/image4.png">
+            <p>
+                <a href="workshop/sukien4.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+        <div class="card" data-category="workshop" onclick="openPopup('[Qode] LUNCH & LEARN: Workshop về Phỏng vấn Ứng viên')">
+            <h3>[Qode] LUNCH & LEARN: Workshop về Phỏng vấn Ứng viên</h3>
+            <img src="workshop/image5.png">
+            <p>
+                <a href="workshop/sukien5.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+
+        <div class="card" data-category="music" onclick="openPopup('Đêm nhạc Mỹ Vị Cuộc Đời - Trung Quân & Myra Trần')">
+            <h3>Đêm nhạc Mỹ Vị Cuộc Đời - Trung Quân & Myra Trần</h3>
+            <img src="âm nhạc/image1.png">
+            <p>
+                <a href="âm nhạc/sukien1.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+        <div class="card" data-category="music" onclick="openPopup('Sự kiện: Tan Tan Acoustic - Monarch Creative Studio')">
+            <h3>Sự kiện: Tan Tan Acoustic - Monarch Creative Studio</h3>
+            <img src="âm nhạc/image2.png">
+            <p>
+                <a href="âm nhạc/sukien2.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+        <div class="card" data-category="music" onclick="openPopup('Sự kiện: BLU Nightfall')">
+            <h3>Sự kiện: BLU Nightfall</h3>
+            <br>
+            <img src="âm nhạc/image3.png">
+            <p>
+                <a href="âm nhạc/sukien3.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+        <div class="card" data-category="music" onclick="openPopup('Sự kiện: Ladies Night Negav')">
+            <h3>Sự kiện: Ladies Night Negav</h3>
+            <br>
+            <img src="âm nhạc/image4.png">
+            <p>
+                <a href="âm nhạc/sukien4.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+        <div class="card" data-category="music" onclick="openPopup('Sự kiện: Mr Siro Fan Concert')">
+            <h3>Sự kiện: Mr Siro Fan Concert</h3>
+            <br>
+            <img src="âm nhạc/image5.png">
+            <p>
+                <a href="âm nhạc/sukien5.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+        <div class="card" data-category="art" onclick="openPopup('vietcharm: Live The Legacy')">
+            <h3>vietcharm: Live The Legacy</h3>
+            <img src="nghệ thuật/image1.png">
+            <p>
+                <a href="nghệ thuật/sukien1.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+        <div class="card" data-category="art" onclick="openPopup('Sự kiện: Tấm Cám Đại Chiến! - IDECAF')">
+            <h3>Sự kiện: Tấm Cám Đại Chiến! - IDECAF</h3>
+            <br>
+            <img src="nghệ thuật/sk2.png">
+            <p>
+                <a href="nghệ thuật/sukien2.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+        <div class="card" data-category="art" onclick="openPopup('Show Thực Cảnh Anh Hùng Cờ Lau - Đinh Bộ Lĩnh')">
+            <h3>Sự kiện: Show Thực Cảnh Anh Hùng Cờ Lau - Đinh Bộ Lĩnh</h3>
+            <img src="nghệ thuật/image3.png">
+            <p>
+                <a href="nghệ thuật/sukien3.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+         <div class="card" data-category="art" onclick="openPopup('Sân Khấu 5B: Xóm Phông Bạt')">
+            <h3>Sân Khấu 5B: Xóm Phông Bạt</h3>
+            <br>
+            <img src="nghệ thuật/image4.png">
+            <p>
+                <a href="nghệ thuật/sukien4.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+         </div>
+         <div class="card" data-category="art" onclick="openPopup('Sự kiện: Ngăn Lạnh Số 44 - SKNT Trương Hùng Minh')">
+            <h3>Sự kiện: Ngăn Lạnh Số 44 - SKNT Trương Hùng Minh</h3>
+            <img src="nghệ thuật/image5.png">
+            <p>
+                <a href="nghệ thuật/sukien5.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+        <div class="card" data-category="experience" onclick="openPopup('Tour Đêm Văn Miếu - Quốc Tử Giám')">
+            <h3>Tour Đêm Văn Miếu - Quốc Tử Giám</h3>
+            <br>
+            <img src="trải nghiệm/image1.png">
+            <p>
+                <a href="trải nghiệm/sukien1.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+        <div class="card" data-category="experience" onclick="openPopup('Phật Bảo Nghiêm Trấn - Triển Lãm Di Sản Phật Giáo')">
+            <h3>Phật Bảo Nghiêm Trấn - Triển Lãm Di Sản Phật Giáo</h3>
+            <img src="trải nghiệm/image2.png">
+            <p>
+                <a href="trải nghiệm/sukien2.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+        <div class="card" data-category="experience" onclick="openPopup('B.DUCK CITYFUNS @Vincom Center Landmark 81')">
+            <h3>B.DUCK CITYFUNS @Vincom Center Landmark 81</h3>
+            <img src="trải nghiệm/image3.png">
+            <p>
+                <a href="trải nghiệm/sukien3.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+                <div class="card" data-category="experience" onclick="openPopup('Địa đạo Củ Chi - Trăng Chiến Khu')">
+            <h3>Địa đạo Củ Chi - Trăng Chiến Khu</h3>
+            <br>
+            <img src="trải nghiệm/image4.png">
+            <p>
+                <a href="trải nghiệm/sukien4.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+                <div class="card" data-category="experience" onclick="openPopup('Sensation of I DO- White Palace')">
+            <h3>Sensation of "I DO" - White Palace</h3>
+            <br>
+            <img src="trải nghiệm/image5.png">
+            <p>
+                <a href="trải nghiệm/sukien5.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+        <div class="card" data-category="sport" onclick="openPopup('AIC 2025 - Semi Finals & Grand Final')">
+            <h3>AIC 2025 - Semi Finals & Grand Final</h3>
+        n   <br>
+            <img src="thể thao/image1.png">
+            <p>
+                <a href="thể thao/sukien1.html">
+                    <button> Xem chi tiết</button>
+                </a>
+                </a>
+            </p>
+        </div>
+        <div class="card" data-category="sport" onclick="openPopup('Sự kiện Infinity Racing - Go-Kart Đa Tầng')">
+            <h3>Lion Championship 31 - 2026</h3>
+            <br>
+            <br>
+            <img src="thể thao/image2.png">
+            <p>
+                <a href="thể thao/sukien2.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+        <div class="card" data-category="sport" onclick="openPopup('VCBC 2025 - 2026 | Vietnam Collegiate Basketball Championship')">
+            <h3>VCBC 2025 - 2026 | Vietnam Collegiate Basketball Championship</h3>
+            <img src="thể thao/image3.png">
+            <p>
+                <a href="thể thao/sukien3.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+        <div class="card" data-category="sport" onclick="openPopup('Giải đấu PICKLEBALL TỨ HÙNG 2026 - SeABank')">
+            <h3>Giải đấu PICKLEBALL TỨ HÙNG 2026 - SeABank</h3>
+            <img src="thể thao/image4.png">
+            <p>
+                <a href="thể thao/sukien4.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+        <div class="card" data-category="sport" onclick="openPopup('Lion Championship 31 - 2026')">
+            <h3>Lion Championship 31 - 2026</h3>
+            <br>
+            <br>
+            <img src="thể thao/image5.png">
+            <p>
+                <a href="thể thao/sukien5.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- TIMELINE -->
+<section class="section">
+    <h2>Lịch hoạt động</h2>
+
+    <div class="timeline">
+
+        <!-- 09/05 -->
+        <div class="time-group">
+            <h3>09/05/2026</h3>
+
+            <div class="time-item">
+                ⏳ Còn <span id="countdown1"></span> tới BLU Nightfall
+                <a href="âm nhạc/sukien3.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </div>
+
+            <div class="time-item">
+                ⏳ Còn <span id="countdown2"></span> tới Lion Championship 31 - 2026 | The Lion Era
+                <a href="thể thao/sukien5.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </div>
+        </div>
+
+        <!-- 10/05 -->
+        <div class="time-group">
+            <h3>10/05/2026</h3>
+
+            <div class="time-item">
+                ⏳ Còn <span id="countdown3"></span> tới Workshop Hương Sắc Tâm Ý - Quà Tặng Tâm Ý
+                <a href="workshop/sukien4.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </div>
+
+            <div class="time-item">
+                ⏳ Còn <span id="countdown4"></span> tới Show Thực Cảnh Anh Hùng Cờ Lau - Đinh Bộ Lĩnh
+                <a href="âm nhạc/sukien4.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-grid">
+
+        <!-- LEFT -->
+        <div class="footer-left">
+            <div class="footer-block">
+                <h6>Hotline</h6>
+                <p>Thứ 2 - Chủ Nhật (8:00 - 23:00)</p>
+                <p class="highlight">1900.6408</p>
+            </div>
+
+            <div class="footer-block">
+                <h6>Email</h6>
+                <p>support@ticketbox.vn</p>
+            </div>
+
+            <div class="footer-block">
+                <h6>Văn phòng</h6>
+                <p>Tòa HT1 - Đại học Quốc gia Hà Nội</p>
+            </div>
+        </div>
+
+        <!-- CENTER -->
+        <div class="footer-center">
+
+            <div class="footer-block">
+                <h6>Dành cho khách hàng</h6>
+                <a href="https://drive.google.com/file/d/1fICzY5vYkFk1QNJY9YxAMG_SEfSqAY-u/view?usp=sharing" target="_blank">
+                    Điều khoản sử dụng dành cho khách hàng
+                </a>
+            </div>
+
+            <div class="footer-block">
+                <h6>Dành cho ban tổ chức</h6>
+                <a href="https://drive.google.com/drive/u/0/folders/16la2NVji8Sm1TY8_UEPVte40aQ8NtTRT" target="_blank">
+                    Điều khoản sử dụng dành cho ban tổ chức
+                </a>
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="footer-right">
+            <h6>Về công ty chúng tôi</h6>
+
+            <a onclick="openModal('quyche')">Quy chế hoạt động</a>
+            <a href="https://drive.google.com/drive/u/0/folders/16la2NVji8Sm1TY8_UEPVte40aQ8NtTRT">Chính sách bảo mật thông tin</a>
+            <a href="https://drive.google.com/drive/u/0/folders/16la2NVji8Sm1TY8_UEPVte40aQ8NtTRT">Cơ chế giải quyết tranh chấp</a>
+            <a href="https://drive.google.com/drive/u/0/folders/16la2NVji8Sm1TY8_UEPVte40aQ8NtTRT">Chính sách bảo mật thanh toán</a>
+            <a href="https://docs.google.com/document/d/1hGGbKdJvPvlebMGQ_Id_8kq1OJV9XZs8/edit">Chính sách đổi trả</a>
+            <a href="https://drive.google.com/drive/u/0/folders/16la2NVji8Sm1TY8_UEPVte40aQ8NtTRT">Điều kiện vận chuyển</a>
+            <a href="https://drive.google.com/drive/u/0/folders/16la2NVji8Sm1TY8_UEPVte40aQ8NtTRT">Phương thức thanh toán</a>
+        </div>
+
+        <!-- SOCIAL -->
+        <div class="footer-block">
+            <h6>Follow</h6>
+            <div class="social">
+                <a>f</a>
+                <a>i</a>
+                <a>t</a>
+                <a>in</a>
+            </div>
+        </div>
+
+    </div>
+
+    <p class="copyright">
+        © 2024 EVENTS VIETNAM. ALL RIGHTS RESERVED.
+    </p>
+</footer>
+
+</main>
+
+<script src="js/trangchu.js"></script>
+</body>
+</html>

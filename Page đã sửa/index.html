@@ -1,0 +1,229 @@
+<!DOCTYPE html> 
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events Vietnam</title>
+
+<link rel="stylesheet" href="css/trangchu.css">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+</head>
+
+<body>
+
+<!-- NAV -->
+<header class="nav">
+    <div class="logo">EVENTS VIETNAM</div>
+
+    <div class="menu">
+        <a class="active" href="index.html">Trang chủ</a>
+        <a href="gioithieu.html">Giới thiệu</a>
+        <a href="hoatdong.html">Hoạt động</a>
+        <a href="dichvu.html">Dịch vụ</a>
+    </div>
+
+    <div class="nav-right">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <a id="favicon" href="yeuthich.html">
+            <button>❤️</button>
+        </a>
+        <a id="carticon" href="giohang.html">
+            <button>🛒</button>
+        </a>
+        <a href="login.html">
+            <button>Đăng nhập</button>
+        </a>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Khám phá sự kiện hot 🔥</h1>
+    <p>Khám phá – trải nghiệm – kết nối</p>
+    <a class="button" href="index.html">
+        <button>Xem ngay</button>
+    </a>
+</section>
+
+<!-- CATEGORY -->
+<section class="category">
+    <button class="filter-btn active" data-category="all">Tất cả</button>
+    <button class="filter-btn" data-category="study">Học tập</button>
+    <button class="filter-btn" data-category="workshop">Workshop</button>
+    <button class="filter-btn" data-category="music">Âm nhạc</button>
+    <button class="filter-btn" data-category="art">Nghệ thuật</button>
+    <button class="filter-btn" data-category="experience">Trải nghiệm</button>
+    <button class="filter-btn" data-category="sport">Thể thao</button>
+</section>
+
+<!-- FEATURED -->
+<section class="section">
+    <h2>Sự kiện nổi bật</h2>
+
+    <div class="grid-4">
+
+        <div class="card" data-category="workshop" onclick="openPopup('Sự kiện 1')">
+            <img src="workshop/image4.png">
+            <h3>Workshop Hương Sắc Tâm Ý - Quà Tặng Tâm Ý </h3>
+            <a href="workshop/sukien4.html">
+                <button> Xem chi tiết</button>
+            </a>
+        </div>
+
+        <div class="card" data-category="music">
+            <img src="âm nhạc/image3.png">
+            <h3>Music concert - BLU Nightfall</h3>
+            <a href="âm nhạc/sukien3.html">
+                <br>
+                <button> Xem chi tiết</button>
+            </a>
+        </div>
+
+        <div class="card" data-category="art">
+            <img src="nghệ thuật/image3.png">
+            <h3>Show Thực Cảnh Anh Hùng Cờ Lau - Đinh Bộ Lĩnh</h3>
+            <a href="nghệ thuật/sukien3.html">
+                <button> Xem chi tiết</button>
+            </a>
+        </div>
+
+        <div class="card" data-category="workshop">
+            <img src="https://picsum.photos/303/200">
+            <h3>Sự kiện 4</h3>
+            <p>Hà tự tìm nhé</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- TOP -->
+<section class="section">
+    <h2>Top xếp hạng</h2>
+
+    <div class="grid-3">
+
+        <div class="card" data-category="art">
+            <img src="hoctap/image3.png"  style="width: 300px; height: 350px;">
+            <br>
+            <br>
+            <br>
+            <h3>Luyện thi chứng chỉ IIBA (ECBA, CCBA, CBAP) 3.0 - ONLINE</h3>
+            <p>
+                <a href="hoctap/sukien3.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+
+        <div class="card" data-category="sport">
+            <img src="nghệ thuật/image1.png">
+            <br>
+            <br>
+            <br>
+            <h3>Vietcharm: Live The Legacy</h3>
+            <p>
+                <br>
+                <a href="nghệ thuật/sukien1.html">
+                    <button> Xem chi tiết</button>
+                </a>
+            </p>
+        </div>
+
+        <div class="card" data-category="workshop">
+            <img src="https://picsum.photos/306/200">
+            <h3>Sự kiện 7</h3>
+            <p>Hà tự tìm nhé</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <img id="popup-img">
+        <h2 id="popup-title"></h2>
+        <p id="popup-desc"></p>
+
+        <button>🎟 Đặt vé ngay</button>
+        <button>❤️ Lưu yêu thích</button>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-grid">
+
+        <!-- LEFT -->
+        <div class="footer-left">
+            <div class="footer-block">
+                <h6>Hotline</h6>
+                <p>Thứ 2 - Chủ Nhật (8:00 - 23:00)</p>
+                <p class="highlight">1900.6408</p>
+            </div>
+
+            <div class="footer-block">
+                <h6>Email</h6>
+                <p>support@ticketbox.vn</p>
+            </div>
+
+            <div class="footer-block">
+                <h6>Văn phòng</h6>
+                <p>Tòa HT1 - Đại học Quốc gia Hà Nội</p>
+            </div>
+        </div>
+
+        <!-- CENTER -->
+        <div class="footer-center">
+
+            <div class="footer-block">
+                <h6>Dành cho khách hàng</h6>
+                <a href="https://drive.google.com/file/d/1fICzY5vYkFk1QNJY9YxAMG_SEfSqAY-u/view?usp=sharing" target="_blank">
+                    Điều khoản sử dụng dành cho khách hàng
+                </a>
+            </div>
+
+            <div class="footer-block">
+                <h6>Dành cho ban tổ chức</h6>
+                <a href="https://drive.google.com/drive/u/0/folders/16la2NVji8Sm1TY8_UEPVte40aQ8NtTRT" target="_blank">
+                    Điều khoản sử dụng dành cho ban tổ chức
+                </a>
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="footer-right">
+            <h6>Về công ty chúng tôi</h6>
+
+            <a onclick="openModal('quyche')">Quy chế hoạt động</a>
+            <a href="https://drive.google.com/drive/u/0/folders/16la2NVji8Sm1TY8_UEPVte40aQ8NtTRT">Chính sách bảo mật thông tin</a>
+            <a href="https://drive.google.com/drive/u/0/folders/16la2NVji8Sm1TY8_UEPVte40aQ8NtTRT">Cơ chế giải quyết tranh chấp</a>
+            <a href="https://drive.google.com/drive/u/0/folders/16la2NVji8Sm1TY8_UEPVte40aQ8NtTRT">Chính sách bảo mật thanh toán</a>
+            <a href="https://docs.google.com/document/d/1hGGbKdJvPvlebMGQ_Id_8kq1OJV9XZs8/edit">Chính sách đổi trả</a>
+            <a href="https://drive.google.com/drive/u/0/folders/16la2NVji8Sm1TY8_UEPVte40aQ8NtTRT">Điều kiện vận chuyển</a>
+            <a href="https://drive.google.com/drive/u/0/folders/16la2NVji8Sm1TY8_UEPVte40aQ8NtTRT">Phương thức thanh toán</a>
+        </div>
+
+        <!-- SOCIAL -->
+        <div class="footer-block">
+            <h6>Follow</h6>
+            <div class="social">
+                <a>f</a>
+                <a>i</a>
+                <a>t</a>
+                <a>in</a>
+            </div>
+        </div>
+
+    </div>
+
+    <p class="copyright">
+        © 2024 EVENTS VIETNAM. ALL RIGHTS RESERVED.
+    </p>
+</footer>
+<script src="js/trangchu.js"></script>
+</body>
+</html>

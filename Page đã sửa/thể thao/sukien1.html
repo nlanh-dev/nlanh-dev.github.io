@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIC 2025 - Semi Finals & Grand Final</title>
+</head>
+<style>
+    /* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f6f6fb;
+    color: #1a1a2e;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px 15px;
+}
+
+/* ================= CONTAINER ================= */
+details {
+    width: 700px;
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+details:hover {
+    transform: translateY(-3px);
+}
+
+/* ================= SUMMARY ================= */
+summary {
+    list-style: none;
+    cursor: pointer;
+    outline: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* ================= IMAGE ================= */
+summary img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Badge */
+summary div div:first-child > div {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #c4b5fd;
+    color: #3b2f63;
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* ================= HEADER CONTENT ================= */
+summary > div:last-child {
+    padding: 24px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #1a1a2e;
+}
+
+/* Giá */
+p span {
+    color: #a78bfa;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Info */
+summary > div:last-child > div {
+    margin: 10px 0;
+    color: #555;
+    font-size: 14.5px;
+}
+
+/* Địa điểm */
+strong {
+    color: #a78bfa;
+}
+
+/* Divider text */
+summary > div:last-child > div:last-child {
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+    margin-top: 15px;
+}
+
+/* ================= EXPAND ================= */
+details > div {
+    padding: 25px;
+    border-top: 1px solid #eee;
+    background: #fafafe;
+}
+
+/* Section */
+section {
+    margin-bottom: 30px;
+}
+
+/* Title */
+h4 {
+    color: #a78bfa;
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-left: 4px solid #a78bfa;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+/* Text */
+section p {
+    color: #444;
+    line-height: 1.8;
+    font-size: 14.5px;
+}
+
+/* List */
+ul {
+    padding-left: 20px;
+    color: #444;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+/* Images */
+section img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 15px 0;
+    border: 1px solid #eee;
+}
+
+/* Box */
+section > div {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    padding: 18px;
+}
+
+/* ================= NOTE ================= */
+section:last-of-type {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.suggest h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #a78bfa;
+    border-left: 4px solid #a78bfa;
+    padding-left: 10px;
+}
+/* ================= BUTTON ================= */
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Active */
+button:not([disabled]) {
+    background: linear-gradient(135deg, #c4b5fd, #a78bfa);
+    color: #fff;
+}
+
+button:not([disabled]):hover {
+    transform: scale(1.03);
+}
+
+/* Disabled */
+button[disabled] {
+    background: #eee;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    details {
+        width: 100%;
+    }
+
+    body {
+        padding: 20px;
+    }
+}
+/* ACTION */
+.action-bar {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.action-bar button {
+    flex: 1;
+}
+
+/* COMMENT */
+.comment-box {
+    margin-top: 30px;
+}
+
+.comment-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.comment-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+#commentList div {
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #eee;
+}
+
+/* SUGGEST */
+.suggest {
+    margin-top: 30px;
+}
+
+.suggest-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+}
+
+.suggest-card {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.suggest-card:hover {
+    transform: scale(1.05);
+}
+
+.suggest-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+</style>
+<body >
+
+    <!-- Container chính dùng details/summary -->
+    <details >
+        
+        <!-- PHẦN SUMMARY: Card hiển thị ban đầu -->
+        <summary >
+            <div >
+                <img src="image1.png" alt="AIC 2025 Banner" >
+                <span >Đã diễn ra</span>
+            </div>
+            
+            <div >
+                <h3 >
+                    SEMI FINALS & GRAND FINAL - ARENA OF VALOR INTERNATIONAL CHAMPIONSHIP 2025
+                </h3>
+                <p >
+                    Giá từ <span >249.000đ</span>
+                </p>
+                <div >
+                    <span >🗓️</span> 07 tháng 12, 2025
+                </div>
+                <div >
+                    <span >📍</span>
+                    <div>
+                        <strong >Cung Điền Kinh Mỹ Đình (Hà Nội)</strong>
+                        <span >Phố Trần Hữu Dực, P. Cầu Diễn, Q. Nam Từ Liêm, Hà Nội</span>
+                    </div>
+                </div>
+                <p >
+                    ▼ Click để xem Giới thiệu, Quà tặng & Quy định chi tiết ▼
+                </p>
+            </div>
+        </summary>
+
+        <!-- PHẦN CHI TIẾT HIỆN RA KHI NHẤN -->
+        <div >
+            
+            <!-- 1. GIỚI THIỆU (Chèn 2 ảnh và nội dung song ngữ) -->
+            <section >
+                <h4 >Giới thiệu sự kiện</h4>
+                
+                <!-- Ảnh giới thiệu 1 -->
+                <img src="sktt1.1.png" alt="AIC 2025 Stage" >
+                
+                <div >
+                    <p><strong>Arena of Valor International Championship 2025 (AIC 2025)</strong> đánh dấu sự trở lại của giải đấu quốc tế Liên Quân Mobile được mong chờ nhất trong năm - nơi 12 đội tuyển xuất sắc từ 3 khu vực AOG - GCS - RPL quy tụ để <i>"Đốt cháy áp lực - Rực sáng vinh quang"</i>.</p>
+                    <p>Vòng Bán Kết & Chung Kết sẽ diễn ra tại Cung điền kinh Mỹ Đình, mang đến trải nghiệm xem trực tiếp sống động cùng hàng loạt quà tặng hấp dẫn.</p>
+                </div>
+
+                <!-- Ảnh giới thiệu 2 -->
+                <img src="sktt1.2.png" alt="Exclusive Gifts" >
+
+                <div >
+                    <p><i>(English) AIC 2025 marks the return of the most anticipated international tournament, where 12 top teams gather to "Burn Your Shadows - Blaze Your Glory" for the ultimate championship title at My Dinh Indoor Athletics Arena.</i></p>
+                </div>
+            </section>
+
+            <!-- 2. QUÀ TẶNG & QUYỀN LỢI (Từ Screenshot 2026-05-03 163242.jpg) -->
+            <section >
+                <h4 >QUÀ TẶNG / BENEFITS</h4>
+                <div >
+                    <p><strong>DAY 2 (07.12):</strong></p>
+                    <ul >
+                        <li>01 Áo phông AIC 2025 + 01 Túi tote + 01 Thẻ giảm giá 399QH.</li>
+                        <li>Đến sớm nhận thêm: 01 Áo khoác nỉ (Zip Hoodie) AIC 2025.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 3. LỊCH DIỄN & TRẠNG THÁI VÉ (Từ Screenshot 2026-05-03 163230.jpg) -->
+            <section >
+                <h4 >LỊCH DIỄN</h4>
+                <div >
+                    <div >
+                        <div>
+                            <p >08:00 - 21:00, Chủ Nhật</p>
+                            <p >07 Tháng 12, 2025</p>
+                        </div>
+                        <span >Suất diễn đã kết thúc</span>
+                    </div>
+                    <div >
+                        <span>> DAY 2 (07.12)</span>
+                        <div >
+                            <span >249.000 đ</span>
+                            <span >Hết vé</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. BAN TỔ CHỨC (Từ Screenshot 2026-05-03 163242.jpg) -->
+            <section >
+                <h4 >BAN TỔ CHỨC</h4>
+                <div >
+                    <img src="sktt1.3.png" alt="Vietnam Esports" >
+                    <div>
+                        <p >CÔNG TY CỔ PHẦN GIẢI TRÍ VÀ THỂ THAO ĐIỆN TỬ VIỆT NAM</p>
+                        <p >VIETNAM ESPORTS AND ENTERTAINMENT JOINT STOCK COMPANY</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. LƯU Ý QUAN TRỌNG (Chữ dọc bên trái) -->
+            <section >
+                <div >
+                    <div >
+                        <h4 >
+                            LƯU Ý
+                        </h4>
+                    </div>
+                    <div >
+                        <p >• <strong>Check-in:</strong> Bắt đầu từ 08:00 (hoạt động ngoài trời) và 10:00 (vào khán đài).</p>
+                        <p >• <strong>Vé:</strong> Mỗi giao dịch tối đa 02 vé. Vé đã mua không đổi/trả.</p>
+                        <p >• <strong>Bảo mật:</strong> Không chia sẻ mã vé, BTC từ chối giải quyết nếu có nhiều người cùng check-in 1 mã.</p>
+                        <p >• Giá vé đã bao gồm 8% VAT.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nút trạng thái cuối -->
+            <button type="button" disabled >
+                SỰ KIỆN ĐÃ KẾT THÚC
+            </button>
+            <!-- ACTION -->
+<div class="action-bar" data-id="event1" data-name="AIC 2025 - Semi Finals & Grand Final">
+    <button class="cart-btn">🛒 Thêm vào giỏ</button>
+    <button class="fav-btn">❤️ Yêu thích</button>
+</div>
+
+<!-- COMMENT -->
+<section class="comment-box">
+    <h4>Bình luận</h4>
+
+    <div class="comment-input">
+        <input type="text" id="cmtInput" placeholder="Viết bình luận...">
+        <button onclick="addComment()">Gửi</button>
+    </div>
+
+    <div id="commentList"></div>
+</section>
+
+<!-- SUGGEST -->
+<section class="suggest">
+    <h4>Bạn có thể thích</h4>
+
+    <div class="suggest-grid">
+        <div class="suggest-card">
+            <img src="image2.png">
+            <a href="sukien2.html">Sự kiện Infinity Racing - Go-Kart Đa Tầng</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image3.png">
+            <a href="sukien3.html">VCBC 2025 - 2026 | Vietnam Collegiate Basketball Championship</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image4.png">
+            <a href="sukien4.html">Giải đấu PICKLEBALL TỨ HÙNG 2026 - SeABank</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image5.png">
+            <a href="sukien5.html">Lion Championship 31 - 2026</a>
+        </div>
+    </div>
+</section>
+        </div>
+    </details>
+    <script>
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const actionBar = document.querySelector(".action-bar");
+const favBtn = document.querySelector(".fav-btn");
+const cartBtn = document.querySelector(".cart-btn");
+
+// ❤️ YÊU THÍCH
+if (favBtn) {
+    favBtn.onclick = () => {
+        const id = actionBar.dataset.id;
+        const name = actionBar.dataset.name;
+
+        const index = favorites.findIndex(i => i.id === id);
+
+        if (index === -1) {
+            favorites.push({ id, name });
+            favBtn.innerText = "💜 Đã thích";
+        } else {
+            favorites.splice(index, 1);
+            favBtn.innerText = "❤️ Yêu thích";
+        }
+
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+    };
+}
+
+// 🛒 GIỎ HÀNG
+if (cartBtn) {
+    cartBtn.onclick = () => {
+        const id = actionBar.dataset.id;
+        const name = actionBar.dataset.name;
+
+        cart.push({ id, name });
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert("Đã thêm vào giỏ 🛒");
+    };
+}
+    </script>
+
+</body>
+</html>

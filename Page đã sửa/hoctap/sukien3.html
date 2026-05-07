@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyện thi chứng chỉ IIBA (ECBA, CCBA, CBAP) 3.0 - ONLINE</title>
+</head>
+<style>
+        /* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f6f6fb;
+    color: #1a1a2e;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px 15px;
+}
+
+/* ================= CONTAINER ================= */
+details {
+    width: 700px;
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+details:hover {
+    transform: translateY(-3px);
+}
+
+/* ================= SUMMARY ================= */
+summary {
+    list-style: none;
+    cursor: pointer;
+    outline: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* ================= IMAGE ================= */
+summary img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Badge */
+summary div div:first-child > div {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #c4b5fd;
+    color: #3b2f63;
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* ================= HEADER CONTENT ================= */
+summary > div:last-child {
+    padding: 24px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #1a1a2e;
+}
+
+/* Giá */
+p span {
+    color: #a78bfa;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Info */
+summary > div:last-child > div {
+    margin: 10px 0;
+    color: #555;
+    font-size: 14.5px;
+}
+
+/* Địa điểm */
+strong {
+    color: #a78bfa;
+}
+
+/* Divider text */
+summary > div:last-child > div:last-child {
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+    margin-top: 15px;
+}
+
+/* ================= EXPAND ================= */
+details > div {
+    padding: 25px;
+    border-top: 1px solid #eee;
+    background: #fafafe;
+}
+
+/* Section */
+section {
+    margin-bottom: 30px;
+}
+
+/* Title */
+h4 {
+    color: #a78bfa;
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-left: 4px solid #a78bfa;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+/* Text */
+section p {
+    color: #444;
+    line-height: 1.8;
+    font-size: 14.5px;
+}
+
+/* List */
+ul {
+    padding-left: 20px;
+    color: #444;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+/* Images */
+section img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 15px 0;
+    border: 1px solid #eee;
+}
+
+/* Box */
+section > div {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    padding: 18px;
+}
+
+/* ================= NOTE ================= */
+section:last-of-type {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.suggest h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #a78bfa;
+    border-left: 4px solid #a78bfa;
+    padding-left: 10px;
+}
+/* ================= BUTTON ================= */
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Active */
+button:not([disabled]) {
+    background: linear-gradient(135deg, #c4b5fd, #a78bfa);
+    color: #fff;
+}
+
+button:not([disabled]):hover {
+    transform: scale(1.03);
+}
+
+/* Disabled */
+button[disabled] {
+    background: #eee;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    details {
+        width: 100%;
+    }
+
+    body {
+        padding: 20px;
+    }
+}
+/* ACTION */
+.action-bar {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.action-bar button {
+    flex: 1;
+}
+
+/* COMMENT */
+.comment-box {
+    margin-top: 30px;
+}
+
+.comment-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.comment-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+#commentList div {
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #eee;
+}
+
+/* SUGGEST */
+.suggest {
+    margin-top: 30px;
+}
+
+.suggest-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+}
+
+.suggest-card {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.suggest-card:hover {
+    transform: scale(1.05);
+}
+
+.suggest-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+</style>
+<body>
+    <details>
+        <summary>
+            <div>
+                <img src="image3.png" alt="Luyện thi chứng chỉ IIBA">
+                <div>
+                    Vé ngừng bán online
+                </div>
+            </div>
+            
+            <div>
+                <h3>
+                    Luyện thi chứng chỉ IIBA (ECBA, CCBA, CBAP) 3.0 - ONLINE
+                </h3>
+                <p>
+                    Giá từ <span>15.300.000đ</span>
+                </p>
+                <div>
+                    <span>🗓️</span> 00:00, 20 Tháng 05, 2026 - 21:00, 28 Tháng 06, 2026
+                </div>
+                <div>
+                    <span>📍</span>
+                    <div>
+                        <strong>Online Event</strong>
+                        <span>Học trực tuyến qua phần mềm Zoom</span>
+                    </div>
+                </div>
+                <div>
+                    ▼ Click để xem Giới thiệu chi tiết, Lịch học & Ban tổ chức ▼
+                </div>
+            </div>
+        </summary>
+
+        <div>
+            
+            <section>
+                <h4>Giới thiệu khóa học</h4>
+                
+                <div>
+                    <p><strong>Khóa học này phù hợp với ai?</strong></p>
+                    <ul>
+                        <li>Sinh viên chuyên ngành CNTT quan tâm đến lĩnh vực phân tích nghiệp vụ phần mềm.</li>
+                        <li>Sinh viên các ngành kinh tế, quản trị, nhân sự, ngoại ngữ..có định hướng theo nghề BA.</li>
+                        <li>Những bạn quan tâm đến nghề "Phân tích nghiệp vụ phần mềm" Business Analyst (BA).</li>
+                        <li>Chuyên viên phân tích nghiệp vụ phần mềm có kinh nghiệm dưới 1 năm.</li>
+                        <li>Người đi làm mong muốn có kiến thức nền tảng BA để chuyển đổi công việc.</li>
+                    </ul>
+
+                    <p><strong>Tại sao bạn nên tham gia khóa học này?</strong></p>
+                    <p>Khóa học giúp bạn tìm hiểu về nghề BA cũng như cách thức để trở thành chuyên gia. Cơ hội tiếp cận chương trình học chuẩn quốc tế do <strong>International Institute of Business Analysis (IIBA®)</strong> công nhận.</p>
+
+                    <p><strong>Những điều bạn có thể đạt được sau khóa học:</strong></p>
+                    <ul>
+                        <li>Nâng cao kiến thức và trở thành chuyên viên BA phần mềm chuyên nghiệp.</li>
+                        <li>Có lộ trình phát triển nghề nghiệp rõ ràng.</li>
+                        <li>Xây dựng kỹ năng cốt lõi và bắt tay thực hiện dự án thực tế.</li>
+                        <li>Đạt được <strong>36 giờ PD</strong> (Professional Development).</li>
+                    </ul>
+
+                    <p><strong>Thông tin về lớp học</strong></p>
+                    <ul>
+                        <li><strong>Ngôn ngữ giảng dạy:</strong> Tiếng Việt</li>
+                        <li><strong>Tài liệu:</strong> Tiếng Anh</li>
+                        <li><strong>Địa điểm học:</strong> ONLINE qua Zoom</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h4>Lịch khai giảng</h4>
+                <div>
+                    <div>
+                        <p>20 Tháng 05, 2026 - 28 Tháng 06, 2026</p>
+                        <p>Vé ngừng bán online</p>
+                    </div>
+                    <div>15.300.000 đ</div>
+                </div>
+            </section>
+
+            <section>
+                <h4>Ban tổ chức</h4>
+                <div>
+                    <img src="sksk3.1.png" alt="BAC Logo">
+                    <div>
+                        <h3>Công ty Cổ Phần Đào tạo và Tư vấn BAC</h3>
+                        <p>BAC là Cty chuyên về đào tạo và tư vấn trong lĩnh vực phân tích nghiệp vụ phần mềm.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div>
+                    <div>
+                        <h4>LƯU Ý</h4>
+                    </div>
+                    <div>
+                        <p>• Tham gia khóa học đúng địa điểm, thời gian quy định.</p>
+                        <p>• Tuân thủ các nội quy lớp học.</p>
+                        <p>• Có tinh thần hợp tác, làm việc nhóm cùng giảng viên.</p>
+                    </div>
+                </div>
+            </section>
+
+            <button type="button" disabled>
+                VÉ NGỪNG BÁN ONLINE
+            </button>
+            <!-- ACTION -->
+<div class="action-bar" data-id="event3" data-name="Luyện Thi Chứng Chỉ IIBA">
+    <button class="cart-btn">🛒 Thêm vào giỏ</button>
+    <button class="fav-btn">❤️ Yêu thích</button>
+</div>
+
+<!-- COMMENT -->
+<section class="comment-box">
+    <h4>Bình luận</h4>
+
+    <div class="comment-input">
+        <input type="text" id="cmtInput" placeholder="Viết bình luận...">
+        <button onclick="addComment()">Gửi</button>
+    </div>
+
+    <div id="commentList"></div>
+</section>
+
+<!-- SUGGEST -->
+<section class="suggest">
+    <h4>Bạn có thể thích</h4>
+
+    <div class="suggest-grid">
+        <div class="suggest-card">
+            <img src="image1.png">
+            <a href="sukien1.html">Thiền Tập Bên Nhau - Đón Chào Năm Mới 2026</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="sksk2.2.png">
+            <a href="sukien2.html">Sự kiện: Cùng Con Du Học Không Khó - SBS</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image4.png">
+            <a href="sukien4.html">[Metashow] Triển Lãm Nghệ Thuật Ánh Sáng</a>
+        </div>
+
+        <div class="suggest-card">
+            <img src="image5.png">
+            <a href="sukien5.html">THE GLOBAL LEADERSHIP SUMMIT 2026</a>
+        </div>
+    </div>
+</section>
+        </div>
+    </details>
+<script>
+function addToCart() {
+    alert("Đã thêm vào giỏ hàng 🛒");
+}
+
+let liked = false;
+function toggleLike() {
+    liked = !liked;
+    alert(liked ? "Đã thêm vào yêu thích ❤️" : "Đã bỏ yêu thích");
+}
+
+function addComment() {
+    let input = document.getElementById("cmtInput");
+    let text = input.value.trim();
+
+    if(text === "") return;
+
+    let div = document.createElement("div");
+    div.innerText = text;
+
+    document.getElementById("commentList").prepend(div);
+    input.value = "";
+}
+
+
+// LƯU YÊU THÍCH //
+// ================= INIT =================
+let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// ================= SELECT =================
+const favButtons = document.querySelectorAll(".fav-btn");
+const cartButtons = document.querySelectorAll(".cart-btn");
+
+const favIcon = document.getElementById("favIcon");
+const cartIcon = document.getElementById("cartIcon");
+
+// ================= FAVORITE =================
+favButtons.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        const card = btn.closest(".card");
+        const id = card.dataset.id;
+        const name = card.dataset.name;
+
+        const index = favorites.findIndex(item => item.id === id);
+
+        if (index === -1) {
+            favorites.push({ id, name });
+            btn.innerText = "💜";
+        } else {
+            favorites.splice(index, 1);
+            btn.innerText = "❤️";
+        }
+
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+        updateIcons();
+    });
+});
+
+// ================= CART =================
+cartButtons.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        const card = btn.closest(".card");
+        const id = card.dataset.id;
+        const name = card.dataset.name;
+
+        cart.push({ id, name });
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateIcons();
+
+        alert("Đã thêm vào giỏ 🛒");
+    });
+});
+
+// ================= UPDATE ICON =================
+function updateIcons() {
+    favIcon.innerText = `❤️ (${favorites.length})`;
+    cartIcon.innerText = `🛒 (${cart.length})`;
+}
+
+// ================= CLICK ICON =================
+favIcon.addEventListener("click", () => {
+    alert("Danh sách yêu thích:\n" + favorites.map(i => i.name).join("\n"));
+});
+
+cartIcon.addEventListener("click", () => {
+    alert("Giỏ hàng:\n" + cart.map(i => i.name).join("\n"));
+});
+
+// ================= LOAD =================
+updateIcons();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Form box */
+.form-box {
+    background:#ddc3f8;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border: 1px solid #a18cd1;
+}
+
+/* Title */
+h2 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 20px;
+    color: #20074b;
+}
+
+/* Input group */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #430845;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d49ae0;
+    border-radius: 6px;
+    background: #f3ebf3;
+}
+
+/* Button */
+.btn {
+    width: 100%;
+    padding: 10px;
+    background: #ba8deb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #d2aaf9;
+}
+
+/* Divider */
+.divider {
+    text-align: center;
+    margin: 15px 0;
+    color: #e3caf1;
+}
+
+/* Google button */
+.google-btn {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d49ae0;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.google-btn img {
+    margin-right: 5px;
+}
+
+/* Link */
+p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+a {
+    color: linear-gradient(90deg, #a18cd1, #fbc2eb);
+    text-decoration: none;
+}
+.form-box#successBox {
+    display: none;
+    text-align: center;
+}
+.chuyentrang {
+    color: #d4a4e1;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+#logoutBtn {
+    background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+}
+/* CSS cho tính năng Ẩn/Hiện mật khẩu */
+.input-group {
+    position: relative; /* Rất quan trọng để giữ con mắt nằm bên trong nhóm này */
+}
+
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 35px; /* Căn chỉnh lại cho vừa với ô input */
+    cursor: pointer;
+    z-index: 10; /* Đảm bảo con mắt nằm trên cùng */
+}
+
+#strength-text {
+    display: block;
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: bold;
+}
