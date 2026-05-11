@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore Website</title>
+
+    <style>
+        /* General page style */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f5f0;
+            margin: 0;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #5a3e2b;
+        }
+
+        /* Toggle button */
+        button {
+            background: #8b5e3c;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background: #6f472d;
+        }
+
+        /* Hidden class */
+        .hidden {
+            display: none;
+        }
+
+        /* Navigation bar */
+        nav {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #5a3e2b;
+            font-weight: bold;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: #b07648;
+        }
+
+        /* Content box */
+        .tab-content {
+            display: none;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            max-width: 700px;
+            margin: auto;
+        }
+
+        /* Active tab */
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to Our Bookstore</h1>
+
+    <!-- Toggle button -->
+    <button onclick="toggleMenu()">Toggle Menu</button>
+
+    <!-- Navigation menu -->
+    <nav id="menu">
+        <a onclick="showTab('home')">Home</a> •
+        <a onclick="showTab('books')">Books &copy;</a> •
+        <a onclick="showTab('authors')">Authors &trade;</a> •
+        <a onclick="showTab('contact')">Contact</a>
+    </nav>
+
+    <!-- Home tab -->
+    <div id="home" class="tab-content active">
+        <h2>Home</h2>
+        <p>Welcome to our online bookstore where knowledge meets imagination.</p>
+    </div>
+
+    <!-- Books tab -->
+    <div id="books" class="tab-content">
+        <h2>Books ©</h2>
+        <p>Explore novels, textbooks, self-help books, and more.</p>
+    </div>
+
+    <!-- Authors tab -->
+    <div id="authors" class="tab-content">
+        <h2>Authors ™</h2>
+        <p>Discover talented writers and their inspiring stories.</p>
+    </div>
+
+    <!-- Contact tab -->
+    <div id="contact" class="tab-content">
+        <h2>Contact</h2>
+        <p>Email: bookstore@email.com</p>
+        <p>Phone: 0123-456-789</p>
+    </div>
+
+    <script>
+        /*
+        toggleMenu()
+        Show / hide navigation menu
+        */
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("hidden");
+        }
+
+        /*
+        showTab(tabId)
+
+        Chức năng:
+        - Hide tất cả tabs
+        - Chỉ show tab được click
+        */
+
+        function showTab(tabId) {
+            let tabs = document.querySelectorAll(".tab-content");
+
+            tabs.forEach(tab => {
+                tab.classList.remove("active");
+            });
+
+            document.getElementById(tabId).classList.add("active");
+        }
+    </script>
+
+</body>
+</html>

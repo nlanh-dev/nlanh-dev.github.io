@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 3</title>
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background: #f4f6fb;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h2{
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    table{
+      width: 70%;
+      margin: auto;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td{
+      padding: 15px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    th{
+      background: #4a90e2;
+      color: white;
+    }
+
+    /* Alternating row colors */
+    tr:nth-child(even){
+      background: #f2f2f2;
+    }
+
+    tr:hover{
+      background: #eaf3ff;
+    }
+
+    input{
+      width: 80px;
+      padding: 8px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button{
+      margin-top: 20px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #4a90e2;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover{
+      background: #357bd8;
+    }
+
+    #result{
+      margin-top: 20px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>
+    Student Grade Calculator &reg; &dollar; &ge;
+  </h2>
+
+  <table>
+
+    <tr>
+      <th>Subject</th>
+      <th>Grade</th>
+    </tr>
+
+    <tr>
+      <td>Mathematics</td>
+      <td><input type="number" class="grade" placeholder="Enter"></td>
+    </tr>
+
+    <tr>
+      <td>Physics</td>
+      <td><input type="number" class="grade" placeholder="Enter"></td>
+    </tr>
+
+    <tr>
+      <td>English</td>
+      <td><input type="number" class="grade" placeholder="Enter"></td>
+    </tr>
+
+    <tr>
+      <td>Computer Science</td>
+      <td><input type="number" class="grade" placeholder="Enter"></td>
+    </tr>
+
+  </table>
+
+  <button onclick="calculateAverage()">
+    Calculate Average
+  </button>
+
+  <div id="result"></div>
+
+  <script>
+
+    function calculateAverage(){
+
+      // Get all input grades
+      let grades = document.querySelectorAll(".grade");
+
+      let total = 0;
+
+      grades.forEach(function(item){
+
+        total += Number(item.value);
+
+      });
+
+      // Calculate average
+      let average = total / grades.length;
+
+      // Display result
+      document.getElementById("result").innerHTML =
+        "Average Grade: " + average.toFixed(2);
+
+    }
+
+  </script>
+
+</body>
+</html>

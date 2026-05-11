@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 7 - Contact Form</title>
+
+    <style>
+        /*
+            VI: Reset co ban giup tinh kich thuoc phan tu de du doan hon.
+            EN: Basic reset to make element sizing more predictable.
+        */
+        * {
+            box-sizing: border-box;
+        }
+
+        /*
+            VI: Can giua form theo chieu ngang va doc bang Flexbox.
+            EN: Center the form both horizontally and vertically with Flexbox.
+        */
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            background: #edf2f7;
+            color: #1f2937;
+        }
+
+        /*
+            VI: Hop form co vien, bo goc nhe va bong do de noi bat tren nen.
+            EN: Form container with border, soft corners, and shadow for contrast.
+        */
+        .contact-card {
+            width: 100%;
+            max-width: 460px;
+            padding: 32px;
+            border: 1px solid #d8dee8;
+            border-radius: 8px;
+            background: #ffffff;
+            box-shadow: 0 18px 45px rgba(31, 41, 55, 0.12);
+        }
+
+        .contact-card h1 {
+            margin: 0 0 8px;
+            text-align: center;
+            font-size: 28px;
+            color: #111827;
+        }
+
+        .contact-card p {
+            margin: 0 0 26px;
+            text-align: center;
+            line-height: 1.5;
+            color: #5b6472;
+        }
+
+        /*
+            VI: Moi nhom input gom label, truong nhap va thong bao loi.
+            EN: Each input group contains a label, field, and error message.
+        */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #374151;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 12px 14px;
+            font: inherit;
+            color: #111827;
+            background: #f8fafc;
+            transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.16);
+        }
+
+        /*
+            VI: Class error duoc them bang JavaScript khi nguoi dung bo trong field.
+            EN: The error class is added by JavaScript when a field is empty.
+        */
+        .error {
+            border-color: #dc2626;
+            background: #fff7f7;
+        }
+
+        .error-message {
+            min-height: 18px;
+            margin-top: 5px;
+            font-size: 13px;
+            color: #dc2626;
+        }
+
+        button {
+            width: 100%;
+            border: none;
+            border-radius: 6px;
+            padding: 13px 16px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            background: #2563eb;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        /*
+            VI: Thong bao thanh cong an mac dinh, chi hien sau khi form hop le.
+            EN: Success message is hidden by default and appears after valid submit.
+        */
+        .success-message {
+            display: none;
+            margin-top: 18px;
+            padding: 12px 14px;
+            border: 1px solid #86efac;
+            border-radius: 6px;
+            text-align: center;
+            color: #166534;
+            background: #f0fdf4;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <main class="contact-card">
+        <h1>Contact Us</h1>
+        <p>Please fill in all fields before submitting the form.</p>
+
+        <form id="contactForm" novalidate>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name">
+                <div class="error-message" id="nameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+                <div class="error-message" id="emailError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Write your message"></textarea>
+                <div class="error-message" id="messageError"></div>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="success-message" id="successMessage">
+            Form submitted successfully!
+        </div>
+    </main>
+
+    <script>
+        /*
+            VI: Lay cac phan tu HTML can dung de validate form.
+            EN: Select the HTML elements needed for form validation.
+        */
+        const contactForm = document.getElementById("contactForm");
+        const successMessage = document.getElementById("successMessage");
+
+        /*
+            VI: Ham hien loi cho tung field.
+            EN: Function to show an error for a specific field.
+        */
+        function showError(inputId, errorText) {
+            const input = document.getElementById(inputId);
+            const errorBox = document.getElementById(inputId + "Error");
+
+            input.classList.add("error");
+            errorBox.textContent = errorText;
+        }
+
+        /*
+            VI: Ham xoa loi khi field da duoc nhap noi dung.
+            EN: Function to clear the error when the field has content.
+        */
+        function clearError(inputId) {
+            const input = document.getElementById(inputId);
+            const errorBox = document.getElementById(inputId + "Error");
+
+            input.classList.remove("error");
+            errorBox.textContent = "";
+        }
+
+        /*
+            VI: Khi bam Submit, ngan form reload trang va kiem tra field rong.
+            EN: On Submit, stop page reload and check for empty fields.
+        */
+        contactForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+            let isValid = true;
+
+            successMessage.classList.remove("show");
+
+            if (name === "") {
+                showError("name", "Please enter your name.");
+                isValid = false;
+            } else {
+                clearError("name");
+            }
+
+            if (email === "") {
+                showError("email", "Please enter your email.");
+                isValid = false;
+            } else {
+                clearError("email");
+            }
+
+            if (message === "") {
+                showError("message", "Please enter your message.");
+                isValid = false;
+            } else {
+                clearError("message");
+            }
+
+            /*
+                VI: Neu tat ca field da duoc dien, hien thong bao thanh cong.
+                EN: If all fields are filled, show the success message.
+            */
+            if (isValid) {
+                successMessage.classList.add("show");
+                contactForm.reset();
+            }
+        });
+    </script>
+</body>
+</html>

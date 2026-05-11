@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Bộ mã UTF-8 để hiển thị tiếng Việt và ký tự đặc biệt -->
+  <meta charset="UTF-8">
+
+  <!-- Giúp website responsive trên điện thoại -->
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Exercise 5</title>
+
+  <style>
+
+    /* Style cho toàn bộ body */
+    body{
+      font-family: Arial, sans-serif;
+      background: #f4f6fb;
+      padding: 40px;
+    }
+
+    /* Khung chính */
+    .container{
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Tiêu đề */
+    h1{
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* Khu vực chứa các tab */
+    .tabs{
+
+      /*
+        display:flex
+        giúp các tab nằm ngang
+      */
+      display: flex;
+
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    /* Style mặc định của tab */
+    .tab{
+
+      /*
+        flex:1
+        giúp các tab rộng đều nhau
+      */
+      flex: 1;
+
+      padding: 14px;
+
+      border: none;
+
+      border-radius: 10px;
+
+      cursor: pointer;
+
+      font-size: 16px;
+
+      background: #dfe6f5;
+
+      transition: 0.3s;
+    }
+
+    /*
+      Class active
+      dùng cho tab đang được chọn
+    */
+    .active{
+
+      background: #4a90e2;
+
+      color: white;
+
+      font-weight: bold;
+    }
+
+    /* Khu vực hiển thị nội dung */
+    .content{
+
+      background: #f7f9ff;
+
+      padding: 25px;
+
+      border-radius: 10px;
+
+      min-height: 180px;
+
+      line-height: 1.7;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>
+
+      <!-- HTML entities -->
+      Tabbed Interface &reg; &euro; &rarr;
+
+    </h1>
+
+    <!-- Khu vực tab -->
+    <div class="tabs">
+
+      <!--
+        onclick:
+        khi click sẽ gọi hàm switchTab()
+
+        'features':
+        tên tab
+
+        this:
+        button hiện tại đang click
+      -->
+
+      <button class="tab active"
+              onclick="switchTab('features', this)">
+
+        → Features
+
+      </button>
+
+      <button class="tab"
+              onclick="switchTab('pricing', this)">
+
+        → Pricing
+
+      </button>
+
+      <button class="tab"
+              onclick="switchTab('reviews', this)">
+
+        → Reviews
+
+      </button>
+
+      <button class="tab"
+              onclick="switchTab('support', this)">
+
+        → Support
+
+      </button>
+
+    </div>
+
+    <!--
+      contentBox:
+      nơi hiển thị nội dung tab
+    -->
+    <div class="content"
+         id="contentBox">
+
+      <h2>Features</h2>
+
+      <p>
+        Our product includes modern design,
+        fast performance and strong security.
+      </p>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    /*
+      Hàm switchTab()
+
+      tabName:
+      tên tab được click
+
+      element:
+      button hiện tại
+    */
+
+    function switchTab(tabName, element){
+
+      /*
+        Lấy tất cả phần tử
+        có class là tab
+      */
+      let tabs =
+        document.getElementsByClassName("tab");
+
+
+      /*
+        for loop:
+        chạy qua từng tab
+      */
+      for(let i = 0; i < tabs.length; i++){
+
+        /*
+          Xóa class active
+          khỏi tất cả tab
+        */
+        tabs[i]
+          .classList
+          .remove("active");
+
+      }
+
+
+      /*
+        Thêm class active
+        cho tab vừa click
+      */
+      element
+        .classList
+        .add("active");
+
+
+      /*
+        Lấy div contentBox
+      */
+      let content =
+        document.getElementById("contentBox");
+
+
+      /*
+        Nếu tabName là features
+        thì đổi nội dung
+      */
+      if(tabName == "features"){
+
+        /*
+          innerHTML:
+          thay đổi HTML bên trong div
+        */
+        content.innerHTML = `
+
+          <h2>Features</h2>
+
+          <p>
+            Our product includes modern design,
+            fast performance and strong security.
+          </p>
+
+        `;
+
+      }
+
+
+      /*
+        Nếu click Pricing
+      */
+      else if(tabName == "pricing"){
+
+        content.innerHTML = `
+
+          <h2>Pricing</h2>
+
+          <p>
+            Basic Plan: €10/month <br>
+            Premium Plan: €25/month <br>
+            Enterprise Plan: €50/month
+          </p>
+
+        `;
+
+      }
+
+
+      /*
+        Nếu click Reviews
+      */
+      else if(tabName == "reviews"){
+
+        content.innerHTML = `
+
+          <h2>Reviews</h2>
+
+          <p>
+            ⭐⭐⭐⭐⭐ Excellent product! <br>
+            ⭐⭐⭐⭐ Easy to use interface.
+          </p>
+
+        `;
+
+      }
+
+
+      /*
+        Nếu click Support
+      */
+      else if(tabName == "support"){
+
+        content.innerHTML = `
+
+          <h2>Support</h2>
+
+          <p>
+            Email: support@email.com <br>
+            Hotline: 0123 456 789
+          </p>
+
+        `;
+
+      }
+
+    }
+
+  </script>
+
+</body>
+
+</html>

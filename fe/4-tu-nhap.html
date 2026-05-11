@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 4</title>
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      padding: 40px;
+    }
+
+    h1{
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .top-box{
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+
+    .input-group{
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+
+    input, select{
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      flex: 1;
+    }
+
+    button{
+      padding: 12px 18px;
+      border: none;
+      border-radius: 10px;
+      background: #4a90e2;
+      color: white;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    button:hover{
+      background: #357bd8;
+    }
+
+    .menu-container{
+      max-width: 900px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .menu-section{
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .menu-section h2{
+      margin-bottom: 15px;
+      color: #4a90e2;
+    }
+
+    .item{
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      background: #f2f2f2;
+    }
+
+    .price{
+      float: right;
+      color: #ff6b6b;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Restaurant Menu &reg; &dollar; &ge;</h1>
+
+  <!-- Input Form -->
+  <div class="top-box">
+
+    <div class="input-group">
+      <input type="text" id="foodName" placeholder="Enter food name">
+
+      <input type="number" id="foodPrice" placeholder="Enter price">
+
+      <select id="foodCategory">
+        <option>Appetizers</option>
+        <option>Main Course</option>
+        <option>Desserts</option>
+        <option>Drinks</option>
+      </select>
+
+      <select id="foodType">
+        <option value="vegetarian">Vegetarian</option>
+        <option value="normal">Normal</option>
+      </select>
+    </div>
+
+    <button onclick="addFood()">
+      Add Menu Item
+    </button>
+
+    <button onclick="filterMenu()">
+      Filter Vegetarian
+    </button>
+
+  </div>
+
+  <!-- Menu Sections -->
+  <div class="menu-container">
+
+    <div class="menu-section">
+      <h2>Appetizers</h2>
+      <div id="Appetizers"></div>
+    </div>
+
+    <div class="menu-section">
+      <h2>Main Course</h2>
+      <div id="Main Course"></div>
+    </div>
+
+    <div class="menu-section">
+      <h2>Desserts</h2>
+      <div id="Desserts"></div>
+    </div>
+
+    <div class="menu-section">
+      <h2>Drinks</h2>
+      <div id="Drinks"></div>
+    </div>
+
+  </div>
+
+  <script>
+
+    let showVegetarian = false;
+
+    // Add food item
+    function addFood(){
+
+      let name = document.getElementById("foodName").value;
+      let price = document.getElementById("foodPrice").value;
+      let category = document.getElementById("foodCategory").value;
+      let type = document.getElementById("foodType").value;
+
+      if(name == "" || price == ""){
+        alert("Please enter all information!");
+        return;
+      }
+
+      // Create new item
+      let newItem = document.createElement("div");
+
+      newItem.className = "item";
+
+      // Add vegetarian class
+      if(type == "vegetarian"){
+        newItem.classList.add("vegetarian");
+      }
+
+      newItem.innerHTML =
+        name +
+        '<span class="price">$' + price + '</span>';
+
+      // Add into correct category
+      document.getElementById(category).appendChild(newItem);
+
+      // Clear inputs
+      document.getElementById("foodName").value = "";
+      document.getElementById("foodPrice").value = "";
+    }
+
+    // Filter menu
+    function filterMenu(){
+
+      let items = document.getElementsByClassName("item");
+
+      showVegetarian = !showVegetarian;
+
+      for(let i = 0; i < items.length; i++){
+
+        if(showVegetarian){
+
+          if(!items[i].classList.contains("vegetarian")){
+            items[i].style.display = "none";
+          }
+
+        } else {
+
+          items[i].style.display = "block";
+
+        }
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>

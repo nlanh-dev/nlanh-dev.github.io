@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 9 - Product Showcase</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 32px 20px;
+            display: grid;
+            place-items: center;
+            font-family: Arial, sans-serif;
+            background: #f3f6fb;
+            color: #1f2937;
+        }
+
+        .showcase {
+            width: 100%;
+            max-width: 980px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: 32px;
+            color: #111827;
+        }
+
+        .intro {
+            margin: 0 auto 24px;
+            max-width: 560px;
+            line-height: 1.6;
+            color: #5b6472;
+        }
+
+        .toggle-btn {
+            margin-bottom: 28px;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            background: #2563eb;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .toggle-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            min-height: 250px;
+            padding: 24px;
+            border: 1px solid #d8dee8;
+            border-radius: 8px;
+            text-align: left;
+            background: #ffffff;
+            box-shadow: 0 12px 30px rgba(31, 41, 55, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            border-color: #93c5fd;
+            box-shadow: 0 20px 45px rgba(37, 99, 235, 0.18);
+        }
+
+        .product-card h2 {
+            margin: 0 0 12px;
+            font-size: 20px;
+            color: #111827;
+        }
+
+        .price {
+            margin: 0 0 14px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .description {
+            flex: 1;
+            margin: 0 0 18px;
+            line-height: 1.5;
+            color: #5b6472;
+        }
+
+        .details-link {
+            font-weight: bold;
+            color: #1d4ed8;
+            text-decoration: none;
+        }
+
+        .details-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 860px) {
+            .product-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 560px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="showcase">
+        <h1>NovaGear&reg; Product Showcase</h1>
+        <p class="intro">
+            Explore our latest essentials with clean design, useful features, and simple pricing.
+        </p>
+
+        <button class="toggle-btn" type="button" onclick="togglePrice()">Toggle Price</button>
+
+        <section class="product-grid" aria-label="Product list">
+            <article class="product-card">
+                <h2>NovaGear&reg; Backpack</h2>
+                <p class="price">&euro;59</p>
+                <p class="description">A lightweight daily backpack with padded storage for school, travel, and work.</p>
+                <a class="details-link" href="#">View details &rarr;</a>
+            </article>
+
+            <article class="product-card">
+                <h2>Desk Lamp Pro</h2>
+                <p class="price">&euro;34</p>
+                <p class="description">A compact LED desk lamp with warm light settings and a flexible neck.</p>
+                <a class="details-link" href="#">View details &rarr;</a>
+            </article>
+
+            <article class="product-card">
+                <h2>Focus Bottle</h2>
+                <p class="price">&euro;22</p>
+                <p class="description">A stainless steel bottle that keeps drinks cold and fits neatly in your bag.</p>
+                <a class="details-link" href="#">View details &rarr;</a>
+            </article>
+
+            <article class="product-card">
+                <h2>Sound Mini</h2>
+                <p class="price">&euro;79</p>
+                <p class="description">A portable wireless speaker with clear sound for study breaks and small rooms.</p>
+                <a class="details-link" href="#">View details &rarr;</a>
+            </article>
+        </section>
+    </main>
+
+    <script>
+        function togglePrice() {
+            const prices = document.getElementsByClassName("price");
+
+            for (let i = 0; i < prices.length; i++) {
+                if (prices[i].style.display === "none") {
+                    prices[i].style.display = "block";
+                } else {
+                    prices[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!-- ========================= -->
+<!-- EXERCISE 1 -->
+<!-- User Registration Form -->
+<!-- ========================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 1</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background: #f4f6fb;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    .container{
+      background:white;
+      width:400px;
+      padding:30px;
+      border-radius:15px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2{
+      text-align:center;
+      margin-bottom:25px;
+      color:#333;
+    }
+
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .form-group{
+      display:flex;
+      flex-direction:column;
+    }
+
+    label{
+      margin-bottom:6px;
+      font-weight:bold;
+      color:#444;
+    }
+
+    input{
+      padding:10px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      font-size:15px;
+    }
+
+    input:focus{
+      outline:none;
+      border-color:#4a90e2;
+    }
+
+    .strength{
+      margin-top:8px;
+      font-weight:bold;
+    }
+
+    .weak{
+      color:red;
+    }
+
+    .medium{
+      color:orange;
+    }
+
+    .strong{
+      color:green;
+    }
+
+    button{
+      padding:12px;
+      border:none;
+      border-radius:10px;
+      background:#4a90e2;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#357bd8;
+    }
+
+    .error{
+      color:red;
+      font-size:13px;
+      margin-top:5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>User Registration</h2>
+
+    <form id="registerForm">
+
+      <!-- Username -->
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" id="username" placeholder="Enter username">
+        <small class="error" id="userError"></small>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Enter password">
+        
+        <div class="strength" id="strengthText">
+          Password Strength
+        </div>
+
+        <small class="error" id="passError"></small>
+      </div>
+
+      <!-- Profile Picture -->
+      <div class="form-group">
+        <label>Profile Picture</label>
+        <input type="file" id="image">
+        <small class="error" id="imgError"></small>
+      </div>
+
+      <button type="submit">Register</button>
+
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("registerForm");
+    const username = document.getElementById("username");
+    const password = document.getElementById("password");
+    const image = document.getElementById("image");
+
+    const strengthText = document.getElementById("strengthText");
+
+    // Password strength indicator
+    password.addEventListener("input", function(){
+
+      let value = password.value;
+
+      if(value.length < 6){
+        strengthText.textContent = "Weak Password";
+        strengthText.className = "strength weak";
+      }
+      else if(value.match(/[A-Za-z]/) && value.match(/[0-9]/)){
+        strengthText.textContent = "Strong Password";
+        strengthText.className = "strength strong";
+      }
+      else{
+        strengthText.textContent = "Medium Password";
+        strengthText.className = "strength medium";
+      }
+
+    });
+
+    // Form validation
+    form.addEventListener("submit", function(e){
+
+      e.preventDefault();
+
+      let valid = true;
+
+      // Username validation
+      if(username.value.length < 5 || username.value.length > 15){
+        document.getElementById("userError").textContent =
+          "Username must be 5-15 characters";
+        valid = false;
+      }
+      else{
+        document.getElementById("userError").textContent = "";
+      }
+
+      // Password validation
+      const passPattern = /^(?=.*[A-Za-z])(?=.*\d).+$/;
+
+      if(!passPattern.test(password.value)){
+        document.getElementById("passError").textContent =
+          "Password must contain letters and numbers";
+        valid = false;
+      }
+      else{
+        document.getElementById("passError").textContent = "";
+      }
+
+      // Image validation
+      const file = image.files[0];
+
+      if(file){
+        const fileType = file.type;
+
+        if(fileType !== "image/jpeg" && fileType !== "image/png"){
+          document.getElementById("imgError").textContent =
+            "Image must be JPG or PNG";
+          valid = false;
+        }
+        else{
+          document.getElementById("imgError").textContent = "";
+        }
+      }
+
+      if(valid){
+        alert("Registration Successful!");
+      }
+
+    });
+  </script>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 8 - Newsletter Subscription</title>
+
+    <style>
+        /*
+            VI: Reset co ban de padding va border khong lam lech kich thuoc phan tu.
+            EN: Basic reset so padding and borders do not break element sizing.
+        */
+        * {
+            box-sizing: border-box;
+        }
+
+        /*
+            VI: Can giua toan bo form o giua man hinh bang Grid.
+            EN: Center the whole form in the viewport with Grid.
+        */
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 24px;
+            display: grid;
+            place-items: center;
+            font-family: Arial, sans-serif;
+            background: #eef6f3;
+            color: #1f2937;
+        }
+
+        /*
+            VI: Khung chua form co vien, nen trang va bong do nhe cho dep mat.
+            EN: Form wrapper with border, white background, and soft shadow.
+        */
+        .newsletter-card {
+            width: 100%;
+            max-width: 720px;
+            padding: 32px;
+            border: 1px solid #cfded8;
+            border-radius: 8px;
+            background: #ffffff;
+            box-shadow: 0 20px 50px rgba(31, 41, 55, 0.12);
+        }
+
+        .newsletter-card h1 {
+            margin: 0 0 8px;
+            text-align: center;
+            font-size: 30px;
+            color: #0f3d35;
+        }
+
+        .newsletter-card > p {
+            margin: 0 0 28px;
+            text-align: center;
+            line-height: 1.5;
+            color: #5d6b66;
+        }
+
+        /*
+            VI: CSS Grid chia form thanh 2 cot tren man hinh lon.
+            EN: CSS Grid splits the form into two columns on larger screens.
+        */
+        .subscription-form {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .form-group,
+        fieldset,
+        .form-actions,
+        .success-message {
+            min-width: 0;
+        }
+
+        /*
+            VI: full-row giup phan tu chiem ca 2 cot cua grid.
+            EN: full-row lets an element span both grid columns.
+        */
+        .full-row {
+            grid-column: 1 / -1;
+        }
+
+        label,
+        legend {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2f3b37;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            border: 1px solid #b9c8c2;
+            border-radius: 6px;
+            padding: 12px 14px;
+            font: inherit;
+            color: #111827;
+            background: #f8fbfa;
+            transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #0f766e;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.16);
+        }
+
+        /*
+            VI: Fieldset dung de gom radio va checkbox theo dung ngu nghia HTML.
+            EN: Fieldsets group radio buttons and checkboxes semantically.
+        */
+        fieldset {
+            margin: 0;
+            padding: 16px;
+            border: 1px solid #cfded8;
+            border-radius: 8px;
+            background: #f8fbfa;
+        }
+
+        .option-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 42px;
+            padding: 10px 12px;
+            border: 1px solid #d7e3de;
+            border-radius: 6px;
+            background: #ffffff;
+            cursor: pointer;
+        }
+
+        .option input {
+            accent-color: #0f766e;
+        }
+
+        /*
+            VI: Lop error duoc JavaScript them vao khi du lieu chua hop le.
+            EN: JavaScript adds the error class when input data is invalid.
+        */
+        .error {
+            border-color: #dc2626 !important;
+            background: #fff7f7 !important;
+        }
+
+        .error-message {
+            min-height: 18px;
+            margin-top: 6px;
+            font-size: 13px;
+            color: #dc2626;
+        }
+
+        .form-actions {
+            grid-column: 1 / -1;
+        }
+
+        button {
+            width: 100%;
+            border: none;
+            border-radius: 6px;
+            padding: 14px 18px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            background: #0f766e;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        button:hover {
+            background: #115e59;
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        /*
+            VI: Thong bao thanh cong an mac dinh, chi hien khi form hop le.
+            EN: Success message is hidden by default and shown only for a valid form.
+        */
+        .success-message {
+            display: none;
+            grid-column: 1 / -1;
+            padding: 13px 15px;
+            border: 1px solid #86efac;
+            border-radius: 6px;
+            text-align: center;
+            color: #166534;
+            background: #f0fdf4;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /*
+            VI: Tren man hinh nho, form chuyen ve 1 cot de khong bi chen chu.
+            EN: On small screens, the form becomes one column to prevent cramped text.
+        */
+        @media (max-width: 640px) {
+            .newsletter-card {
+                padding: 24px;
+            }
+
+            .subscription-form,
+            .option-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="newsletter-card">
+        <h1>Newsletter Subscription</h1>
+        <p>Choose your plan and interests to receive updates that match your taste.</p>
+
+        <form class="subscription-form" id="subscriptionForm" novalidate>
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name">
+                <div class="error-message" id="fullNameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="example@email.com">
+                <div class="error-message" id="emailError"></div>
+            </div>
+
+            <fieldset>
+                <legend>Subscription Type</legend>
+                <div class="option-grid">
+                    <label class="option" for="monthly">
+                        <input type="radio" id="monthly" name="subscriptionType" value="Monthly" checked>
+                        Monthly
+                    </label>
+                    <label class="option" for="yearly">
+                        <input type="radio" id="yearly" name="subscriptionType" value="Yearly">
+                        Yearly
+                    </label>
+                </div>
+            </fieldset>
+
+            <fieldset id="interestsGroup">
+                <legend>Interests</legend>
+                <div class="option-grid">
+                    <label class="option" for="tech">
+                        <input type="checkbox" id="tech" name="interests" value="Technology">
+                        Technology
+                    </label>
+                    <label class="option" for="design">
+                        <input type="checkbox" id="design" name="interests" value="Design">
+                        Design
+                    </label>
+                    <label class="option" for="business">
+                        <input type="checkbox" id="business" name="interests" value="Business">
+                        Business
+                    </label>
+                    <label class="option" for="education">
+                        <input type="checkbox" id="education" name="interests" value="Education">
+                        Education
+                    </label>
+                </div>
+                <div class="error-message" id="interestsError"></div>
+            </fieldset>
+
+            <div class="form-actions">
+                <button type="submit">Subscribe</button>
+            </div>
+
+            <div class="success-message" id="successMessage">
+                Subscription completed successfully!
+            </div>
+        </form>
+    </main>
+
+    <script>
+        /*
+            VI: Lay form va thong bao thanh cong tu HTML.
+            EN: Select the form and success message from the HTML.
+        */
+        const subscriptionForm = document.getElementById("subscriptionForm");
+        const successMessage = document.getElementById("successMessage");
+
+        /*
+            VI: Email hop le can co @ va phan domain nhu .com, .vn,...
+            EN: A valid email needs @ and a domain part like .com, .vn, etc.
+        */
+        function isValidEmail(email) {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailPattern.test(email);
+        }
+
+        /*
+            VI: Ham hien loi cho input text/email.
+            EN: Function to show an error for a text/email input.
+        */
+        function showInputError(inputId, message) {
+            const input = document.getElementById(inputId);
+            const errorBox = document.getElementById(inputId + "Error");
+
+            input.classList.add("error");
+            errorBox.textContent = message;
+        }
+
+        /*
+            VI: Ham xoa loi cua input khi du lieu da dung.
+            EN: Function to clear an input error when the data is valid.
+        */
+        function clearInputError(inputId) {
+            const input = document.getElementById(inputId);
+            const errorBox = document.getElementById(inputId + "Error");
+
+            input.classList.remove("error");
+            errorBox.textContent = "";
+        }
+
+        /*
+            VI: Kiem tra nguoi dung da chon it nhat mot so thich hay chua.
+            EN: Check whether the user selected at least one interest.
+        */
+        function hasSelectedInterest() {
+            const checkedInterests = document.querySelectorAll("input[name='interests']:checked");
+            return checkedInterests.length > 0;
+        }
+
+        /*
+            VI: Khi submit, chan reload trang va kiem tra cac dieu kien validation.
+            EN: On submit, prevent page reload and run the validation rules.
+        */
+        subscriptionForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const fullName = document.getElementById("fullName").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const interestsGroup = document.getElementById("interestsGroup");
+            const interestsError = document.getElementById("interestsError");
+            let isValid = true;
+
+            successMessage.classList.remove("show");
+
+            if (fullName === "") {
+                showInputError("fullName", "Please enter your full name.");
+                isValid = false;
+            } else {
+                clearInputError("fullName");
+            }
+
+            if (email === "") {
+                showInputError("email", "Please enter your email.");
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                showInputError("email", "Email must contain @ and a valid domain.");
+                isValid = false;
+            } else {
+                clearInputError("email");
+            }
+
+            if (!hasSelectedInterest()) {
+                interestsGroup.classList.add("error");
+                interestsError.textContent = "Please select at least one interest.";
+                isValid = false;
+            } else {
+                interestsGroup.classList.remove("error");
+                interestsError.textContent = "";
+            }
+
+            /*
+                VI: Neu form hop le, hien thong bao thanh cong va reset form.
+                EN: If the form is valid, show the success message and reset the form.
+            */
+            if (isValid) {
+                successMessage.classList.add("show");
+                subscriptionForm.reset();
+                document.getElementById("monthly").checked = true;
+            }
+        });
+    </script>
+</body>
+</html>
