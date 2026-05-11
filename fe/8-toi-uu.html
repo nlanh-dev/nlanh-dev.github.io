@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Subscription</title>
+
+    <style>
+        *{
+            box-sizing:border-box;
+        }
+
+        body{
+            margin:0;
+            font-family:Arial, sans-serif;
+            background:#eef6f3;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+        }
+
+        .container{
+            width:400px;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2{
+            text-align:center;
+            color:teal;
+        }
+
+        .text-input{
+            width:100%;
+            padding:10px;
+            margin:5px 0;
+        }
+
+        .options{
+            margin:10px 0;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:teal;
+            color:white;
+            border:none;
+            cursor:pointer;
+            border-radius:5px;
+        }
+
+        button:hover{
+            background:darkcyan;
+        }
+
+        .error{
+            color:red;
+            font-size:14px;
+        }
+
+        .success{
+            color:green;
+            text-align:center;
+            margin-top:10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Newsletter Subscription</h2>
+
+    <form id="form">
+
+        <p>Full Name</p>
+        <input type="text" id="name" class="text-input">
+        <div class="error" id="nameError"></div>
+
+        <p>Email</p>
+        <input type="email" id="email" class="text-input">
+        <div class="error" id="emailError"></div>
+
+        <p><b>Subscription Type</b></p>
+        <div class="options">
+            <label><input type="radio" name="type" checked> Monthly</label><br>
+            <label><input type="radio" name="type"> Yearly</label>
+        </div>
+
+        <p><b>Interests</b></p>
+        <div class="options">
+            <label><input type="checkbox" class="interest"> Technology</label><br>
+            <label><input type="checkbox" class="interest"> Design</label><br>
+            <label><input type="checkbox" class="interest"> Business</label>
+        </div>
+
+        <div class="error" id="interestError"></div>
+
+        <button type="submit">Subscribe</button>
+
+        <div class="success" id="success"></div>
+
+    </form>
+</div>
+
+<script>
+document.getElementById("form").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let interests = document.querySelectorAll(".interest:checked");
+
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("interestError").innerHTML = "";
+    document.getElementById("success").innerHTML = "";
+
+    let valid = true;
+
+    if(name === ""){
+        document.getElementById("nameError").innerHTML = "Enter your name";
+        valid = false;
+    }
+
+    if(email === "" || !email.includes("@")){
+        document.getElementById("emailError").innerHTML = "Invalid email";
+        valid = false;
+    }
+
+    if(interests.length === 0){
+        document.getElementById("interestError").innerHTML = "Select at least one interest";
+        valid = false;
+    }
+
+    if(valid){
+        document.getElementById("success").innerHTML = "Subscription successful!";
+        document.getElementById("form").reset();
+    }
+});
+</script>
+
+</body>
+</html>
