@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Đồng hồ thời gian thực</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f7fb;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    #clock {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 30px 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      text-align: center;
+      min-width: 280px;
+    }
+
+    #time {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #1f2937;
+    }
+
+    #note {
+      margin-top: 14px;
+      color: #4b5563;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div id="clock">
+    <div id="time">00:00:00</div>
+    <div id="note">
+      <!-- Đồng hồ này sẽ cập nhật thời gian hiện tại mỗi giây để hiển thị theo thời gian thực. -->
+      Đồng hồ chạy theo thời gian thực, được cập nhật mỗi giây.
+    </div>
+  </div>
+
+  <script>
+    // Lấy phần tử hiển thị thời gian
+    const timeElement = document.getElementById('time');
+
+    // Hàm giúp định dạng số thành 2 chữ số
+    function pad(number) {
+      return number.toString().padStart(2, '0');
+    }
+
+    // Hàm chính cập nhật đồng hồ
+    function updateClock() {
+      const now = new Date(); // Lấy thời điểm hiện tại từ hệ thống
+      const hours = pad(now.getHours());
+      const minutes = pad(now.getMinutes());
+      const seconds = pad(now.getSeconds());
+
+      timeElement.textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    // Chạy ngay khi mở trang và lặp lại mỗi giây
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
