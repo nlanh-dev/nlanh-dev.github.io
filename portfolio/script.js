@@ -15,7 +15,7 @@ const PROJECTS = {
       'Tạo README.md mô tả cấu trúc thư mục để dễ tra cứu sau này',
     ],
     evidence: 'Ảnh chụp màn hình cấu trúc thư mục trước và sau khi tổ chức lại, kèm bảng so sánh thời gian tìm kiếm file.',
-    pdf: 'https://drive.google.com/file/d/1BNpsVlGd7SaRH-kGm3vJldphEhyhm82M/view?usp=sharing',
+    pdf: 'https://drive.google.com/file/d/1BNpsVlGd7SaRH-kGm3vJldphEhyhm82M/view?usp=drive_link',
   },
   2: {
     title: 'Tìm kiếm học thuật',
@@ -263,10 +263,23 @@ document.querySelectorAll('.pcard').forEach(card => {
         <h4>Hình ảnh minh chứng</h4>
         <p>${d.evidence}</p>
       </div>
-      <div class="mdl-btns">
-        <button class="mdl-btn">Tải PDF — ${d.pdf}</button>
-        <button class="mdl-btn">Xem sản phẩm</button>
-      </div>
+    <div class="mdl-btns">
+    <a
+        href="${d.pdf}"
+        target="_blank"
+        class="mdl-btn"
+    >
+        Báo cáo
+    </a>
+    <a
+        href="${d.pdf}"
+        target="_blank"
+        class="mdl-btn"
+    >
+        Xem nhanh
+    </a>
+
+    </div>
     `;
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
