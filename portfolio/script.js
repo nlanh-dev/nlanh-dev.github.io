@@ -16,6 +16,7 @@ const PROJECTS = {
     ],
     evidence: 'Ảnh chụp màn hình cấu trúc thư mục trước và sau khi tổ chức lại, kèm bảng so sánh thời gian tìm kiếm file.',
     pdf: 'https://drive.google.com/file/d/1BNpsVlGd7SaRH-kGm3vJldphEhyhm82M/view?usp=drive_link',
+    file: 'https://drive.google.com/drive/folders/195ngdUsUhB1XIhxRcO0B3VWf9isBaCJm?usp=drive_link',
   },
   2: {
     title: 'Tìm kiếm học thuật',
@@ -28,7 +29,8 @@ const PROJECTS = {
       'Lập bảng so sánh và tổng hợp danh sách tài liệu tham khảo đúng chuẩn APA',
     ],
     evidence: 'Bảng đánh giá CRAAP cho 5 nguồn tài liệu và ảnh chụp màn hình kết quả tìm kiếm Boolean.',
-    pdf: 'Bài tập 02 — Tìm kiếm học thuật.pdf',
+    pdf: 'https://drive.google.com/file/d/1oadmpndCNhOisZAPDijdNiyarQ3lBv-L/view?usp=drive_link',
+    file: 'https://drive.google.com/drive/folders/195ngdUsUhB1XIhxRcO0B3VWf9isBaCJm?usp=drive_link',
   },
   3: {
     title: 'Prompt Engineering',
@@ -41,7 +43,8 @@ const PROJECTS = {
       'Phân tích sự khác biệt và thiên kiến giữa hai mô hình AI',
     ],
     evidence: 'Bảng so sánh output từ 5 cặp Prompt (thô/CLEAR) trên ChatGPT và Gemini.',
-    pdf: 'Bài tập 03 — Prompt Engineering.pdf',
+    pdf: 'https://drive.google.com/file/d/1qAJZhU-Yo0ac5jF8cdg_zKlRFJxyZ0ia/view?usp=drive_link',
+    file: 'https://drive.google.com/drive/folders/195ngdUsUhB1XIhxRcO0B3VWf9isBaCJm?usp=drive_link',
   },
   4: {
     title: 'Hợp tác trực tuyến',
@@ -54,7 +57,8 @@ const PROJECTS = {
       'Retrospective cuối sprint: What went well / What to improve / Action items',
     ],
     evidence: 'Screenshot board Trello theo từng sprint, lịch sử revision Google Docs và biên bản họp nhóm.',
-    pdf: 'Bài tập 04 — Hợp tác trực tuyến.pdf',
+    pdf: 'https://drive.google.com/file/d/1elorGC_S5TSGIwRzGeTzN-CZ3K-a6-p6/view?usp=sharing',
+    file: 'https://drive.google.com/drive/folders/195ngdUsUhB1XIhxRcO0B3VWf9isBaCJm?usp=drive_link',
   },
   5: {
     title: 'Sáng tạo nội dung số',
@@ -67,7 +71,8 @@ const PROJECTS = {
       'Tối ưu visual cho LinkedIn và Instagram (aspect ratio, font size, contrast)',
     ],
     evidence: 'File thiết kế Canva và link video đã publish, kèm analytics sau 48 giờ.',
-    pdf: 'Bài tập 05 — Sáng tạo nội dung số.pdf',
+    pdf: 'https://drive.google.com/file/d/1sC5NCvaU1Cr8MHEkYsc8BSVvdYO9qCHH/view?usp=drive_link',
+    file: 'https://drive.google.com/drive/folders/195ngdUsUhB1XIhxRcO0B3VWf9isBaCJm?usp=drive_link',
   },
   6: {
     title: 'AI có trách nhiệm',
@@ -80,7 +85,8 @@ const PROJECTS = {
       'Viết bài phản tư về trải nghiệm dùng AI trong suốt học kỳ',
     ],
     evidence: 'Bài luận phân tích case study và bản "My AI Ethics Charter" đầy đủ.',
-    pdf: 'Bài tập 06 — AI có trách nhiệm.pdf',
+    pdf: 'https://drive.google.com/file/d/1YMo7s1CWwC_RgaQ1PbV8yZHpviobPVOH/view?usp=drive_link',
+    file: 'https://drive.google.com/drive/folders/195ngdUsUhB1XIhxRcO0B3VWf9isBaCJm?usp=drive_link',
   },
 };
 
@@ -269,14 +275,14 @@ document.querySelectorAll('.pcard').forEach(card => {
         target="_blank"
         class="mdl-btn"
     >
-        Báo cáo
+        Xem nhanh
     </a>
     <a
-        href="${d.pdf}"
+        href="${d.file}"
         target="_blank"
         class="mdl-btn"
     >
-        Xem nhanh
+        Báo cáo
     </a>
 
     </div>
@@ -293,3 +299,33 @@ function closeModal() {
 mclose.addEventListener('click', closeModal);
 modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+const tabButtons = document.querySelectorAll(".tab-btn");
+const tabs = document.querySelectorAll(".tab-content");
+
+tabButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+
+        tabButtons.forEach(b =>
+            b.classList.remove("active")
+        );
+
+        tabs.forEach(tab =>
+            tab.classList.remove("active")
+        );
+
+        btn.classList.add("active");
+
+        const target =
+            document.getElementById(
+                btn.dataset.tab
+            );
+
+        if(target){
+            target.classList.add("active");
+            window.scrollTo({
+                top:0,
+                behavior:"smooth"
+            });
+        }
+    });
+});
