@@ -15,7 +15,7 @@ const PROJECTS = {
       'Tạo README.md mô tả cấu trúc thư mục để dễ tra cứu sau này',
     ],
     evidence: 'Ảnh chụp màn hình cấu trúc thư mục trước và sau khi tổ chức lại, kèm bảng so sánh thời gian tìm kiếm file.',
-    pdf: 'Bài tập 01 — Quản lý dữ liệu.pdf',
+    pdf: 'https://drive.google.com/file/d/1BNpsVlGd7SaRH-kGm3vJldphEhyhm82M/view?usp=sharing',
   },
   2: {
     title: 'Tìm kiếm học thuật',
