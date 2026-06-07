@@ -1,228 +1,273 @@
-/* =========================================
-   PORTFOLIO SCRIPT — Hoa Trà 2026
-   ========================================= */
+/* ════════════════════════════════════════
+   FUYU PORTFOLIO — script.js — Lan Anh 2026
+════════════════════════════════════════ */
 
-// ── PROJECT DATA ──────────────────────────
-const projects = {
+/* ── PROJECT DATA ──────────────────────── */
+const PROJECTS = {
   1: {
-    icon: '📁',
-    title: 'Quản lý tệp và thư mục',
-    objective: 'Xây dựng một hệ thống quản lý dữ liệu cá nhân khoa học, có tính tổ chức cao giúp dễ dàng truy xuất, bảo quản và sao lưu tệp tin.',
-    process: [
-      'Phân tích cấu trúc thư mục hiện tại và xác định điểm yếu',
-      'Thiết kế hệ thống phân cấp thư mục theo chủ đề và thời gian',
-      'Áp dụng quy tắc đặt tên file: YYYY-MM-DD_TênTệp_v1.0',
-      'Thiết lập lịch sao lưu tự động lên Google Drive và ổ cứng ngoài',
-      'Tạo tài liệu hướng dẫn sử dụng hệ thống',
+    title: 'Quản lý dữ liệu cá nhân',
+    objective: 'Xây dựng hệ thống tổ chức tệp và thư mục khoa học, đặt nền tảng cho thói quen quản lý dữ liệu số chuyên nghiệp từ đầu năm học.',
+    steps: [
+      'Khảo sát và đánh giá cấu trúc thư mục hiện tại trên máy tính',
+      'Thiết kế hệ thống phân cấp theo chủ đề: Học tập → Môn học → Học kỳ',
+      'Áp dụng quy tắc đặt tên: YYYY-MM-DD_TênTài liệu_v1.0',
+      'Thiết lập lịch backup tự động lên Google Drive (hàng tuần)',
+      'Tạo README.md mô tả cấu trúc thư mục để dễ tra cứu sau này',
     ],
-    evidence: '🖼️ Ảnh chụp màn hình cấu trúc thư mục đã được sắp xếp khoa học.',
-    pdf: 'Báo cáo Bài tập 1 — Quản lý tệp và thư mục.pdf',
-    link: '#',
+    evidence: 'Ảnh chụp màn hình cấu trúc thư mục trước và sau khi tổ chức lại, kèm bảng so sánh thời gian tìm kiếm file.',
+    pdf: 'Bài tập 01 — Quản lý dữ liệu.pdf',
   },
   2: {
-    icon: '🔍',
-    title: 'Tìm kiếm và đánh giá thông tin học thuật',
-    objective: 'Nắm vững kỹ năng tìm kiếm nâng cao và đánh giá độ tin cậy của nguồn thông tin học thuật theo tiêu chí CRAAP.',
-    process: [
-      'Tìm hiểu các toán tử tìm kiếm Boolean: AND, OR, NOT, " "',
-      'Thực hành tìm kiếm nâng cao trên Google Scholar',
-      'Áp dụng tiêu chí CRAAP: Currency, Relevance, Authority, Accuracy, Purpose',
-      'So sánh và đánh giá 5 nguồn thông tin về chủ đề AI trong giáo dục',
-      'Tổng hợp kết quả thành bảng đánh giá nguồn',
+    title: 'Tìm kiếm học thuật',
+    objective: 'Thành thạo kỹ năng tìm kiếm nâng cao và đánh giá độ tin cậy của nguồn thông tin theo tiêu chí CRAAP — kỹ năng cốt lõi của mọi nhà nghiên cứu.',
+    steps: [
+      'Thực hành các toán tử Boolean: AND, OR, NOT, dấu " " cho cụm từ chính xác',
+      'Tìm kiếm nâng cao trên Google Scholar với bộ lọc năm xuất bản và trích dẫn',
+      'Áp dụng tiêu chí CRAAP: Currency · Relevance · Authority · Accuracy · Purpose',
+      'Đánh giá 5 nguồn về chủ đề "AI trong giáo dục đại học"',
+      'Lập bảng so sánh và tổng hợp danh sách tài liệu tham khảo đúng chuẩn APA',
     ],
-    evidence: '🖼️ Bảng đánh giá nguồn CRAAP và ảnh chụp kết quả tìm kiếm Google Scholar.',
-    pdf: 'Báo cáo Bài tập 2 — Tìm kiếm học thuật.pdf',
-    link: '#',
+    evidence: 'Bảng đánh giá CRAAP cho 5 nguồn tài liệu và ảnh chụp màn hình kết quả tìm kiếm Boolean.',
+    pdf: 'Bài tập 02 — Tìm kiếm học thuật.pdf',
   },
   3: {
-    icon: '🤖',
-    title: 'Viết Prompt hiệu quả',
-    objective: 'Hiểu và áp dụng mô hình CLEAR để xây dựng các Prompt cho AI tạo ra kết quả chất lượng, chính xác và hữu ích.',
-    process: [
-      'Nghiên cứu mô hình CLEAR: Context, Length, Examples, Adjustments, Review',
-      'So sánh output khi dùng Prompt kém và Prompt tối ưu',
-      'Thực hành viết 10 Prompt cho các tình huống học tập khác nhau',
-      'Đánh giá và tinh chỉnh Prompt dựa trên kết quả thực tế',
-      'Tổng hợp bộ Prompt mẫu cho sinh viên đại học',
+    title: 'Prompt Engineering',
+    objective: 'Nắm vững nghệ thuật giao tiếp với AI — xây dựng Prompt theo mô hình CLEAR để có output chính xác, hữu ích và tiết kiệm thời gian.',
+    steps: [
+      'Nghiên cứu mô hình CLEAR: Context · Length · Examples · Adjustments · Review',
+      'Thực nghiệm: cùng một câu hỏi, so sánh Prompt thô vs Prompt CLEAR',
+      'Kiểm tra output trên cả ChatGPT-4o và Gemini 1.5 Pro',
+      'Xây dựng thư viện 15 Prompt mẫu cho các tình huống học tập FinTech',
+      'Phân tích sự khác biệt và thiên kiến giữa hai mô hình AI',
     ],
-    evidence: '🖼️ Bộ ảnh so sánh output từ Prompt kém và Prompt theo mô hình CLEAR.',
-    pdf: 'Báo cáo Bài tập 3 — Prompt Engineering.pdf',
-    link: '#',
+    evidence: 'Bảng so sánh output từ 5 cặp Prompt (thô/CLEAR) trên ChatGPT và Gemini.',
+    pdf: 'Bài tập 03 — Prompt Engineering.pdf',
   },
   4: {
-    icon: '🤝',
     title: 'Hợp tác trực tuyến',
-    objective: 'Ứng dụng các công cụ cộng tác trực tuyến để quản lý dự án nhóm hiệu quả và chuyên nghiệp.',
-    process: [
-      'Thiết lập board Trello với các cột: Backlog, In Progress, Review, Done',
-      'Phân công nhiệm vụ và đặt deadline cho từng thành viên',
-      'Sử dụng Google Docs để cộng tác viết báo cáo theo thời gian thực',
-      'Tổ chức cuộc họp online qua Google Meet với agenda rõ ràng',
-      'Tổng kết hiệu quả làm việc nhóm và bài học rút ra',
+    objective: 'Ứng dụng phương pháp Agile/Kanban và bộ công cụ Google Workspace để quản lý dự án nhóm hiệu quả trong môi trường học tập phi đồng bộ.',
+    steps: [
+      'Thiết lập board Trello với 5 cột: Backlog → To Do → In Progress → Review → Done',
+      'Phân công vai trò: PM, Researcher, Designer, Writer cho mỗi sprint',
+      'Sử dụng Google Docs với Comment để review và phản hồi real-time',
+      'Tổ chức 3 buổi stand-up weekly qua Google Meet (15 phút/buổi)',
+      'Retrospective cuối sprint: What went well / What to improve / Action items',
     ],
-    evidence: '🖼️ Ảnh chụp board Trello và lịch sử chỉnh sửa Google Docs.',
-    pdf: 'Báo cáo Bài tập 4 — Hợp tác trực tuyến.pdf',
-    link: '#',
+    evidence: 'Screenshot board Trello theo từng sprint, lịch sử revision Google Docs và biên bản họp nhóm.',
+    pdf: 'Bài tập 04 — Hợp tác trực tuyến.pdf',
   },
   5: {
-    icon: '🎨',
-    title: 'Sáng tạo nội dung số bằng AI',
-    objective: 'Tạo ra các sản phẩm truyền thông số chuyên nghiệp bằng cách kết hợp công cụ AI với nền tảng thiết kế sáng tạo.',
-    process: [
-      'Lên ý tưởng và xây dựng kịch bản nội dung (content brief)',
-      'Thiết kế infographic chủ đề "Kỹ năng số thế kỷ 21" bằng Canva',
-      'Tạo video ngắn 60 giây trình bày về AI trong học tập bằng CapCut',
-      'Sử dụng ChatGPT và Gemini để hỗ trợ viết script và caption',
-      'Tối ưu hóa nội dung cho mạng xã hội học thuật',
+    title: 'Sáng tạo nội dung số',
+    objective: 'Sản xuất nội dung truyền thông số chuyên nghiệp bằng cách kết hợp thiết kế Canva, dựng video CapCut và hỗ trợ kịch bản từ AI.',
+    steps: [
+      'Lên content brief: mục tiêu, đối tượng, thông điệp chính, tone of voice',
+      'Thiết kế bộ infographic 3 slides "Kỹ năng số cho sinh viên FinTech" bằng Canva',
+      'Viết script video 60 giây với ChatGPT, chỉnh sửa theo giọng điệu cá nhân',
+      'Dựng video với CapCut: cut, transition, caption tự động, background music',
+      'Tối ưu visual cho LinkedIn và Instagram (aspect ratio, font size, contrast)',
     ],
-    evidence: '🖼️ Infographic thiết kế bằng Canva và video đã xuất bản.',
-    pdf: 'Báo cáo Bài tập 5 — Sáng tạo nội dung số.pdf',
-    link: '#',
+    evidence: 'File thiết kế Canva và link video đã publish, kèm analytics sau 48 giờ.',
+    pdf: 'Bài tập 05 — Sáng tạo nội dung số.pdf',
   },
   6: {
-    icon: '⚖️',
-    title: 'AI có trách nhiệm trong học thuật',
-    objective: 'Phát triển tư duy phản biện về đạo đức AI và áp dụng nguyên tắc liêm chính học thuật trong việc sử dụng công cụ AI.',
-    process: [
-      'Nghiên cứu các nguyên tắc AI có trách nhiệm: Transparency, Fairness, Accountability',
-      'Phân tích các tình huống vi phạm đạo đức AI trong học tập',
-      'Xây dựng bộ quy tắc cá nhân về sử dụng AI trong học thuật',
-      'Thảo luận về ranh giới giữa hỗ trợ AI và gian lận học thuật',
-      'Viết bài phản tư về trải nghiệm sử dụng AI trong học kỳ',
+    title: 'AI có trách nhiệm',
+    objective: 'Phát triển framework tư duy phản biện về đạo đức AI, xây dựng bộ nguyên tắc cá nhân để sử dụng AI một cách có trách nhiệm trong học thuật và nghề nghiệp.',
+    steps: [
+      'Nghiên cứu 5 nguyên tắc AI có trách nhiệm: Transparency, Fairness, Accountability, Privacy, Safety',
+      'Phân tích 3 case study: ChatGPT trong bài luận, deepfake trong FinTech, thuật toán tín dụng thiên kiến',
+      'Xác định ranh giới giữa "AI hỗ trợ học tập" và "gian lận học thuật"',
+      'Xây dựng bộ quy tắc cá nhân "My AI Ethics Charter" gồm 7 điều',
+      'Viết bài phản tư về trải nghiệm dùng AI trong suốt học kỳ',
     ],
-    evidence: '🖼️ Bài luận phân tích đạo đức AI và bộ quy tắc cá nhân.',
-    pdf: 'Báo cáo Bài tập 6 — AI có trách nhiệm.pdf',
-    link: '#',
+    evidence: 'Bài luận phân tích case study và bản "My AI Ethics Charter" đầy đủ.',
+    pdf: 'Bài tập 06 — AI có trách nhiệm.pdf',
   },
 };
 
-// ── LOADER ────────────────────────────────
+/* ── LOADER ────────────────────────────── */
 window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('loader').classList.add('hidden');
-  }, 2000);
+  setTimeout(() => document.getElementById('loader').classList.add('out'), 2000);
 });
 
-// ── DARK MODE ─────────────────────────────
+/* ── CUSTOM CURSOR ─────────────────────── */
+const cursorRing = document.getElementById('cursor');
+const cursorDot  = document.getElementById('cursor-dot');
+let mx = 0, my = 0, cx = 0, cy = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursorDot.style.left = mx + 'px';
+  cursorDot.style.top  = my + 'px';
+});
+function animateCursor() {
+  cx += (mx - cx) * 0.14;
+  cy += (my - cy) * 0.14;
+  cursorRing.style.left = cx + 'px';
+  cursorRing.style.top  = cy + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+/* ── HERO CANVAS ───────────────────────── */
+(function() {
+  const canvas = document.getElementById('heroCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+  const COLORS = ['#fda4af','#c4b5fd','#7dd3fc','#6ee7b7','#fdba74','#f9a8d4'];
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  for (let i = 0; i < 60; i++) {
+    particles.push({
+      x: Math.random() * 1200, y: Math.random() * 900,
+      r: Math.random() * 3 + 1,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      alpha: Math.random() * 0.5 + 0.2,
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < -10) p.x = W + 10;
+      if (p.x > W+10) p.x = -10;
+      if (p.y < -10) p.y = H + 10;
+      if (p.y > H+10) p.y = -10;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = p.alpha;
+      ctx.fill();
+    });
+    // Draw soft connecting lines
+    ctx.globalAlpha = 0.05;
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i+1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < 120) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = particles[i].color;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ── DARK MODE ─────────────────────────── */
 const html = document.documentElement;
-const darkToggle = document.getElementById('darkToggle');
-const savedTheme = localStorage.getItem('theme') || 'light';
+const darkBtn = document.getElementById('darkToggle');
+const savedTheme = localStorage.getItem('fuyuTheme') || 'light';
 html.setAttribute('data-theme', savedTheme);
-
-darkToggle.addEventListener('click', () => {
-  const current = html.getAttribute('data-theme');
-  const next = current === 'dark' ? 'light' : 'dark';
+darkBtn.addEventListener('click', () => {
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   html.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
+  localStorage.setItem('fuyuTheme', next);
 });
 
-// ── NAVBAR ────────────────────────────────
+/* ── NAVBAR ────────────────────────────── */
 const navbar = document.getElementById('navbar');
-const hamburger = document.getElementById('hamburger');
-const navMobile = document.getElementById('navMobile');
+const ham = document.getElementById('hamburger');
+const navMob = document.getElementById('nav-mobile');
+const backTop = document.getElementById('backTop');
 
 window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 30);
-  document.getElementById('backTop').classList.toggle('visible', window.scrollY > 400);
-  highlightNavLink();
+  navbar.classList.toggle('scrolled', scrollY > 40);
+  backTop.classList.toggle('show', scrollY > 500);
+  updateActiveLink();
 });
 
-hamburger.addEventListener('click', () => {
-  navMobile.classList.toggle('open');
-});
+ham.addEventListener('click', () => navMob.classList.toggle('open'));
+navMob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMob.classList.remove('open')));
 
-navMobile.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => navMobile.classList.remove('open'));
-});
-
-// Active nav link highlight
-function highlightNavLink() {
-  const sections = document.querySelectorAll('section[id], footer[id]');
-  const links = document.querySelectorAll('.nav-links a, .nav-mobile a');
-  let current = '';
-  sections.forEach(sec => {
-    if (window.scrollY + 120 >= sec.offsetTop) current = sec.id;
-  });
-  links.forEach(a => {
-    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-  });
+function updateActiveLink() {
+  const sects = document.querySelectorAll('section[id], footer[id]');
+  const links = document.querySelectorAll('.nav-links a');
+  let cur = '';
+  sects.forEach(s => { if (scrollY + 100 >= s.offsetTop) cur = s.id; });
+  links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
 }
 
-// ── BACK TO TOP ───────────────────────────
-document.getElementById('backTop').addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ── SMOOTH SCROLL ─────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
 });
 
-// ── REVEAL ON SCROLL ──────────────────────
-const revealEls = document.querySelectorAll('.reveal');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      // Stagger siblings
-      const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal'));
-      const idx = siblings.indexOf(entry.target);
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, idx * 60);
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-revealEls.forEach(el => revealObserver.observe(el));
-
-// ── SKILL BARS ────────────────────────────
-const skillObserver = new IntersectionObserver((entries) => {
+/* ── REVEAL ON SCROLL ──────────────────── */
+const io = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      const fill = entry.target.querySelector('.skill-fill');
-      if (fill) {
-        const width = fill.getAttribute('data-width');
-        setTimeout(() => { fill.style.width = width + '%'; }, 300);
-      }
-      skillObserver.unobserve(entry.target);
+      entry.target.classList.add('in');
+      io.unobserve(entry.target);
     }
   });
-}, { threshold: 0.3 });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal-up').forEach(el => io.observe(el));
 
-document.querySelectorAll('.skill-item').forEach(el => skillObserver.observe(el));
+/* ── SKILL BARS ────────────────────────── */
+const skillIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const fill = e.target.querySelector('.sbar-fill');
+      if (fill) {
+        setTimeout(() => { fill.style.width = fill.dataset.w + '%'; }, 200);
+      }
+      skillIO.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('.sbar-item').forEach(el => skillIO.observe(el));
 
-// ── PROJECT MODAL ─────────────────────────
-const modal = document.getElementById('modal');
-const modalClose = document.getElementById('modalClose');
-const modalContent = document.getElementById('modalContent');
+/* ── MODAL ─────────────────────────────── */
+const modal    = document.getElementById('modal');
+const modalBody= document.getElementById('modalBody');
+const mclose   = document.getElementById('modalClose');
 
-document.querySelectorAll('.project-card').forEach(card => {
+document.querySelectorAll('.pcard').forEach(card => {
   card.addEventListener('click', () => {
-    const id = card.getAttribute('data-id');
-    const data = projects[id];
-    if (!data) return;
-
-    modalContent.innerHTML = `
-      <div class="modal-icon">${data.icon}</div>
-      <div class="modal-title">${data.title}</div>
-
-      <div class="modal-section">
-        <h4>🎯 Mục tiêu</h4>
-        <p>${data.objective}</p>
+    const d = PROJECTS[card.dataset.id];
+    if (!d) return;
+    modalBody.innerHTML = `
+      <div class="mdl-title">${d.title}</div>
+      <div class="mdl-section">
+        <h4>Mục tiêu</h4>
+        <p>${d.objective}</p>
       </div>
-
-      <div class="modal-section">
-        <h4>⚙️ Quy trình thực hiện</h4>
-        <ul>${data.process.map(step => `<li>${step}</li>`).join('')}</ul>
+      <div class="mdl-section">
+        <h4>Quy trình thực hiện</h4>
+        <ul>${d.steps.map(s=>`<li>${s}</li>`).join('')}</ul>
       </div>
-
-      <div class="modal-section">
-        <h4>🖼️ Hình ảnh minh chứng</h4>
-        <p>${data.evidence}</p>
+      <div class="mdl-section">
+        <h4>Hình ảnh minh chứng</h4>
+        <p>${d.evidence}</p>
       </div>
-
-      <div class="modal-links">
-        <a href="#" class="modal-link">📄 ${data.pdf}</a>
-        <a href="${data.link}" class="modal-link">🔗 Xem sản phẩm</a>
+      <div class="mdl-btns">
+        <button class="mdl-btn">Tải PDF — ${d.pdf}</button>
+        <button class="mdl-btn">Xem sản phẩm</button>
       </div>
     `;
-
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
   });
@@ -232,18 +277,6 @@ function closeModal() {
   modal.classList.remove('open');
   document.body.style.overflow = '';
 }
-
-modalClose.addEventListener('click', closeModal);
+mclose.addEventListener('click', closeModal);
 modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-// ── SMOOTH SCROLL for all anchor links ────
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});

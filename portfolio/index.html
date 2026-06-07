@@ -3,366 +3,490 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nguyễn Lan Anh — Digital Skills Portfolio</title>
+  <title>Fuyu — Lan Anh Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
- 
-  <!-- LOADING SCREEN -->
-  <div id="loader">
-    <div class="loader-inner">
-      <div class="loader-leaf">🌿</div>
-      <p>Đang tải portfolio...</p>
-      <div class="loader-bar"><div class="loader-fill"></div></div>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-dot"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">fuyu</div>
+    <div class="loader-bar-wrap"><div class="loader-bar-fill"></div></div>
+    <p class="loader-hint">Đang tải câu chuyện của Lan Anh...</p>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">fuyu<span class="nav-dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="#story" target="_self">Câu chuyện</a></li>
+      <li><a href="#projects" target="_self">Dự án</a></li>
+      <li><a href="#skills" target="_self">Kỹ năng</a></li>
+      <li><a href="#tools" target="_self">Công cụ</a></li>
+      <li><a href="#timeline" target="_self">Hành trình</a></li>
+      <li><a href="#reflection" target="_self">Cảm nhận</a></li>
+      <li><a href="#contact" target="_self">Liên hệ</a></li>
+    </ul>
+    <div class="nav-right">
+      <button id="darkToggle" class="toggle-btn" aria-label="dark mode">
+        <span class="t-light">&#9788;</span>
+        <span class="t-dark">&#9790;</span>
+      </button>
+      <button id="hamburger" class="ham-btn" aria-label="menu">
+        <span></span><span></span>
+      </button>
     </div>
   </div>
- 
-  <!-- NAVBAR -->
-  <nav id="navbar">
-    <div class="nav-container">
-      <a href="#home" class="nav-logo">HT<span>.</span></a>
-      <ul class="nav-links">
-        <li><a href="#about">Giới thiệu</a></li>
-        <li><a href="#projects">Dự án</a></li>
-        <li><a href="#skills">Kỹ năng</a></li>
-        <li><a href="#tools">Công cụ</a></li>
-        <li><a href="#timeline">Timeline</a></li>
-        <li><a href="#summary">Tổng kết</a></li>
-        <li><a href="#contact">Liên hệ</a></li>
-      </ul>
-      <div class="nav-actions">
-        <button id="darkToggle" aria-label="Toggle dark mode">
-          <span class="icon-sun">☀️</span>
-          <span class="icon-moon">🌙</span>
-        </button>
-        <button class="nav-hamburger" id="hamburger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+  <div id="nav-mobile">
+    <a href="#story">Câu chuyện</a>
+    <a href="#projects">Dự án</a>
+    <a href="#skills">Kỹ năng</a>
+    <a href="#tools">Công cụ</a>
+    <a href="#timeline">Hành trình</a>
+    <a href="#reflection">Cảm nhận</a>
+    <a href="#contact">Liên hệ</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════
+     HERO
+════════════════════════════════════ -->
+<section id="home" class="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-gradient-mesh"></div>
+  <div class="hero-orbs">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="orb orb4"></div>
+  </div>
+  <div class="hero-center">
+    <div class="hero-tag reveal-up" style="--d:0">VNU1001_E252074_IS.D2</div>
+    <h1 class="hero-name reveal-up" style="--d:1">
+      Nguyễn<br/><em>Lan Anh</em>
+    </h1>
+    <p class="hero-alias reveal-up" style="--d:2">alias <strong>fuyu</strong> &mdash; FinTech &amp; Digital Business · ĐHQGHN</p>
+    <p class="hero-desc reveal-up" style="--d:3">
+      Từ lớp chuyên Tin trường THPT Chuyên Hùng Vương đến hành trình khám phá giao điểm giữa công nghệ, tài chính và trí tuệ nhân tạo. Đây là câu chuyện của mình.
+    </p>
+    <div class="hero-actions reveal-up" style="--d:4">
+      <a href="#story" class="btn-pill primary">Đọc câu chuyện</a>
+      <a href="#projects" class="btn-pill ghost">Xem dự án</a>
     </div>
-    <div class="nav-mobile" id="navMobile">
-      <a href="#about">Giới thiệu</a>
-      <a href="#projects">Dự án</a>
-      <a href="#skills">Kỹ năng</a>
-      <a href="#tools">Công cụ</a>
-      <a href="#timeline">Timeline</a>
-      <a href="#summary">Tổng kết</a>
-      <a href="#contact">Liên hệ</a>
+    <div class="hero-chips reveal-up" style="--d:5">
+      <span class="chip">ENTP</span>
+      <span class="chip">Ma Kết</span>
+      <span class="chip">Công nghệ</span>
+      <span class="chip">Influence Type</span>
     </div>
-  </nav>
- 
-  <!-- HERO -->
-  <section id="home" class="hero">
-    <div class="hero-bg">
-      <div class="hero-blob blob1"></div>
-      <div class="hero-blob blob2"></div>
-      <div class="hero-grid"></div>
-    </div>
-    <div class="hero-content">
-      <div class="hero-badge reveal">✦ Nhập môn Công nghệ số</div>
-      <h1 class="hero-title reveal">
-        Digital Skills<br /><em>Portfolio</em>
-      </h1>
-      <p class="hero-sub reveal">
-        Xin chào — Mình là <strong>Nguyễn Lan Anh</strong>,<br />
-        Sinh viên năm nhất đam mê công nghệ &amp; truyền thông số.
-      </p>
-      <p class="hero-desc reveal">
-        Website này tổng hợp các sản phẩm, bài tập và kỹ năng số em đã thực hiện trong học phần Nhập môn Công nghệ số.
-      </p>
-      <div class="hero-btns reveal">
-        <a href="#projects" class="btn btn-primary">Xem dự án</a>
-        <a href="#contact" class="btn btn-outline">Liên hệ</a>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-card-float reveal">
-        <div class="hc-tag">Portfolio 2026</div>
-        <div class="hc-name">Nguyễn Lan Anh</div>
-        <div class="hc-role">Sinh viên năm nhất</div>
-        <div class="hc-dots">
-          <span></span><span></span><span></span>
+  </div>
+  <div class="hero-scroll-hint">scroll</div>
+</section>
+
+<!-- ═══════════════════════════════════
+     STORY / ABOUT
+════════════════════════════════════ -->
+<section id="story" class="section story-section">
+  <div class="section-bg-gradient bg-peach"></div>
+  <div class="container">
+    <div class="section-eyebrow reveal-up">Chương 01 — Câu chuyện của mình</div>
+    <div class="story-grid">
+      <div class="story-text">
+        <h2 class="section-heading reveal-up">Xin chào,<br/><em>mình là Lan Anh</em></h2>
+        <div class="story-body reveal-up">
+          <p>Mình từng ngồi trong lớp chuyên Tin tại THPT Chuyên Hùng Vương, tò mò tại sao máy tính lại "hiểu" được lệnh của mình. Câu hỏi đó dẫn mình đến một hành trình dài — từ lập trình cơ bản đến những câu chuyện phức tạp hơn về dữ liệu, AI và con người.</p>
+          <p>Khi chọn ngành Công nghệ tài chính và Kinh doanh số tại Trường Quốc tế ĐHQGHN, mình biết đây là nơi giao nhau của hai thứ mình yêu thích nhất: công nghệ và cách con người đưa ra quyết định trong thế giới số.</p>
+          <p>Mình là người luôn muốn <em>hiểu bản chất của vấn đề</em> — không chỉ dùng công cụ, mà còn đặt câu hỏi tại sao công cụ đó tồn tại và nó đang ảnh hưởng đến xã hội như thế nào.</p>
         </div>
       </div>
-    </div>
-  </section>
- 
-  <!-- ABOUT -->
-  <section id="about" class="section about">
-    <div class="container">
-      <div class="section-label reveal">✦ Giới thiệu</div>
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <h2 class="section-title">Xin chào, mình là<br /><em>Nguyễn Lan Anh</em></h2>
-          <p>Hiện đang là sinh viên năm nhất và có niềm yêu thích với công nghệ, truyền thông số và trí tuệ nhân tạo.</p>
-          <p>Thông qua học phần Nhập môn Công nghệ số, mình đã được tiếp cận nhiều kỹ năng quan trọng như quản lý dữ liệu, tìm kiếm học thuật, sử dụng AI có trách nhiệm, xây dựng hiện diện trực tuyến và sáng tạo nội dung số.</p>
-          <p>Portfolio này là nơi tổng hợp toàn bộ kết quả học tập và những trải nghiệm của mình trong suốt quá trình học tập.</p>
-        </div>
-        <div class="about-cards reveal">
-          <div class="info-card">
-            <div class="ic-icon">🎓</div>
-            <div class="ic-label">Họ tên</div>
-            <div class="ic-value">Nguyễn Lan Anh</div>
-          </div>
-          <div class="info-card">
-            <div class="ic-icon">📚</div>
-            <div class="ic-label">Ngành học</div>
-            <div class="ic-value">Công nghệ số</div>
-          </div>
-          <div class="info-card">
-            <div class="ic-icon">💡</div>
-            <div class="ic-label">Sở thích</div>
-            <div class="ic-value">AI & Truyền thông</div>
-          </div>
-          <div class="info-card">
-            <div class="ic-icon">🎯</div>
-            <div class="ic-label">Mục tiêu</div>
-            <div class="ic-value">Làm chủ kỹ năng số</div>
+      <div class="story-aside reveal-up">
+        <div class="profile-card">
+          <div class="pc-glow"></div>
+          <div class="pc-body">
+            <div class="pc-initials">LA</div>
+            <div class="pc-name">Nguyễn Lan Anh</div>
+            <div class="pc-alias">fuyu</div>
+            <div class="pc-divider"></div>
+            <div class="pc-info-row">
+              <span class="pci-label">Ngành</span>
+              <span class="pci-val">Công nghệ Tài chính &amp; Kinh doanh số</span>
+            </div>
+            <div class="pc-info-row">
+              <span class="pci-label">Trường</span>
+              <span class="pci-val">Trường Quốc tế · ĐHQGHN</span>
+            </div>
+            <div class="pc-info-row">
+              <span class="pci-label">Lớp</span>
+              <span class="pci-val">FDB</span>
+            </div>
+            <div class="pc-info-row">
+              <span class="pci-label">Học phần</span>
+              <span class="pci-val">Nhập môn Công nghệ số &amp; Ứng dụng Trí tuệ Nhân tạo</span>
+            </div>
+            <div class="pc-info-row">
+              <span class="pci-label">MBTI</span>
+              <span class="pci-val">ENTP — The Debater</span>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
- 
-  <!-- PROJECTS -->
-  <section id="projects" class="section projects">
-    <div class="container">
-      <div class="section-label reveal">✦ Dự án</div>
-      <h2 class="section-title reveal">Bài tập &amp; Sản phẩm</h2>
-      <p class="section-desc reveal">6 bài tập thực hành trong suốt học phần Nhập môn Công nghệ số.</p>
-      <div class="projects-grid">
- 
-        <div class="project-card reveal" data-id="1">
-          <div class="pc-number">01</div>
-          <div class="pc-icon">📁</div>
-          <h3>Quản lý tệp và thư mục</h3>
-          <p>Thiết kế hệ thống quản lý dữ liệu cá nhân khoa học, quy tắc đặt tên file và chiến lược sao lưu dữ liệu.</p>
-          <button class="pc-btn">Xem chi tiết →</button>
-        </div>
- 
-        <div class="project-card reveal" data-id="2">
-          <div class="pc-number">02</div>
-          <div class="pc-icon">🔍</div>
-          <h3>Tìm kiếm và đánh giá thông tin học thuật</h3>
-          <p>Ứng dụng các toán tử tìm kiếm, Google Scholar và CRAAP để đánh giá nguồn thông tin.</p>
-          <button class="pc-btn">Xem chi tiết →</button>
-        </div>
- 
-        <div class="project-card reveal" data-id="3">
-          <div class="pc-number">03</div>
-          <div class="pc-icon">🤖</div>
-          <h3>Viết Prompt hiệu quả</h3>
-          <p>Thực hành xây dựng Prompt theo mô hình CLEAR nhằm tối ưu kết quả đầu ra của AI.</p>
-          <button class="pc-btn">Xem chi tiết →</button>
-        </div>
- 
-        <div class="project-card reveal" data-id="4">
-          <div class="pc-number">04</div>
-          <div class="pc-icon">🤝</div>
-          <h3>Hợp tác trực tuyến</h3>
-          <p>Sử dụng Trello, Google Workspace và các công cụ cộng tác để quản lý dự án nhóm.</p>
-          <button class="pc-btn">Xem chi tiết →</button>
-        </div>
- 
-        <div class="project-card reveal" data-id="5">
-          <div class="pc-number">05</div>
-          <div class="pc-icon">🎨</div>
-          <h3>Sáng tạo nội dung số bằng AI</h3>
-          <p>Thiết kế infographic, video và nội dung truyền thông sử dụng Canva và CapCut.</p>
-          <button class="pc-btn">Xem chi tiết →</button>
-        </div>
- 
-        <div class="project-card reveal" data-id="6">
-          <div class="pc-number">06</div>
-          <div class="pc-icon">⚖️</div>
-          <h3>AI có trách nhiệm trong học thuật</h3>
-          <p>Nghiên cứu về đạo đức AI, tư duy phản biện và liêm chính học thuật.</p>
-          <button class="pc-btn">Xem chi tiết →</button>
-        </div>
- 
-      </div>
-    </div>
-  </section>
- 
-  <!-- SKILLS -->
-  <section id="skills" class="section skills">
-    <div class="container">
-      <div class="section-label reveal">✦ Kỹ năng</div>
-      <h2 class="section-title reveal">Kỹ năng số</h2>
-      <div class="skills-list">
-        <div class="skill-item reveal" data-pct="90">
-          <div class="skill-info">
-            <span>Digital Literacy</span>
-            <span class="skill-pct">90%</span>
+        <div class="astro-row reveal-up">
+          <div class="astro-chip">
+            <div class="ac-planet">Sun</div>
+            <div class="ac-sign">Ma Kết</div>
           </div>
-          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-        </div>
-        <div class="skill-item reveal" data-pct="85">
-          <div class="skill-info">
-            <span>AI Prompting</span>
-            <span class="skill-pct">85%</span>
+          <div class="astro-chip">
+            <div class="ac-planet">Moon</div>
+            <div class="ac-sign">Bảo Bình</div>
           </div>
-          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-        </div>
-        <div class="skill-item reveal" data-pct="85">
-          <div class="skill-info">
-            <span>Research Skills</span>
-            <span class="skill-pct">85%</span>
+          <div class="astro-chip">
+            <div class="ac-planet">Venus</div>
+            <div class="ac-sign">Nhân Mã</div>
           </div>
-          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-        </div>
-        <div class="skill-item reveal" data-pct="80">
-          <div class="skill-info">
-            <span>Canva Design</span>
-            <span class="skill-pct">80%</span>
+          <div class="astro-chip">
+            <div class="ac-planet">Mercury</div>
+            <div class="ac-sign">Bảo Bình</div>
           </div>
-          <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
-        </div>
-        <div class="skill-item reveal" data-pct="80">
-          <div class="skill-info">
-            <span>Content Creation</span>
-            <span class="skill-pct">80%</span>
-          </div>
-          <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
-        </div>
-        <div class="skill-item reveal" data-pct="75">
-          <div class="skill-info">
-            <span>Trello Project Management</span>
-            <span class="skill-pct">75%</span>
-          </div>
-          <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
         </div>
       </div>
     </div>
-  </section>
- 
-  <!-- TOOLS -->
-  <section id="tools" class="section tools">
-    <div class="container">
-      <div class="section-label reveal">✦ Công cụ</div>
-      <h2 class="section-title reveal">Công cụ đã sử dụng</h2>
-      <div class="tools-grid">
-        <div class="tool-chip reveal"><span class="tc-emoji">🤖</span>ChatGPT</div>
-        <div class="tool-chip reveal"><span class="tc-emoji">✨</span>Gemini</div>
-        <div class="tool-chip reveal"><span class="tc-emoji">🎨</span>Canva</div>
-        <div class="tool-chip reveal"><span class="tc-emoji">📋</span>Trello</div>
-        <div class="tool-chip reveal"><span class="tc-emoji">🔬</span>Google Scholar</div>
-        <div class="tool-chip reveal"><span class="tc-emoji">📁</span>Google Workspace</div>
-        <div class="tool-chip reveal"><span class="tc-emoji">🎬</span>CapCut</div>
-        <div class="tool-chip reveal"><span class="tc-emoji">📓</span>Notion</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     PROJECTS
+════════════════════════════════════ -->
+<section id="projects" class="section projects-section">
+  <div class="section-bg-gradient bg-lavender"></div>
+  <div class="container">
+    <div class="section-eyebrow reveal-up">Chương 02 — Những gì mình đã xây dựng</div>
+    <h2 class="section-heading reveal-up">Dự án &amp; Bài tập</h2>
+    <p class="section-sub reveal-up">6 hành trình học tập trong học phần Nhập môn Công nghệ số &amp; Ứng dụng AI.</p>
+
+    <div class="projects-grid">
+
+      <div class="pcard reveal-up" data-id="1" style="--d:0">
+        <div class="pcard-gradient g1"></div>
+        <div class="pcard-num">01</div>
+        <h3>Quản lý dữ liệu cá nhân</h3>
+        <p>Thiết kế hệ thống tổ chức tệp khoa học — quy tắc đặt tên, phân cấp thư mục và chiến lược sao lưu dữ liệu bền vững.</p>
+        <div class="pcard-tags"><span>File System</span><span>Data Management</span></div>
+        <button class="pcard-cta">Xem chi tiết</button>
+      </div>
+
+      <div class="pcard reveal-up" data-id="2" style="--d:1">
+        <div class="pcard-gradient g2"></div>
+        <div class="pcard-num">02</div>
+        <h3>Tìm kiếm học thuật</h3>
+        <p>Ứng dụng Boolean operators, Google Scholar và khung CRAAP để đánh giá độ tin cậy của nguồn thông tin học thuật.</p>
+        <div class="pcard-tags"><span>Research</span><span>CRAAP</span><span>Google Scholar</span></div>
+        <button class="pcard-cta">Xem chi tiết</button>
+      </div>
+
+      <div class="pcard reveal-up" data-id="3" style="--d:2">
+        <div class="pcard-gradient g3"></div>
+        <div class="pcard-num">03</div>
+        <h3>Prompt Engineering</h3>
+        <p>Xây dựng và tinh chỉnh Prompt theo mô hình CLEAR, so sánh output của ChatGPT và Gemini trên cùng một bài toán.</p>
+        <div class="pcard-tags"><span>AI</span><span>Prompting</span><span>CLEAR Model</span></div>
+        <button class="pcard-cta">Xem chi tiết</button>
+      </div>
+
+      <div class="pcard reveal-up" data-id="4" style="--d:3">
+        <div class="pcard-gradient g4"></div>
+        <div class="pcard-num">04</div>
+        <h3>Hợp tác trực tuyến</h3>
+        <p>Quản lý dự án nhóm với Trello, Google Workspace — từ phân công đến tổng kết sprint theo phương pháp Agile.</p>
+        <div class="pcard-tags"><span>Trello</span><span>Agile</span><span>Teamwork</span></div>
+        <button class="pcard-cta">Xem chi tiết</button>
+      </div>
+
+      <div class="pcard reveal-up" data-id="5" style="--d:4">
+        <div class="pcard-gradient g5"></div>
+        <div class="pcard-num">05</div>
+        <h3>Sáng tạo nội dung số</h3>
+        <p>Thiết kế infographic và sản xuất video ngắn với Canva, CapCut — kết hợp AI để tối ưu kịch bản và visual.</p>
+        <div class="pcard-tags"><span>Canva</span><span>CapCut</span><span>Content</span></div>
+        <button class="pcard-cta">Xem chi tiết</button>
+      </div>
+
+      <div class="pcard reveal-up" data-id="6" style="--d:5">
+        <div class="pcard-gradient g6"></div>
+        <div class="pcard-num">06</div>
+        <h3>AI có trách nhiệm</h3>
+        <p>Nghiên cứu về đạo đức AI, liêm chính học thuật và xây dựng bộ nguyên tắc sử dụng AI cho sinh viên FinTech.</p>
+        <div class="pcard-tags"><span>AI Ethics</span><span>Academic Integrity</span></div>
+        <button class="pcard-cta">Xem chi tiết</button>
+      </div>
+
+    </div>
+
+    <!-- UPLOAD HINT -->
+    <div class="upload-hint reveal-up">
+      <div class="uh-badge">Gợi ý tải tệp</div>
+      <p>Bạn đang muốn đính kèm file PDF, hình ảnh minh chứng cho từng dự án? Có <strong>3 cách</strong> phổ biến:</p>
+      <div class="uh-grid">
+        <div class="uh-card">
+          <div class="uhc-title">Google Drive</div>
+          <p>Upload lên Drive, lấy link chia sẻ và gán vào nút "Xem sản phẩm" trong modal. Ổn định nhất, không giới hạn dung lượng với tài khoản trường.</p>
+        </div>
+        <div class="uh-card">
+          <div class="uhc-title">GitHub Pages</div>
+          <p>Đặt file PDF/ảnh vào thư mục <code>assets/</code> trong repo, commit lên GitHub. Portfolio chạy online hoàn toàn miễn phí.</p>
+        </div>
+        <div class="uh-card">
+          <div class="uhc-title">Notion Public Page</div>
+          <p>Tạo trang Notion riêng cho từng dự án, bật "Share to web", dán link vào portfolio. Dễ chỉnh sửa sau này nhất.</p>
+        </div>
       </div>
     </div>
-  </section>
- 
-  <!-- TIMELINE -->
-  <section id="timeline" class="section timeline-section">
-    <div class="container">
-      <div class="section-label reveal">✦ Lộ trình học tập</div>
-      <h2 class="section-title reveal">Timeline học tập</h2>
-      <div class="timeline">
-        <div class="tl-item reveal">
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     SKILLS
+════════════════════════════════════ -->
+<section id="skills" class="section skills-section">
+  <div class="section-bg-gradient bg-mint"></div>
+  <div class="container">
+    <div class="section-eyebrow reveal-up">Chương 03 — Năng lực</div>
+    <h2 class="section-heading reveal-up">Kỹ năng số</h2>
+    <div class="skills-wrap">
+      <div class="skills-bars">
+        <div class="sbar-item reveal-up" style="--d:0">
+          <div class="sbar-meta"><span>Digital Literacy</span><span class="sbar-pct">90%</span></div>
+          <div class="sbar-track"><div class="sbar-fill" data-w="90" style="--c1:#f9a8d4;--c2:#c084fc"></div></div>
+        </div>
+        <div class="sbar-item reveal-up" style="--d:1">
+          <div class="sbar-meta"><span>AI Prompting</span><span class="sbar-pct">85%</span></div>
+          <div class="sbar-track"><div class="sbar-fill" data-w="85" style="--c1:#93c5fd;--c2:#a78bfa"></div></div>
+        </div>
+        <div class="sbar-item reveal-up" style="--d:2">
+          <div class="sbar-meta"><span>Research Skills</span><span class="sbar-pct">85%</span></div>
+          <div class="sbar-track"><div class="sbar-fill" data-w="85" style="--c1:#6ee7b7;--c2:#34d399"></div></div>
+        </div>
+        <div class="sbar-item reveal-up" style="--d:3">
+          <div class="sbar-meta"><span>Canva Design</span><span class="sbar-pct">80%</span></div>
+          <div class="sbar-track"><div class="sbar-fill" data-w="80" style="--c1:#fde68a;--c2:#fb923c"></div></div>
+        </div>
+        <div class="sbar-item reveal-up" style="--d:4">
+          <div class="sbar-meta"><span>Content Creation</span><span class="sbar-pct">80%</span></div>
+          <div class="sbar-track"><div class="sbar-fill" data-w="80" style="--c1:#f9a8d4;--c2:#f472b6"></div></div>
+        </div>
+        <div class="sbar-item reveal-up" style="--d:5">
+          <div class="sbar-meta"><span>Project Management</span><span class="sbar-pct">75%</span></div>
+          <div class="sbar-track"><div class="sbar-fill" data-w="75" style="--c1:#bfdbfe;--c2:#60a5fa"></div></div>
+        </div>
+      </div>
+      <div class="skills-bubbles reveal-up">
+        <div class="bubble b-lg" style="--bx:20%;--by:15%">Digital Literacy</div>
+        <div class="bubble b-md" style="--bx:65%;--by:10%">AI Prompting</div>
+        <div class="bubble b-md" style="--bx:5%;--by:55%">Research</div>
+        <div class="bubble b-sm" style="--bx:60%;--by:50%">Canva</div>
+        <div class="bubble b-sm" style="--bx:35%;--by:70%">Content</div>
+        <div class="bubble b-sm" style="--bx:75%;--by:75%">Trello</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     TOOLS
+════════════════════════════════════ -->
+<section id="tools" class="section tools-section">
+  <div class="section-bg-gradient bg-rose"></div>
+  <div class="container">
+    <div class="section-eyebrow reveal-up">Chương 04 — Hộp công cụ</div>
+    <h2 class="section-heading reveal-up">Công cụ đã sử dụng</h2>
+    <div class="tools-marquee-wrap">
+      <div class="tools-marquee">
+        <div class="tm-track">
+          <span class="tm-item">ChatGPT</span>
+          <span class="tm-sep">·</span>
+          <span class="tm-item">Gemini</span>
+          <span class="tm-sep">·</span>
+          <span class="tm-item">Canva</span>
+          <span class="tm-sep">·</span>
+          <span class="tm-item">Trello</span>
+          <span class="tm-sep">·</span>
+          <span class="tm-item">Google Scholar</span>
+          <span class="tm-sep">·</span>
+          <span class="tm-item">Google Workspace</span>
+          <span class="tm-sep">·</span>
+          <span class="tm-item">CapCut</span>
+          <span class="tm-sep">·</span>
+          <span class="tm-item">Notion</span>
+          <span class="tm-sep">·</span>
+          <!-- duplicate for infinite scroll -->
+          <span class="tm-item">ChatGPT</span>
+          <span class="tm-sep">·</span>
+          <span class="tm-item">Gemini</span>
+          <span class="tm-sep">·</span>
+          <span class="tm-item">Canva</span>
+          <span class="tm-sep">·</span>
+          <span class="tm-item">Trello</span>
+          <span class="tm-sep">·</span>
+          <span class="tm-item">Google Scholar</span>
+          <span class="tm-sep">·</span>
+          <span class="tm-item">Google Workspace</span>
+          <span class="tm-sep">·</span>
+          <span class="tm-item">CapCut</span>
+          <span class="tm-sep">·</span>
+          <span class="tm-item">Notion</span>
+          <span class="tm-sep">·</span>
+        </div>
+      </div>
+    </div>
+    <div class="tools-grid">
+      <div class="tool-card reveal-up" style="--d:0"><div class="tc-name">ChatGPT</div><div class="tc-desc">Trợ lý AI chính cho việc viết, phân tích và brainstorming nội dung học tập.</div></div>
+      <div class="tool-card reveal-up" style="--d:1"><div class="tc-name">Gemini</div><div class="tc-desc">So sánh output, kiểm chứng thông tin và nghiên cứu chuyên sâu với dữ liệu thời gian thực.</div></div>
+      <div class="tool-card reveal-up" style="--d:2"><div class="tc-name">Canva</div><div class="tc-desc">Thiết kế infographic, slide và nội dung trực quan cho các bài thuyết trình.</div></div>
+      <div class="tool-card reveal-up" style="--d:3"><div class="tc-name">Trello</div><div class="tc-desc">Quản lý task nhóm theo phương pháp Kanban, theo dõi tiến độ dự án.</div></div>
+      <div class="tool-card reveal-up" style="--d:4"><div class="tc-name">Google Scholar</div><div class="tc-desc">Tìm kiếm và đánh giá tài liệu học thuật, xây dựng danh sách tài liệu tham khảo.</div></div>
+      <div class="tool-card reveal-up" style="--d:5"><div class="tc-name">Notion</div><div class="tc-desc">Ghi chú có cấu trúc, xây dựng knowledge base và quản lý tài liệu học tập.</div></div>
+      <div class="tool-card reveal-up" style="--d:6"><div class="tc-name">CapCut</div><div class="tc-desc">Sản xuất và chỉnh sửa video ngắn, thêm caption tự động bằng AI.</div></div>
+      <div class="tool-card reveal-up" style="--d:7"><div class="tc-name">Google Workspace</div><div class="tc-desc">Cộng tác real-time trên Docs, Sheets, Slides với nhóm học tập.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     TIMELINE
+════════════════════════════════════ -->
+<section id="timeline" class="section timeline-section">
+  <div class="section-bg-gradient bg-sky"></div>
+  <div class="container">
+    <div class="section-eyebrow reveal-up">Chương 05 — Hành trình</div>
+    <h2 class="section-heading reveal-up">Lộ trình 6 tháng</h2>
+    <div class="timeline">
+      <div class="tl-line"></div>
+      <div class="tl-row reveal-up" style="--d:0">
+        <div class="tl-left">
+          <div class="tl-month">Tháng 1</div>
           <div class="tl-dot"></div>
-          <div class="tl-content">
-            <div class="tl-month">Tháng 1</div>
-            <div class="tl-topic">📁 Quản lý dữ liệu</div>
-            <p>Xây dựng hệ thống tổ chức file và thư mục cá nhân khoa học.</p>
-          </div>
         </div>
-        <div class="tl-item reveal">
+        <div class="tl-card">
+          <div class="tlc-title">Quản lý dữ liệu cá nhân</div>
+          <p>Bắt đầu hành trình bằng việc "dọn nhà số" — thiết lập hệ thống file và backup từ con số không.</p>
+        </div>
+      </div>
+      <div class="tl-row reveal-up" style="--d:1">
+        <div class="tl-left">
+          <div class="tl-month">Tháng 2</div>
           <div class="tl-dot"></div>
-          <div class="tl-content">
-            <div class="tl-month">Tháng 2</div>
-            <div class="tl-topic">🔍 Tìm kiếm học thuật</div>
-            <p>Học cách tìm kiếm và đánh giá nguồn thông tin đáng tin cậy.</p>
-          </div>
         </div>
-        <div class="tl-item reveal">
+        <div class="tl-card">
+          <div class="tlc-title">Tìm kiếm học thuật</div>
+          <p>Học cách "đọc" internet như một nhà nghiên cứu, phân biệt nguồn đáng tin và nguồn cần nghi ngờ.</p>
+        </div>
+      </div>
+      <div class="tl-row reveal-up" style="--d:2">
+        <div class="tl-left">
+          <div class="tl-month">Tháng 3</div>
           <div class="tl-dot"></div>
-          <div class="tl-content">
-            <div class="tl-month">Tháng 3</div>
-            <div class="tl-topic">🤖 Prompt Engineering</div>
-            <p>Thực hành viết Prompt hiệu quả theo mô hình CLEAR.</p>
-          </div>
         </div>
-        <div class="tl-item reveal">
+        <div class="tl-card">
+          <div class="tlc-title">Prompt Engineering</div>
+          <p>Khám phá ngôn ngữ giao tiếp với AI — nhận ra rằng câu hỏi hay quan trọng hơn câu trả lời hay.</p>
+        </div>
+      </div>
+      <div class="tl-row reveal-up" style="--d:3">
+        <div class="tl-left">
+          <div class="tl-month">Tháng 4</div>
           <div class="tl-dot"></div>
-          <div class="tl-content">
-            <div class="tl-month">Tháng 4</div>
-            <div class="tl-topic">🤝 Hợp tác trực tuyến</div>
-            <p>Làm việc nhóm hiệu quả qua Trello và Google Workspace.</p>
-          </div>
         </div>
-        <div class="tl-item reveal">
+        <div class="tl-card">
+          <div class="tlc-title">Hợp tác trực tuyến</div>
+          <p>Trải nghiệm làm việc nhóm không đồng bộ, học cách giao tiếp rõ ràng trong không gian số.</p>
+        </div>
+      </div>
+      <div class="tl-row reveal-up" style="--d:4">
+        <div class="tl-left">
+          <div class="tl-month">Tháng 5</div>
           <div class="tl-dot"></div>
-          <div class="tl-content">
-            <div class="tl-month">Tháng 5</div>
-            <div class="tl-topic">🎨 Sáng tạo nội dung số</div>
-            <p>Tạo infographic, video truyền thông bằng Canva và CapCut.</p>
-          </div>
         </div>
-        <div class="tl-item reveal">
+        <div class="tl-card">
+          <div class="tlc-title">Sáng tạo nội dung số</div>
+          <p>Biến ý tưởng thành visual — lần đầu tiên cảm nhận được sức mạnh của storytelling qua hình ảnh và video.</p>
+        </div>
+      </div>
+      <div class="tl-row reveal-up" style="--d:5">
+        <div class="tl-left">
+          <div class="tl-month">Tháng 6</div>
           <div class="tl-dot active"></div>
-          <div class="tl-content">
-            <div class="tl-month">Tháng 6</div>
-            <div class="tl-topic">⚖️ AI có trách nhiệm</div>
-            <p>Nghiên cứu đạo đức AI và liêm chính học thuật trong kỷ nguyên số.</p>
-          </div>
+        </div>
+        <div class="tl-card active">
+          <div class="tlc-title">AI có trách nhiệm</div>
+          <p>Chương cuối — và cũng là câu hỏi lớn nhất: ta nên dùng AI như thế nào để thực sự phát triển, không phải phụ thuộc?</p>
         </div>
       </div>
-    </div>
-  </section>
- 
-  <!-- SUMMARY -->
-  <section id="summary" class="section summary">
-    <div class="container">
-      <div class="section-label reveal">✦ Tổng kết</div>
-      <div class="summary-inner reveal">
-        <div class="summary-quote">"</div>
-        <p class="summary-text">Sau khi hoàn thành học phần Nhập môn Công nghệ số, mình không chỉ nâng cao kỹ năng sử dụng công nghệ mà còn phát triển tư duy phản biện, khả năng quản lý thông tin và sử dụng AI có trách nhiệm.</p>
-        <p class="summary-text">Những kiến thức và kỹ năng này sẽ là nền tảng quan trọng cho quá trình học tập và làm việc trong tương lai.</p>
-        <div class="summary-sig">—Nguyễn Lan Anh, 2026</div>
-      </div>
-    </div>
-  </section>
- 
-  <!-- CONTACT / FOOTER -->
-  <footer id="contact">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-logo">HT<span>.</span></div>
-        <p class="footer-tagline">Digital Skills Portfolio — Nhập môn Công nghệ số</p>
-        <div class="footer-links">
-          <a href="mailto:yourmail@gmail.com" class="footer-link">
-            <span>📧</span> yourmail@gmail.com
-          </a>
-          <a href="https://linkedin.com" target="_blank" class="footer-link">
-            <span>💼</span> LinkedIn
-          </a>
-          <a href="https://github.com" target="_blank" class="footer-link">
-            <span>🐱</span> GitHub
-          </a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 Nguyễn Lan Anh Portfolio. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
- 
-  <!-- BACK TO TOP -->
-  <button id="backTop" aria-label="Back to top">↑</button>
- 
-  <!-- PROJECT MODAL -->
-  <div id="modal" class="modal-overlay">
-    <div class="modal-box">
-      <button class="modal-close" id="modalClose">✕</button>
-      <div id="modalContent"></div>
     </div>
   </div>
- 
-  <script src="script.js"></script>
+</section>
+
+<!-- ═══════════════════════════════════
+     REFLECTION
+════════════════════════════════════ -->
+<section id="reflection" class="section reflection-section">
+  <div class="container">
+    <div class="section-eyebrow reveal-up" style="color:rgba(255,255,255,0.5)">Chương 06 — Cảm nhận</div>
+    <div class="reflection-inner">
+      <div class="refl-quote reveal-up">&ldquo;</div>
+      <blockquote class="refl-text reveal-up">
+        Học phần này không dạy mình cách dùng công cụ — nó dạy mình cách <em>tư duy</em> trong một thế giới mà ranh giới giữa người và máy đang ngày càng mờ đi. Mình ra khỏi học kỳ này không chỉ giỏi hơn về kỹ thuật, mà <em>tỉnh táo hơn</em> về công nghệ.
+      </blockquote>
+      <p class="refl-sub reveal-up">Những kỹ năng số, khả năng tìm kiếm học thuật, tư duy phản biện về AI — tất cả sẽ là nền móng cho hành trình FinTech &amp; Digital Business phía trước.</p>
+      <div class="refl-sig reveal-up">— Nguyễn Lan Anh · fuyu · 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     CONTACT / FOOTER
+════════════════════════════════════ -->
+<footer id="contact">
+  <div class="footer-mesh"></div>
+  <div class="container">
+    <div class="footer-body">
+      <div class="footer-brand">
+        <div class="fb-logo">fuyu<span>.</span></div>
+        <p class="fb-tagline">Nguyễn Lan Anh · FinTech &amp; Digital Business · VNU-IS</p>
+        <p class="fb-course">Nhập môn Công nghệ số &amp; Ứng dụng AI · VNU1001_E252074_IS.D2</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:yourmail@gmail.com" class="fl-item">yourmail@gmail.com</a>
+        <a href="https://linkedin.com" target="_blank" class="fl-item">LinkedIn</a>
+        <a href="https://github.com" target="_blank" class="fl-item">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Nguyễn Lan Anh Portfolio · All rights reserved</p>
+    </div>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button id="backTop" aria-label="back to top">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 12V4M8 4L4 8M8 4L12 8" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+</button>
+
+<!-- MODAL -->
+<div id="modal" class="modal-wrap">
+  <div class="modal-box">
+    <button id="modalClose" class="mclose">&#x2715;</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
