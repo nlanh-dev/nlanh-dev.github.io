@@ -1023,3 +1023,191 @@ footer {
 .tool-card .tc-name{
     transition:.3s;
 }
+.future-card{
+
+    max-width:900px;
+
+    margin:0 auto;
+
+    padding:40px;
+
+    border-radius:32px;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.12);
+}
+
+.future-quote{
+
+    font-size:1.1rem;
+
+    line-height:1.8;
+
+    font-style:italic;
+
+    color:var(--rose);
+
+    margin-bottom:32px;
+
+    padding-left:20px;
+
+    border-left:3px solid var(--rose);
+}
+
+.future-content h3{
+
+    margin-top:28px;
+
+    margin-bottom:12px;
+
+    color:var(--text);
+}
+
+.future-content p{
+
+    color:var(--text-2);
+
+    line-height:1.9;
+}
+
+.future-content ul{
+
+    margin-left:20px;
+
+    color:var(--text-2);
+
+    line-height:1.9;
+}
+/* ===================================
+   SUMMARY SECTION
+=================================== */
+
+.summary-section{
+    position:relative;
+    padding:120px 0;
+}
+
+.summary-card{
+    max-width:950px;
+    margin:0 auto;
+
+    padding:48px;
+
+    border-radius:32px;
+
+    background:var(--card-bg);
+
+    border:1px solid var(--card-border);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.08);
+
+    transition:.4s ease;
+}
+
+.summary-card:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 30px 80px rgba(0,0,0,.12);
+}
+
+.summary-quote{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:1.35rem;
+
+    line-height:1.8;
+
+    font-style:italic;
+
+    color:var(--accent);
+
+    border-left:4px solid var(--accent);
+
+    padding-left:24px;
+
+    margin-bottom:40px;
+}
+
+.summary-content h3{
+    font-size:1.15rem;
+
+    margin-top:32px;
+    margin-bottom:12px;
+
+    color:var(--text-main);
+}
+
+.summary-content p{
+    line-height:1.95;
+
+    color:var(--text-soft);
+
+    margin-bottom:16px;
+}
+
+.summary-content ul{
+    list-style:none;
+
+    padding:0;
+
+    margin:20px 0;
+}
+
+.summary-content li{
+    position:relative;
+
+    padding-left:22px;
+
+    margin-bottom:14px;
+
+    line-height:1.8;
+
+    color:var(--text-soft);
+}
+
+.summary-content li::before{
+    content:"✦";
+
+    position:absolute;
+
+    left:0;
+
+    color:var(--accent);
+}
+
+/* DARK MODE */
+
+[data-theme="dark"] .summary-card{
+
+    background:rgba(20,25,45,.72);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+    0 25px 80px rgba(0,0,0,.45);
+}
+
+[data-theme="dark"] .summary-content h3{
+    color:#f6e7ff;
+}
+
+[data-theme="dark"] .summary-content p,
+[data-theme="dark"] .summary-content li{
+    color:rgba(255,255,255,.78);
+}
+
+[data-theme="dark"] .summary-quote{
+    color:#f5c7ff;
+
+    border-left-color:#d8a7ff;
+}
